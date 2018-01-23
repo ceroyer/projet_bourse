@@ -15,4 +15,4 @@ define('TABLE_PREFIX', 'dtwl_');
 define('DEBUG', true);
 define('DEBUG_TARGET', 'screen');
 
-define('ROOT_URL', '/dev.gallery.fr');
+define('ROOT_URL', '/dev.bourse.fr');

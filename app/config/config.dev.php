@@ -15,5 +15,5 @@ define('TABLE_PREFIX', 'dtwl_');
 define('DEBUG', true);
 define('DEBUG_TARGET', 'screen');
 
-define('ROOT_URL', '/dev.bourse.fr');
-define('ROOT', '/dev.bourse.fr');
+define('ROOT_URL', '/projet_bourse');
+define('ROOT', '/projet_bourse');

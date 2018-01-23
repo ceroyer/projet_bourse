@@ -1,8 +1,7 @@
-@extends( 'layout' )
-@section('title')
+<?php $__env->startSection('title'); ?>
 Accueil
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <h1> What a Tuile ! </h1>
 <h2>Toute ressemblance avec des personnes existantes ou ayant existées serait purement fortuite</h2>
 
@@ -14,7 +13,7 @@ Accueil
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="p-4">
 
-        <a href="{{url('/bo')}}" class="btn btn-primary">Back-Office</a>
+        <a href="<?php echo e(url('/bo')); ?>" class="btn btn-primary">Back-Office</a>
       </div>
     </div>
     <nav class="navbar fixed-left navbar-dark">
@@ -68,4 +67,6 @@ Accueil
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
