@@ -3,9 +3,9 @@
 namespace Controllers;
 
 
-class ActionController extends Controller{
+class UserController extends Controller{
 
-  function displayActions(){
+  function checkLogin(){
     global $blade;
     echo $blade->render(
       'index',
@@ -13,6 +13,10 @@ class ActionController extends Controller{
 
       ]
     );
+  }
+
+  function userAddSave(){
+
   }
 
 }
