@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class User extends Base{
+class Favoris extends Base{
 
 }
 ?>
