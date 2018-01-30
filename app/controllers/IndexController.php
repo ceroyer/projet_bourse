@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-use Models\Users.php;
+use Models\Users;
 
 
 class IndexController extends Controller{
