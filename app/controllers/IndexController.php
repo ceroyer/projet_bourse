@@ -1,10 +1,59 @@
 <?php
 
 namespace Controllers;
+use Models\Users;
 
 
 class IndexController extends Controller{
 
+function editProfile(){
+  global $blade;
+
+  $id = $_GET['id'];
+  $user = Users::getInstance()->get($id);
+  echo $blade->render('profile' , ['user' => $user]);
+}
+
+function saveProfile(){
+  global $blade;
+
+  $id = $_POST['id'];
+  $user = Users::getInstance()->get($id);
+
+  //dump($_POST);
+  //dump($user);
+
+
+  //die;
+
+  if(sha1($_POST['password_old']) == $user['password'] && sha1($_POST['password_new']) != $user['password'] && $_POST['password_new'] == $_POST['password_verif']){
+    $datas = ['email' => $_POST['email'] , 'password' => sha1($_POST['password_new'])];
+    Users::getInstance()->edit($id , $datas);
+    redirect('/stats');
+  }else{
+    redirect('/');
+  }
+}
+
+/*function backofficeIndex(){
+    global $blade;
+
+    $listUsers = Users::getInstance()->getAll();
+
+     echo $blade->render(
+        'bo',
+        ['users'=>$listUsers]
+      );
+
+
+function backofficeDelete(){
+
+}
+
+
+function backofficeUpgrade(){
+
+}*/
 
 }
 
