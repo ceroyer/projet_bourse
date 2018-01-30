@@ -11,7 +11,7 @@ function editProfile(){
 
   $id = $_GET['id'];
   $user = Users::getInstance()->get($id);
-  echo $blade->render('profile'['user' => $user]);
+  echo $blade->render('profile' , ['user' => $user]);
 }
 
 function saveProfile(){
