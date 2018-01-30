@@ -19,6 +19,13 @@ function saveProfile(){
 
   $id = $_POST['id'];
   $user = Users::getInstance()->get($id);
+
+  dump($_POST);
+  dump($user);
+
+
+  die;
+
   if($_POST['password_old'] == $user['password'] && $_POST['password_new'] != $user['password'] && $user['password_new'] == $user['password_verif']){
     $datas = ['email' => $_POST['email'] , 'password' => $_POST['password']];
     User::getInstance()->edit($id , $datas);
