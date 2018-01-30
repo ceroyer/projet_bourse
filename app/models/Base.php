@@ -103,7 +103,21 @@ class Base {
 
 
   }
-
+/**
+   * Retourne les informations d'un modèle. L'objet est hydraté.
+   * @param  Model  $model objet modèle
+   * @return void
+  
+  public function read($id) 
+  {
+    $pkName = $id->getPkName();
+    $sql = "SELECT * FROM {$this->tableName} WHERE ".$pkName." = :pk";
+    $sth = $this->pdo->prepare( $sql );
+    $sth->bindValue(':pk', $id->$pkName);
+    $sth->execute();
+    $model->hydrate($sth->fetch( \PDO::FETCH_ASSOC));
+  }
+ */
   /**
    * Efface l'identifiant.
    * @param  integer  $id identifiant

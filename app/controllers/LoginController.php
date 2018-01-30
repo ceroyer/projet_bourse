@@ -4,20 +4,21 @@ namespace Controllers;
 use Models\Tile;
 use Models\Admin;
 use Controllers\Controller;
+use Models\UsersDAO;
 
 class LoginController extends Controller{
 
   // Accès page de connexion
   public function index(){
     
-      }
+      
   }
 
   //
-  public function login(){
+  public function loginPage(){
         if (isset($_SESSION['login']))  //Lorsque l'utilisateur est deja connecté
           {
-            redirect('/     '); // Accès à l'espace connecté
+            redirect('/stats'); // Accès à l'espace connecté
           }
 
         else { // Si pas connecté affichage de l'espace connexion
@@ -26,10 +27,10 @@ class LoginController extends Controller{
           echo $blade->render(
           'login', // appel de la view
           [
-            'logins' => $logins
+            
           ]);
   }
-
+/*
   public function loginPage(){
     global $blade;
     if(isset($_SESSION['login'])){
@@ -51,7 +52,7 @@ class LoginController extends Controller{
         ]
       );
     }
-  }
+  }*/
 }
 
 }
