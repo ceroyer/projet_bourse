@@ -1,0 +1,65 @@
+<?php
+namespace Controllers;
+use Models\AdminDAO;
+use Models\UserDAO;
+use Models\Admin;
+
+class UserController extends Controller {
+
+  function __construct()
+  {
+
+  }
+
+  function login(){
+    global $blade;
+    if(!isset($_SESSION['login_user'])){
+      echo $blade->render(
+        'login',
+        [
+          'dir' => '/',
+          'error' => false
+        ]
+      );
+
+    }else{
+      redirect('/bo');
+    }
+  }
+
+  function logout(){
+    $_SESSION['login_user'] = false;
+    redirect('/'); //retour à la page d'acceuil
+  }
+
+  function loginVerif(){
+    global $blade;
+    $login = $_POST['login'];
+    $pass = md5( $_POST['pass'] );
+
+    $admins = AdminDAO::getInstance()->getList();
+    //dump($admins);die();
+      $cbon = false;
+
+    foreach ($admins as $admin) {
+        if (($login == $admin->pseudo) && ($pass == $admin->password)){
+            $cbon = true;
+        }
+    }
+
+    if ($cbon){
+      redirect($_POST['dir']);
+      $_SESSION['login_user'] = true;
+    }
+    else { //aller à la page de login avec erreur
+      echo $blade->render(
+      'login',
+      [
+        'dir' => $_POST['dir'],
+        'error' => true
+      ]
+      );
+    }
+  }
+
+}
