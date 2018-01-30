@@ -38,5 +38,15 @@ function backofficeIndex(){
         ['users'=>$listUsers]
       );
 
+
+function backofficeDelete(){
+
+}
+
+
+function backofficeUpgrade(){
+
+}
+
 }
 
