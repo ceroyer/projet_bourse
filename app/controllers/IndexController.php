@@ -20,22 +20,22 @@ function saveProfile(){
   $id = $_POST['id'];
   $user = Users::getInstance()->get($id);
 
-  dump($_POST);
-  dump($user);
+  //dump($_POST);
+  //dump($user);
 
 
-  die;
+  //die;
 
-  if($_POST['password_old'] == $user['password'] && $_POST['password_new'] != $user['password'] && $user['password_new'] == $user['password_verif']){
-    $datas = ['email' => $_POST['email'] , 'password' => $_POST['password']];
-    User::getInstance()->edit($id , $datas);
+  if(sha1($_POST['password_old']) == $user['password'] && sha1($_POST['password_new']) != $user['password'] && $_POST['password_new'] == $_POST['password_verif']){
+    $datas = ['email' => $_POST['email'] , 'password' => sha1($_POST['password_new'])];
+    Users::getInstance()->edit($id , $datas);
     redirect('/stats');
   }else{
     redirect('/');
   }
 }
 
-function backofficeIndex(){
+/*function backofficeIndex(){
     global $blade;
 
     $listUsers = Users::getInstance()->getAll();
@@ -53,7 +53,7 @@ function backofficeDelete(){
 
 function backofficeUpgrade(){
 
-}
+}*/
 
 }
 
