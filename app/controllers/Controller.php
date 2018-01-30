@@ -1,5 +1,5 @@
 <?php
-namespace Controllers;
+namespace controllers;
 
 class Controller {
 
