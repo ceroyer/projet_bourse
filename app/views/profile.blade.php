@@ -20,6 +20,7 @@ Votre compte
 	<input type="password" name="password_new">
 	<label>Confirmer le mot de passe</label>
 	<input type="password" name="password_verif">
+	<input type="hidden" name="id" value="{{$user['id']}}" />
 	<button type="submit">Enregistrer</button>
 </form>
 
