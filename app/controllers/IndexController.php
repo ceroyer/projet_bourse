@@ -34,5 +34,26 @@ function saveProfile(){
     redirect('/');
   }
 }
+
+function backofficeIndex(){
+    global $blade;
+
+    $listUsers = Users::getInstance()->getAll();
+
+     echo $blade->render(
+        'bo',
+        ['users'=>$listUsers]
+      );
+
+
+function backofficeDelete(){
+
+}
+
+
+function backofficeUpgrade(){
+
+}
+
 }
 
