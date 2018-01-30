@@ -6,7 +6,7 @@ use Models\Users;
 
 class IndexController extends Controller{
 
-function editProfile{
+function editProfile(){
   global $blade;
 
   $id = $_GET['id'];
@@ -14,7 +14,7 @@ function editProfile{
   echo $blade -> render('profile'['user' => $user]);
 }
 
-function saveProfile{
+function saveProfile(){
   global $blade;
 
   $id = $_POST['id'];
