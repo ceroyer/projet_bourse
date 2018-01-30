@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Actions extends Base{
+class Action extends Base{
 
 }
 ?>
