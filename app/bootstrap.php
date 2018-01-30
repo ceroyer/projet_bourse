@@ -1,5 +1,4 @@
 <?php
-// retenir la session de l'user
 session_start();
 // charger les fichiers de configuration globale + les librairies
 include 'vendor/autoload.php';
