@@ -8,3 +8,4 @@
  */
 echo "coucou";
 include 'app/bootstrap.php';
+?>
