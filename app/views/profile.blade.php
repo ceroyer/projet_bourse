@@ -20,7 +20,7 @@ Votre compte
 	<input type="password" name="password">
 	<label>Confirmer le mot de passe</label>
 	<input type="password" name="password">
-	<input type="submit">
+	<button type="submit">Enregistrer</button>
 </form>
 
 
