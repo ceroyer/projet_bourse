@@ -1,6 +1,6 @@
 <?php
 
-namespace controllers;
+namespace Controllers;
 use Models\Tile;
 use Models\Admin;
 
@@ -22,8 +22,9 @@ class LoginController extends Controller{
         'logins' => $logins
       ]);
       }
+  }
 
-  // 
+  //
   public function login(){
 
   }
