@@ -1,6 +1,6 @@
 <?php
 
-namespace controllers;
+namespace Controllers;
 use Models\Tile;
 use Models\Admin;
 use Controllers\Controller;
@@ -11,8 +11,9 @@ class LoginController extends Controller{
   public function index(){
     
       }
+  }
 
-  // 
+  //
   public function login(){
         if (isset($_SESSION['login']))  //Lorsque l'utilisateur est deja connecté
           {
@@ -29,6 +30,28 @@ class LoginController extends Controller{
           ]);
   }
 
+  public function loginPage(){
+    global $blade;
+    if(isset($_SESSION['login'])){
+    // s'il est bien login, index sinon redirigé pour se login
+
+      $tilesList = Tile::getInstance()->getAll();
+      echo $blade->render(
+        'VUEAPPLI',
+        [
+
+        ]
+      );
+
+    }else{
+      echo $blade->render(
+        'VUEPRINCIPALE',
+        [
+
+        ]
+      );
+    }
+  }
 }
 
 }
