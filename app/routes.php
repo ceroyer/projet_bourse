@@ -2,6 +2,7 @@
 $route->addRoute( 'GET'  , '/' ,         'LoginController@loginPage' );
 $route->addRoute( 'GET'  , '/bo' ,       'IndexController@backofficeIndex' );
 $route->addRoute( 'GET'  , '/profile' ,  'IndexController@editProfile' );
+$route->addRoute( 'POST' , '/profile' ,  'IndexController@saveProfile' );
 $route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
 
 // Route appelée quand on valide l'un des deux formulaires
