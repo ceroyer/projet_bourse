@@ -13,7 +13,9 @@ Accueil
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="p-4">
-
+        @foreach($tiles as $tile)
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']}}"><li>{{$tile['title']}}</li></a>
+        @endforeach
         <a href="{{url('/bo')}}" class="btn btn-primary">Back-Office</a>
       </div>
     </div>
@@ -30,7 +32,12 @@ Accueil
 <div class="grille">
     <div class="container">
       <div class="row">
+        @foreach($tiles as $tile)
+        <div class="tuile col-4">
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']}}"><img src="assets/img/{{$tile['image']}}" class="img-fluid img-responsive"></a>
 
+        </div>
+        @endforeach
       </div>
     </div>
 </div>
@@ -51,6 +58,24 @@ Accueil
           <div class="carousel-inner">
 
 
+            @foreach($tiles as $tile)
+              @if($tile['id']==1)
+            <div class="carousel-item {{$tile['layout']}} active">
+              @else
+            <div class="carousel-item {{$tile['layout']}}">
+              @endif
+              <img src="assets/img/{{$tile['image']}}" alt="item{{$tile['id']-1}}">
+              <p>
+              @if($tile['layout'] !== 'full'){{$tile['description']}}@endif
+              </p>
+              <div class="carousel-caption">
+              @if($tile['layout'] === 'full'){{$tile['description']}}@endif
+            </div>
+
+
+              <div class="carousel-caption"></div>
+            </div>
+            @endforeach
 
 
 

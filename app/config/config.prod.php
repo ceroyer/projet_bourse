@@ -15,8 +15,4 @@ define('TABLE_PREFIX', '');
 define('DEBUG', true);
 define('DEBUG_TARGET', 'screen');
 
-<<<<<<< HEAD
-define('ROOT_URL', '/dev.bourse.fr');
-=======
 define('ROOT_URL', '/projet_bourse');
->>>>>>> master

@@ -2,9 +2,9 @@
 // Nom de la base de données
 define ('DB_NAME', 'bo_bourse');
 // Utilisateur de la base de données SQL
-define ('DB_USER', 'root');
+define ('DB_USER', 'user_bdd');
 // Mot de passe de la basse de données SQL
-define ('DB_PASSWORD', '');
+define ('DB_PASSWORD', 'mdp_bdd');
 // Adresse de l'hébergement MySQL
 define ('DB_HOST', SERVER_DEV);
 // Jeu de caractères

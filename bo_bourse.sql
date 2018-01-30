@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 23 Janvier 2018 à 16:53
+-- Généré le :  Mar 23 Janvier 2018 à 17:57
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -55,15 +55,33 @@ INSERT INTO `actions` (`id`, `nom`, `ISIN`, `cours`, `variation`, `ouverture`, `
 
 CREATE TABLE `favoris` (
   `id_user` int(5) NOT NULL,
-  `id_favoris` int(5) NOT NULL
+  `id_actions` int(5) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `favoris`
 --
 
-INSERT INTO `favoris` (`id_user`, `id_favoris`) VALUES
-(3, 1);
+INSERT INTO `favoris` (`id_user`, `id_actions`, `id`) VALUES
+(3, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `porte_feuille`
+--
+
+CREATE TABLE `porte_feuille` (
+  `id` int(11) NOT NULL,
+  `id_action` int(10) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `prix_achat` decimal(15,0) NOT NULL,
+  `quantité` int(5) NOT NULL,
+  `prix_total` decimal(17,0) NOT NULL,
+  `prix_actuel` decimal(17,0) NOT NULL,
+  `gain` decimal(15,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -118,8 +136,17 @@ ALTER TABLE `actions`
 -- Index pour la table `favoris`
 --
 ALTER TABLE `favoris`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id_user`),
-  ADD KEY `id_favoris` (`id_favoris`);
+  ADD KEY `id_favoris` (`id_actions`);
+
+--
+-- Index pour la table `porte_feuille`
+--
+ALTER TABLE `porte_feuille`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_action` (`id_action`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Index pour la table `users`
@@ -137,6 +164,16 @@ ALTER TABLE `users`
 ALTER TABLE `actions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT pour la table `favoris`
+--
+ALTER TABLE `favoris`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `porte_feuille`
+--
+ALTER TABLE `porte_feuille`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
@@ -149,7 +186,7 @@ ALTER TABLE `users`
 -- Contraintes pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`id_favoris`) REFERENCES `actions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`id_actions`) REFERENCES `actions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `favoris_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

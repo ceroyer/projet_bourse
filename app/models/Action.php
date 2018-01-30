@@ -2,14 +2,7 @@
 
 namespace Models;
 
-class Action extends Base{
-
-protected $tableName;
-private $instance;
-
-  public function getInstance(){
-
-  }
+class Actions extends Base{
 
 }
 ?>
