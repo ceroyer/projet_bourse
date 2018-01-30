@@ -29,5 +29,27 @@ class LoginController extends Controller{
 
   }
 
+  public function loginPage(){
+    global $blade;
+    if(isset($_SESSION['login'])){
+    // s'il est bien login, index sinon redirigé pour se login
+
+      $tilesList = Tile::getInstance()->getAll();
+      echo $blade->render(
+        'VUEAPPLI',
+        [
+
+        ]
+      );
+
+    }else{
+      echo $blade->render(
+        'VUEPRINCIPALE',
+        [
+
+        ]
+      );
+    }
+  }
 }
 
