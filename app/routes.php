@@ -1,18 +1,10 @@
 <?php
-//$route->addRoute( 'METHOD'  , 'LIEN' , 'CHEMIN ACCES' );
-$route->addRoute( 'GET'  , '/' ,         'IndexController@index' );
-$route->addRoute( 'GET'  , '/bo' ,       'BoController@index' );
-$route->addRoute( 'GET'  , '/profile' ,  'IndexController@profile' );
-$route->addRoute( 'GET'  , '/stats' ,    'IndexController@stats' );
+$route->addRoute( 'GET'  , '/' ,         'LoginController@loginPage' );
+$route->addRoute( 'GET'  , '/bo' ,       'IndexController@backofficeIndex' );
+$route->addRoute( 'GET'  , '/profile' ,  'IndexController@editProfile' );
+$route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
 
-
-
-
-
-// Route pour connexion
-$route->addRoute( 'GET'  , '/login' , 'LoginController@index' );
+// Route appelée quand on valide l'un des deux formulaires
 $route->addRoute( 'POST' , '/login' , 'LoginController@login' );
-
-
+$route->addRoute( 'POST' , '/signup' , 'LoginController@signup' );
 ?>
-

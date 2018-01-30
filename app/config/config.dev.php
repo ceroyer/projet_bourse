@@ -1,6 +1,6 @@
 <?php
 // Nom de la base de données
-define ('DB_NAME', 'bo_bourse');
+define ('DB_NAME', 'bd_bourse');
 // Utilisateur de la base de données SQL
 define ('DB_USER', 'user_bdd');
 // Mot de passe de la basse de données SQL
