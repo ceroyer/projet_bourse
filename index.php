@@ -6,4 +6,6 @@
  ---------------------------------------------------------------
 	le routeur FRONTAL
  */
+echo "coucou";
 include 'app/bootstrap.php';
+?>
