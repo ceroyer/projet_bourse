@@ -15,11 +15,11 @@ Votre compte
 
 	<h3>Changer votre mot de passe</h3>
 	<label>Tapez votre ancien mot de passe</label>
-	<input type="password" name="password">
+	<input type="password" name="password_old">
 	<label>Votre nouveau mot de passe</label>
-	<input type="password" name="password">
+	<input type="password" name="password_new">
 	<label>Confirmer le mot de passe</label>
-	<input type="password" name="password">
+	<input type="password" name="password_verif">
 	<button type="submit">Enregistrer</button>
 </form>
 
