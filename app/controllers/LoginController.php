@@ -4,32 +4,36 @@ namespace Controllers;
 use Models\Tile;
 use Models\Admin;
 use Controllers\Controller;
-use Models\UsersDAO;
+use Models\Users;
 
 class LoginController extends Controller{
 
-  // Accès page de connexion
-  public function index(){
-    
-      
-  }
 
-  //
   public function loginPage(){
-        if (isset($_SESSION['login']))  //Lorsque l'utilisateur est deja connecté
-          {
-            redirect('/stats'); // Accès à l'espace connecté
-          }
+    if (isset($_SESSION['login']))  //Lorsque l'utilisateur est deja connecté
+      {
+        redirect('/stats'); // Accès à l'espace connecté
+      }
 
-        else { // Si pas connecté affichage de l'espace connexion
-          global $blade;
-          $logins = UsersDAO::getInstance()->getList();
-          echo $blade->render(
-          'login', // appel de la view
-          [
-            
-          ]);
+    else { // Si pas connecté affichage de l'espace connexion
+      global $blade;
+      $logins = Users::getInstance()->getAll();
+      echo $blade->render(
+      'login' // appel de la view
+      );
+    }
   }
+  public function login(){
+
+
+  }
+
+
+  public function signup(){
+
+
+  }
+
 /*
   public function loginPage(){
     global $blade;
