@@ -10,10 +10,10 @@ class LoginController extends Controller{
 
 
   public function loginPage(){
-    if (isset($_SESSION['login']))  //Lorsque l'utilisateur est deja connecté
-      {
-        redirect('/stats'); // Accès à l'espace connecté
-      }
+    if (isset($_SESSION['login'])){  //Lorsque l'utilisateur est deja connecté
+      
+      redirect('/stats'); // Accès à l'espace connecté
+    }
 
     else { // Si pas connecté affichage de l'espace connexion
       global $blade;
@@ -57,7 +57,7 @@ class LoginController extends Controller{
       );
     }
   }*/
-}
+// }
 
 }
 
