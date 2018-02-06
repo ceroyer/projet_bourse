@@ -2,6 +2,7 @@
 Le titre
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
+<style type="text/css">*{color: white; }</style>
 <h1>Les administrateurs</h1>
 <table class="table">
                 <thead>
@@ -9,6 +10,7 @@ Le titre
                     <th>Pseudo</th>
                     <th>Email</th>
                     <th>Supprimer</th>
+                    <th>Dégrader</th>
                 </thead>
                 <tbody>
                 <?php
@@ -41,6 +43,7 @@ Le titre
                     <th>Email</th>
                     <th>Supprimer</th>
                     <th>Promouvoir</th>
+                    <th>Desactiver</th>
                 </thead>
                 <tbody>
                 <?php
@@ -59,7 +62,14 @@ Le titre
                     <form action="<?php echo e(url('/bo/upgrade')); ?>" method="POST">
                     <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
                     <td><button type="submit" class="btn btn-primary"><i class="fa fa-diamond" aria-hidden="true"></i></button></td>
+
+                    
                     </form>
+                    <form action="<?php echo e(url('/bo/deactivaded')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <td><input type="submit" class="form-check-input"></input></td>
+                    </form>
+                    
                   </tr>
 
                   <?php

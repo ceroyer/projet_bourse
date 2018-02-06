@@ -1,10 +1,9 @@
 <?php $__env->startSection('content'); ?>
 
-
 <h1>INSCRIPTION</h1>
 <form action="<?php echo e(url('/signup')); ?>" method="POST">
 	<label>Entrez votre login</label>
-	<input type="text" name="email">
+	<input type="text" name="pseudo">
 	<label>Entrez votre adresse mail</label>
 	<input type="text" name="email">
 	<label>Entrez à nouveau votre adresse mail</label>
@@ -14,6 +13,10 @@
 
 <?php if($error): ?>
 <h2 style='color:red'>Identifiants invalides!</h2>
+<?php endif; ?>
+<?php if($login['active']=1): ?>
+<h2 style='color:red'>Compte désactivé</h2>
+
 <?php endif; ?>
 
 <h1>CONNEXION</h1>
