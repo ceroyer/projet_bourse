@@ -24,7 +24,13 @@ Votre compte
 	<button type="submit">Enregistrer</button>
 </form>
 
+@if($user['role'] == 'admin' )
 
+<a href="{{ url('/bo') }}">
+	ACCEDER A LESPACE ADMIN
+</a>
+
+@endif
 
 
 

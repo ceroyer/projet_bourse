@@ -17,13 +17,16 @@ class LoginController extends Controller{
     else { // Si pas connecté affichage de l'espace connexion
       global $blade;
       $logins = Users::getInstance()->getAll();
-      if (!isset($_SESSION['error'])){
-      $_SESSION['error'] = false; //si c'est vide, c'est faux
+      if (!isset($_SESSION['error'])){ // Création Variable error
+      $_SESSION['error'] = false; // contient "faux"
       }
+
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error']]
+      ['error' => $_SESSION['error'],
+        //'deactive' => $login['active']
+    ]
       );
     }
   }
@@ -44,17 +47,22 @@ class LoginController extends Controller{
 
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
-          // dump($logins);
-          // dump($passwordconnect);
-          // dump($loginconnect);die;
-
       foreach ($logins as $login) {
-
+        
+        $_SESSION['deactive']=$login['active'];
 
         if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
-          redirect('/stats'); // acces aux stats
+
+          if ($login['active'] = 0) {
+            redirect('/stats'); // acces aux stats
+          }
+          else{ 
+            redirect('/'); // acces aux stats
+          }
+          
+          
           break;
         }
       }
@@ -62,6 +70,7 @@ class LoginController extends Controller{
       $loginconnect=null;
       $passwordconnect=null;
       $_SESSION['error'] = true;
+
       // Message erreur 'Pseudo ou mdp incorrects'
 
      redirect('/');
