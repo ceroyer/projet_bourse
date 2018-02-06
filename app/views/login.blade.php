@@ -15,7 +15,7 @@
 </form>
 
 @if($error)
-<h2 style='color:red'>Wrong login or password !</h2>
+<h2 style='color:red'>Identifiants invalides!</h2>
 @endif
 
 <h1>CONNEXION</h1>
