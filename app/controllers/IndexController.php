@@ -17,6 +17,9 @@ function editProfile(){
     redirect('/');
   }
 
+  $id = $_SESSION['id'];
+  $user = Users::getInstance()->get($id);
+  echo $blade->render('profile' , ['user' => $user]);
 }
 
 function saveProfile(){
