@@ -15,11 +15,13 @@ class LoginController extends Controller{
     else { // Si pas connecté affichage de l'espace connexion
       global $blade;
       $logins = Users::getInstance()->getAll();
-      if (!isset($_SESSION['error'])){$_SESSION['error'] = false;} //si c'est vide, c'est faux
+      if (!isset($_SESSION['error'])){
+      $_SESSION['error'] = false; //si c'est vide, c'est faux
+      } 
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error'],]
+      ['error' => $_SESSION['error']]
       );
     }
   }
