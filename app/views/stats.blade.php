@@ -7,7 +7,6 @@ Accueil
   <form method="post" action="{{ url('/deco') }}">
     <input type="submit" name="deco" value="DECONNEXION">
   </form>
-<<<<<<< HEAD
   <style type="text/css">
     *{
       color:white;
@@ -16,10 +15,11 @@ Accueil
       border: 1px solid white;
     }
   </style>
-=======
-  <a href="{{ url('/profile') }}" class="button">retour à l'accueil</a>
 
->>>>>>> ca6d0083f3e4a944d9dcfdad8836c3c47d975e67
+  <a href="{{ url('/') }}" class="button">retour à l'accueil</a>
+
+  <a href="{{ url('/profile') }}" class="button">Mon profil</a>
+
 </header>
 
 <section>

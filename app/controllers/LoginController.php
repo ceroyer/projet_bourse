@@ -33,15 +33,15 @@ class LoginController extends Controller{
     $logins = Users::getInstance()->getAll();
 
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
-<<<<<<< HEAD
+
       
       $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
       $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
 
-=======
+
 
       $loginconnect = $_POST['login']; // Récupération des variables
->>>>>>> ca6d0083f3e4a944d9dcfdad8836c3c47d975e67
+
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
           // dump($logins);
