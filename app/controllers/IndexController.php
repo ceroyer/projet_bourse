@@ -9,7 +9,7 @@ class IndexController extends Controller{
 function editProfile(){
   global $blade;
 
-  $id = $_GET['id'];
+  $id = $_SESSION['id'];
   $user = Users::getInstance()->get($id);
   echo $blade->render('profile' , ['user' => $user]);
 }
@@ -40,6 +40,7 @@ function backofficeIndex(){
       );
 }
 
+<<<<<<< HEAD
 function connectedPage(){
   global $blade;
 
@@ -54,6 +55,14 @@ function deconnectedPage(){
   $_SESSION['login']='';
   $_SESSION['password']='';
   session_destroy();
+=======
+}
+
+function backofficeDelete(){
+  $id = $_POST['id'];
+  Users::getInstance()->delete( $id );
+    redirect('/bo');
+>>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
 
   redirect('/');
 }
@@ -61,9 +70,14 @@ function deconnectedPage(){
 /*
 
 function backofficeUpgrade(){
-
-}*/
+   $id = $_POST['id'];
+   Users::getInstance()->edit($id, ['role'=>'admin']);
+   redirect('/bo');
 
 }
 
 
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
