@@ -1,16 +1,14 @@
 <?php
 
 namespace Controllers;
-use Models\Tile;
-use Models\Admin;
-use Controllers\Controller;
+use Models\Base;
 use Models\Users;
 
 class LoginController extends Controller{
 
   public function loginPage(){
     if (isset($_SESSION['login'])){  //Lorsque l'utilisateur est deja connecté
-      
+
       redirect('/stats'); // Accès à l'espace connecté
     }
 
@@ -24,7 +22,7 @@ class LoginController extends Controller{
   }
 
   public function login(){
-    
+
     $logins = Users::getInstance()->getAll();
 
 
@@ -32,20 +30,21 @@ class LoginController extends Controller{
 
       $loginconnect = $_POST['login']; // Récupération des variables
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
-        
+
       foreach ($logins as $login) {
 
         if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
-          
-          $_SESSION['login']=$login['pseudo']; 
+
+          $_SESSION['login']=$login['pseudo'];
+          $_SESSION['id']=$login['id'];
           redirect(url('/stats')); // acces aux stats
         }
         else{
           redirect('/');
-          $_POST=null; // Vider les champs & variables
-          $loginconnect=null;
-          $passwordconnect=null;
-          
+          $_POST = null; // Vider les champs & variables
+          $loginconnect = null;
+          $passwordconnect = null;
+
           // Message erreur 'Pseudo ou mdp incorrects'
         }
       }
@@ -54,9 +53,9 @@ class LoginController extends Controller{
       redirect('/');
         // Afficher message erreur 'Champs vides'
     }
-      
-    
-    
+
+
+
 
 }
 

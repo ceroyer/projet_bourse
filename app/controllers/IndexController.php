@@ -9,7 +9,7 @@ class IndexController extends Controller{
 function editProfile(){
   global $blade;
 
-  $id = $_GET['id'];
+  $id = $_SESSION['id'];
   $user = Users::getInstance()->get($id);
   echo $blade->render('profile' , ['user' => $user]);
 }
