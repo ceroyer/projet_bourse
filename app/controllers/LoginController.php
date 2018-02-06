@@ -36,20 +36,14 @@ class LoginController extends Controller{
       foreach ($logins as $login) {
 
 
-        if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
-<<<<<<< HEAD
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
+
           
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
 
           redirect('/stats'); // acces aux stats
-=======
 
-          $_SESSION['login']=$login['pseudo'];
-          $_SESSION['id']=$login['id'];
-          redirect(url('/stats')); // acces aux stats
-
->>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
         }
         else{
           redirect('/');
@@ -57,8 +51,6 @@ class LoginController extends Controller{
           $loginconnect=null;
           $passwordconnect=null;
           $_SESSION['error'] = true;
-
-
           // Message erreur 'Pseudo ou mdp incorrects'
         }
       }

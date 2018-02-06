@@ -40,7 +40,7 @@ function backofficeIndex(){
       );
 }
 
-<<<<<<< HEAD
+
 function connectedPage(){
   global $blade;
 
@@ -55,16 +55,14 @@ function deconnectedPage(){
   $_SESSION['login']='';
   $_SESSION['password']='';
   session_destroy();
-=======
+  redirect('/');
 }
 
 function backofficeDelete(){
   $id = $_POST['id'];
   Users::getInstance()->delete( $id );
     redirect('/bo');
->>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
-
-  redirect('/');
+    
 }
 
 /*
