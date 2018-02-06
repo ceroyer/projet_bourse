@@ -38,12 +38,27 @@ function backofficeIndex(){
         'bo',
         ['users'=>$listUsers]
       );
-
-/*
-function backofficeDelete(){
-
 }
 
+function connectedPage(){
+  global $blade;
+
+
+     echo $blade->render(
+        'stats',
+        []
+      );
+}
+
+function deconnectedPage(){
+  $_SESSION['login']='';
+  $_SESSION['password']='';
+  session_destroy();
+
+  redirect('/');
+}
+
+/*
 
 function backofficeUpgrade(){
 
@@ -51,4 +66,4 @@ function backofficeUpgrade(){
 
 }
 
-}
+

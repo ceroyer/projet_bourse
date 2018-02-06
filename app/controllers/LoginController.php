@@ -27,9 +27,8 @@ class LoginController extends Controller{
     
     $logins = Users::getInstance()->getAll();
 
-
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
-
+      dump($_SESSION);
       $loginconnect = $_POST['login']; // Récupération des variables
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
         
@@ -37,8 +36,10 @@ class LoginController extends Controller{
 
         if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
           
-          $_SESSION['login']=$login['pseudo']; 
-          redirect(url('/stats')); // acces aux stats
+          $_SESSION['login']=$login['pseudo'];
+          $_SESSION['id']=$login['id'];
+
+          redirect('/stats'); // acces aux stats
         }
         else{
           redirect('/');
