@@ -16,7 +16,7 @@ Accueil
     }
   </style>
 
-  <a href="{{ url('/') }}" class="button">retour à l'accueil</a>
+
 
   <a href="{{ url('/profile') }}" class="button">Mon profil</a>
 
@@ -47,7 +47,7 @@ Accueil
         </tr>
       @endforeach
     </table>
-    
+
   </div>
 
   <div id="cac80">
