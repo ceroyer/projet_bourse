@@ -31,28 +31,30 @@ class LoginController extends Controller{
     $logins = Users::getInstance()->getAll();
 
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
-      dump($_SESSION);
+      
       $loginconnect = $_POST['login']; // Récupération des variables
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
+
+          // dump($logins);
+          // dump($passwordconnect);
+          // dump($loginconnect);die;
 
       foreach ($logins as $login) {
 
         if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
-
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
           redirect('/stats'); // acces aux stats
           break;
         }
-        else{
-          redirect('/');
-          $_POST=null; // Vider les champs & variables
-          $loginconnect=null;
-          $passwordconnect=null;
-          $_SESSION['error'] = true;
-          // Message erreur 'Pseudo ou mdp incorrects'
-        }
       }
+      $_POST=null; // Vider les champs & variables
+      $loginconnect=null;
+      $passwordconnect=null;
+      $_SESSION['error'] = true;
+      // Message erreur 'Pseudo ou mdp incorrects'
+
+     redirect('/');
     }
     else{
       redirect('/');
