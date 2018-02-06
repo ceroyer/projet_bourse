@@ -38,10 +38,17 @@ class LoginController extends Controller{
 
       foreach ($logins as $login) {
 
+<<<<<<< HEAD
         if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect ) {    // Si pseudo & mdp correct
 
           $_SESSION['login']=$login['pseudo']; //changer pour $login['id'] ?
           redirect('/stats'); // acces aux stats
+=======
+        if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
+          
+          $_SESSION['login']=$login['pseudo']; 
+          redirect(url('/stats')); // acces aux stats
+>>>>>>> 17c433ab6a7686520cba82f83a3722654b252325
         }
         else{
           redirect('/');

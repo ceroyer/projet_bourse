@@ -39,16 +39,20 @@ function backofficeIndex(){
         ['users'=>$listUsers]
       );
 
-/*
+}
+
 function backofficeDelete(){
+  $id = $_POST['id'];
+  Users::getInstance()->delete( $id );
+    redirect('/bo');
 
 }
 
 
-function backofficeUpgrade(){
-
-}*/
+/*function backofficeUpgrade(){
 
 }
+*/
+
 
 }
