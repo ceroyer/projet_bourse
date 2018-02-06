@@ -8,11 +8,15 @@ class IndexController extends Controller{
 
 function editProfile(){
   global $blade;
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $user = Users::getInstance()->get($id);
+    dump($_SESSION);
+    echo $blade->render('profile' , ['user' => $user]);
+  }else{
+    redirect('/');
+  }
 
-  $id = $_SESSION['id'];
-  $user = Users::getInstance()->get($id);
-  dump($_SESSION);
-  echo $blade->render('profile' , ['user' => $user]);
 }
 
 function saveProfile(){
