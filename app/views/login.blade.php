@@ -1,7 +1,7 @@
 @extends( 'layout' )
 
 @section('content')
- 
+
 
 
 <h1>INSCRIPTION</h1>
@@ -13,12 +13,18 @@
 	<input type="submit">
 </form>
 
+@if($error)
+<h2 style='color:red'>Wrong login or password!</h2>
+@endif
+
 <h1>CONNEXION</h1>
 <form action="{{ url('/login') }}" method="POST">
 	<label>Votre Pseudo</label>
-	<input type="text" name="login"> 
+	<input type="text" name="login">
 	<label>Votre Mot de passe</label>
 	<input type="password" name="password">
+
+
 	<input type="submit">
 </form>
 
