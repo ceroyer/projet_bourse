@@ -29,7 +29,7 @@ function saveProfile(){
   }
 }
 
-/*function backofficeIndex(){
+function backofficeIndex(){
     global $blade;
 
     $listUsers = Users::getInstance()->getAll();
@@ -39,7 +39,7 @@ function saveProfile(){
         ['users'=>$listUsers]
       );
 
-
+/*
 function backofficeDelete(){
 
 }
@@ -51,3 +51,4 @@ function backofficeUpgrade(){
 
 }
 
+}
