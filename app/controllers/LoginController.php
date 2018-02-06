@@ -35,10 +35,10 @@ class LoginController extends Controller{
         
       foreach ($logins as $login) {
 
-        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect ) {    // Si pseudo & mdp correct
-
+        if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
+          
           $_SESSION['login']=$login['pseudo']; 
-          redirect('/stats'); // acces aux stats
+          redirect(url('/stats')); // acces aux stats
         }
         else{
           redirect('/');
