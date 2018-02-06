@@ -4,6 +4,8 @@ namespace Controllers;
 use Models\Base;
 use Models\Users;
 
+
+
 class LoginController extends Controller{
 
   public function loginPage(){
@@ -32,7 +34,14 @@ class LoginController extends Controller{
 
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
 
+      
+      $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
+      $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
+
+
+
       $loginconnect = $_POST['login']; // Récupération des variables
+
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
           // dump($logins);

@@ -53,4 +53,10 @@ function getFRtime( $sqlTimestamp ) {
   return date( 'H:i:s', $timestamp );
 }
 
+function nettoyerChaine($string) {
+$string = str_replace(' ', '-', $string);
+$string = preg_replace('/pratique/[^A-Za-z0-9-]/', '', $string);
+return preg_replace('/pratique/-+/', '-', $string);
+}
+
 ?>
