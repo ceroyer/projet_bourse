@@ -20,12 +20,6 @@ function saveProfile(){
   $id = $_POST['id'];
   $user = Users::getInstance()->get($id);
 
-  //dump($_POST);
-  //dump($user);
-
-
-  //die;
-
   if(sha1($_POST['password_old']) == $user['password'] && sha1($_POST['password_new']) != $user['password'] && $_POST['password_new'] == $_POST['password_verif']){
     $datas = ['email' => $_POST['email'] , 'password' => sha1($_POST['password_new'])];
     Users::getInstance()->edit($id , $datas);
