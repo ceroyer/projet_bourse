@@ -7,7 +7,7 @@ Accueil
   <form method="post" action="{{ url('/deco') }}">
     <input type="submit" name="deco" value="DECONNEXION">
   </form>
-  <a href="{{ url('/profile') }}" class="button">retour à l'accueil</a>
+  <a href="{{ url('/profile') }}" class="button">Mon profil</a>
 
 </header>
 

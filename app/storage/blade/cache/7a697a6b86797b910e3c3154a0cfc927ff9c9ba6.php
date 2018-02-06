@@ -6,9 +6,7 @@ Accueil
   <form method="post" action="<?php echo e(url('/deco')); ?>">
     <input type="submit" name="deco" value="DECONNEXION">
   </form>
-  <form method="get" action="<?php echo e(url('/profile')); ?>">
-    <input type="submit" name="profile" value="PROFILE">
-  </form>
+  <a href="<?php echo e(url('/profile')); ?>" class="button">retour à l'accueil</a>
 
 </header>
 
