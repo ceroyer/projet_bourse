@@ -39,9 +39,6 @@ class LoginController extends Controller{
 
         if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
 
-        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
-
-
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
           redirect('/stats'); // acces aux stats
@@ -61,9 +58,6 @@ class LoginController extends Controller{
       redirect('/');
         // Afficher message erreur 'Champs vides'
     }
-
-
-
 
 }
 

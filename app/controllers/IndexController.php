@@ -63,7 +63,7 @@ function backofficeDelete(){
   $id = $_POST['id'];
   Users::getInstance()->delete( $id );
     redirect('/bo');
-    
+
 }
 
 /*
@@ -73,6 +73,11 @@ function backofficeUpgrade(){
    Users::getInstance()->edit($id, ['role'=>'admin']);
    redirect('/bo');
 
+}*/
+
 }
+<<<<<<< HEAD
 */ 
 }
+=======
+>>>>>>> 8db34d339c091847e6ae1644ae66a863bfd8f0c9
