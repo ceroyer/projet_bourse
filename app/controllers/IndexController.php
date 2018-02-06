@@ -38,16 +38,36 @@ function backofficeIndex(){
         'bo',
         ['users'=>$listUsers]
       );
+}
 
+<<<<<<< HEAD
+function connectedPage(){
+  global $blade;
+
+
+     echo $blade->render(
+        'stats',
+        []
+      );
+}
+
+function deconnectedPage(){
+  $_SESSION['login']='';
+  $_SESSION['password']='';
+  session_destroy();
+=======
 }
 
 function backofficeDelete(){
   $id = $_POST['id'];
   Users::getInstance()->delete( $id );
     redirect('/bo');
+>>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
 
+  redirect('/');
 }
 
+/*
 
 function backofficeUpgrade(){
    $id = $_POST['id'];
@@ -57,4 +77,7 @@ function backofficeUpgrade(){
 }
 
 
+<<<<<<< HEAD
+=======
 }
+>>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
