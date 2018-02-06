@@ -37,7 +37,7 @@ class LoginController extends Controller{
       foreach ($logins as $login) {
 
 
-        if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
 
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
