@@ -40,7 +40,7 @@ switch ($routeInfo[0]) {
 
   // la commande n'existe pas
   case FastRoute\Dispatcher::NOT_FOUND:
-      // ... 404 Not Found
+      echo $blade->render('404');
       break;
 
   // la commande existe mais la méthode est incorrecte

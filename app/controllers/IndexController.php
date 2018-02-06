@@ -9,11 +9,16 @@ class IndexController extends Controller{
 
 function editProfile(){
   global $blade;
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $user = Users::getInstance()->get($id);
+    dump($_SESSION);
+    echo $blade->render('profile' , ['user' => $user]);
+  }else{
+    redirect('/');
+  }
 
-  $id = $_SESSION['id'];
-  $user = Users::getInstance()->get($id);
-  dump($_SESSION);
-  echo $blade->render('profile' , ['user' => $user]);
+
 }
 
 function saveProfile(){
@@ -63,17 +68,15 @@ function deconnectedPage(){
 function backofficeDelete(){
   $id = $_POST['id'];
   Users::getInstance()->delete( $id );
-    redirect('/bo');
+  redirect('/bo');
 
 }
-
-/*
 
 function backofficeUpgrade(){
    $id = $_POST['id'];
    Users::getInstance()->edit($id, ['role'=>'admin']);
    redirect('/bo');
 
-}*/
+}
 
 }
