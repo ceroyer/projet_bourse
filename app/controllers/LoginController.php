@@ -17,7 +17,7 @@ class LoginController extends Controller{
       $logins = Users::getInstance()->getAll();
       if (!isset($_SESSION['error'])){
       $_SESSION['error'] = false; //si c'est vide, c'est faux
-      } 
+      }
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
@@ -31,7 +31,7 @@ class LoginController extends Controller{
     $logins = Users::getInstance()->getAll();
 
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
-      
+
       $loginconnect = $_POST['login']; // Récupération des variables
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
@@ -66,9 +66,33 @@ class LoginController extends Controller{
 
 
   public function signup(){
+    if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif']){ // Si champs pas vides
 
-
-  }
+        // Définition de la taille du mot de passe aléatoire
+        $longueur = 10;
+        // On initialise la variable $mdp
+        $mdp="";
+        // Je définie les caractères possibles dans le mot de passe
+        $caract = "AaBbCcDdEeFfGgHhIiJjKkLlMmNn#OoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+        // On cherche à obtenir le nombre de caractères dans la chaîne précédent et nous utiliserons plus tard
+        $longueurMax = strlen($caract);
+        // initialiser le compteur
+        $i = 0;
+        // ajouter un caractère aléatoire à $mdp jusqu'à ce que $longueur soit atteint
+        while ($i < $longueur) {
+        // prendre un caractère aléatoire
+        $caractere = substr($caract, mt_rand(0, $longueurMax-1), 1);
+                        $mdp= $mdp + $caractere;
+                }
+                // On retourne le mot de passe généré aléatoirement
+                $datas = ['email' => $_POST['email'] , 'password' => sha1($mdp), 'pseudo' =>$_POST['pseudo']];
+                Users::getInstance()->add($datas);
+                mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est :' . $mdp);
+            }
+            else{
+             $err = true;
+            }
+          }
 
 /*
   public function loginPage(){
