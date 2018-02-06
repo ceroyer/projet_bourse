@@ -13,7 +13,7 @@
 </form>
 
 <?php if($error): ?>
-<h2 style='color:red'>Wrong login or password !</h2>
+<h2 style='color:red'>Identifiants invalides!</h2>
 <?php endif; ?>
 
 <h1>CONNEXION</h1>

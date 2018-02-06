@@ -6,8 +6,6 @@ Accueil
   <form method="post" action="<?php echo e(url('/deco')); ?>">
     <input type="submit" name="deco" value="DECONNEXION">
   </form>
-<<<<<<< HEAD
-<<<<<<< HEAD
   <style type="text/css">
     *{
       color:white;
@@ -16,15 +14,11 @@ Accueil
       border: 1px solid white;
     }
   </style>
-=======
-  <form method="get" action="<?php echo e(url('/profile')); ?>">
-    <input type="submit" name="profile" value="PROFILE">
-  </form>
-=======
-  <a href="<?php echo e(url('/profile')); ?>" class="button">retour à l'accueil</a>
->>>>>>> 83bf2682b17424072d1cc0d939cab8dc32e65bd7
 
->>>>>>> ca6d0083f3e4a944d9dcfdad8836c3c47d975e67
+  <a href="<?php echo e(url('/')); ?>" class="button">retour à l'accueil</a>
+
+  <a href="<?php echo e(url('/profile')); ?>" class="button">Mon profil</a>
+
 </header>
 
 <section>
