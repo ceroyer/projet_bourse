@@ -17,6 +17,10 @@
 @if($error)
 <h2 style='color:red'>Identifiants invalides!</h2>
 @endif
+@if($login['active']=1)
+<h2 style='color:red'>Compte désactivé</h2>
+
+@endif
 
 <h1>CONNEXION</h1>
 <form action="{{ url('/login') }}" method="POST">

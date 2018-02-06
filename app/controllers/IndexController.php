@@ -78,7 +78,12 @@ function backofficeUpgrade(){
    redirect('/bo');
 
 }
+function backofficeDeactivaded(){
+   $id = $_POST['id'];
+   Users::getInstance()->edit($id, ['active'=>'1']);
+   redirect('/bo');
 
+}
 
 
 }

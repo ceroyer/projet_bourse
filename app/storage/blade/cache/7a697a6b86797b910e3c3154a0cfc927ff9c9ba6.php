@@ -15,7 +15,7 @@ Accueil
     }
   </style>
 
-  <a href="<?php echo e(url('/')); ?>" class="button">retour à l'accueil</a>
+
 
   <a href="<?php echo e(url('/profile')); ?>" class="button">Mon profil</a>
 
@@ -46,7 +46,7 @@ Accueil
         </tr>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </table>
-    
+
   </div>
 
   <div id="cac80">

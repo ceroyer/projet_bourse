@@ -15,6 +15,10 @@
 <?php if($error): ?>
 <h2 style='color:red'>Identifiants invalides!</h2>
 <?php endif; ?>
+<?php if($login['active']=1): ?>
+<h2 style='color:red'>Compte désactivé</h2>
+
+<?php endif; ?>
 
 <h1>CONNEXION</h1>
 <form action="<?php echo e(url('/login')); ?>" method="POST">
