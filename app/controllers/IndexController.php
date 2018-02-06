@@ -76,8 +76,3 @@ function backofficeUpgrade(){
 }*/
 
 }
-<<<<<<< HEAD
-*/ 
-}
-=======
->>>>>>> 8db34d339c091847e6ae1644ae66a863bfd8f0c9
