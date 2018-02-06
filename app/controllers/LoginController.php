@@ -42,7 +42,7 @@ class LoginController extends Controller{
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
           redirect(url('/stats')); // acces aux stats
-5
+
         }
         else{
           redirect('/');
