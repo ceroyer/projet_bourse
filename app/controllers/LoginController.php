@@ -32,21 +32,21 @@ class LoginController extends Controller{
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
       foreach ($logins as $login) {
-
-        if ($login['pseudo'] = $loginconnect AND $login['password'] = $passwordconnect) {    // Si pseudo & mdp correct
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
 
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
           redirect(url('/stats')); // acces aux stats
+          break;
         }
-        else{
+        /*else{
           redirect('/');
           $_POST = null; // Vider les champs & variables
           $loginconnect = null;
           $passwordconnect = null;
 
           // Message erreur 'Pseudo ou mdp incorrects'
-        }
+        }*/
       }
     }
     else{
