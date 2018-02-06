@@ -1,18 +1,19 @@
 <?php $__env->startSection('content'); ?>
 
 
-
 <h1>INSCRIPTION</h1>
 <form action="<?php echo e(url('/signup')); ?>" method="POST">
-	<label>Votre login</label>
-	<input type="text" name="	">
-	<label>Votre Mot de passe</label>
-	<input type="password" name="	">
+	<label>Entrez votre login</label>
+	<input type="text" name="email">
+	<label>Entrez votre adresse mail</label>
+	<input type="text" name="email">
+	<label>Entrez à nouveau votre adresse mail</label>
+	<input type="text" name="emailverif">
 	<input type="submit">
 </form>
 
 <?php if($error): ?>
-<h2 style='color:red'>Wrong login or password!</h2>
+<h2 style='color:red'>Wrong login or password !</h2>
 <?php endif; ?>
 
 <h1>CONNEXION</h1>
