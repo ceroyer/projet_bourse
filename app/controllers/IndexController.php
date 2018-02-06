@@ -39,21 +39,39 @@ function backofficeIndex(){
         'bo',
         ['users'=>$listUsers]
       );
+}
 
+
+function connectedPage(){
+  global $blade;
+
+
+     echo $blade->render(
+        'stats',
+        []
+      );
+}
+
+function deconnectedPage(){
+  $_SESSION['login']='';
+  $_SESSION['password']='';
+  session_destroy();
+  redirect('/');
 }
 
 function backofficeDelete(){
   $id = $_POST['id'];
   Users::getInstance()->delete( $id );
     redirect('/bo');
-
+    
 }
 
+/*
 
-/*function backofficeUpgrade(){
+function backofficeUpgrade(){
+   $id = $_POST['id'];
+   Users::getInstance()->edit($id, ['role'=>'admin']);
+   redirect('/bo');
 
 }
-*/
-
-
-}
+*/ 

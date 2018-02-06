@@ -12,6 +12,9 @@ $route->addRoute( 'GET'  , '/profile' ,  'IndexController@editProfile' );
 $route->addRoute( 'POST' , '/profile' ,  'IndexController@saveProfile' );
 $route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
 
+$route->addRoute( 'POST'  , '/deco' ,    'IndexController@deconnectedPage' );
+// $route->addRoute( 'POST' , '/deco' ,    'IndexController@deconnectedPage' );
+
 // Route appelée quand on valide l'un des deux formulaires
 $route->addRoute( 'POST' , '/login' , 'LoginController@login' );
 $route->addRoute( 'POST' , '/signup', 'LoginController@signup' );

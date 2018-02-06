@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
- 
+
 
 
 <h1>INSCRIPTION</h1>
@@ -11,12 +11,18 @@
 	<input type="submit">
 </form>
 
+<?php if($error): ?>
+<h2 style='color:red'>Wrong login or password!</h2>
+<?php endif; ?>
+
 <h1>CONNEXION</h1>
 <form action="<?php echo e(url('/login')); ?>" method="POST">
 	<label>Votre Pseudo</label>
-	<input type="text" name="login"> 
+	<input type="text" name="login">
 	<label>Votre Mot de passe</label>
 	<input type="password" name="password">
+
+
 	<input type="submit">
 </form>
 
