@@ -44,6 +44,7 @@ Accueil
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
+          <td><a href="{{ url('/fav/') . $action['id'] }}"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>
         </tr>
       @endforeach
     </table>

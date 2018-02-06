@@ -4,7 +4,7 @@
 <h1>INSCRIPTION</h1>
 <form action="<?php echo e(url('/signup')); ?>" method="POST">
 	<label>Entrez votre login</label>
-	<input type="text" name="email">
+	<input type="text" name="pseudo">
 	<label>Entrez votre adresse mail</label>
 	<input type="text" name="email">
 	<label>Entrez à nouveau votre adresse mail</label>
