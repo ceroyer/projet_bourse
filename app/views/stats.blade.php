@@ -14,11 +14,21 @@ Accueil
     table{
       border: 1px solid white;
     }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: red;
+    }
   </style>
 
+<i class="fa fa-bell collapsible" aria-hidden="true"></i>
+<div class="content">
+  <p>Voici votre bulletin</p>
+</div>
 
-
-  <a href="{{ url('/profile') }}" class="button">Mon profil</a>
+<a href="{{ url('/profile') }}" class="button">Mon profil</a>
 
 </header>
 
