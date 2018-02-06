@@ -73,9 +73,4 @@ function backofficeUpgrade(){
    redirect('/bo');
 
 }
-
-
-<<<<<<< HEAD
-=======
-}
->>>>>>> 37b17b86ffd68a44bc76378bb39a5f7d1a36798c
+*/ 
