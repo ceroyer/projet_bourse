@@ -90,7 +90,7 @@ class LoginController extends Controller{
         // ajouter un caractère aléatoire à $mdp jusqu'à ce que $longueur soit atteint
         //while ($i < $longueur) {
         // prendre un caractère aléatoire
-        $mdp = 'coucou';
+        $mdp = sha1(rand());
         //}
 
         if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['email'])){

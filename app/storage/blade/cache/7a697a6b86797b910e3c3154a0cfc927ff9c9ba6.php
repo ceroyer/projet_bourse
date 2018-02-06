@@ -15,7 +15,7 @@ Accueil
     }
   </style>
 
-  <a href="<?php echo e(url('/')); ?>" class="button">retour à l'accueil</a>
+
 
   <a href="<?php echo e(url('/profile')); ?>" class="button">Mon profil</a>
 
@@ -43,10 +43,11 @@ Accueil
           <td><?php echo e($action['bas']); ?></td>
           <td><?php echo e($action['haut']); ?></td>
           <td><?php echo e($action['variation']); ?></td>
+          <td><a href="<?php echo e(url('/fav/') . $action['id']); ?>"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>
         </tr>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </table>
-    
+
   </div>
 
   <div id="cac80">
