@@ -61,17 +61,15 @@ function deconnectedPage(){
 function backofficeDelete(){
   $id = $_POST['id'];
   Users::getInstance()->delete( $id );
-    redirect('/bo');
+  redirect('/bo');
 
 }
-
-/*
 
 function backofficeUpgrade(){
    $id = $_POST['id'];
    Users::getInstance()->edit($id, ['role'=>'admin']);
    redirect('/bo');
 
-}*/
+}
 
 }
