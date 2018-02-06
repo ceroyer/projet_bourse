@@ -75,6 +75,15 @@ class LoginController extends Controller{
 
 
   public function signup(){
+    /*global $blade; 
+    if (!isset($_SESSION['err'])){
+      $_SESSION['err'] = false; //si c'est vide, c'est faux
+      }
+      //dump($_SESSION['error']);die();
+      echo $blade->render(
+      'login', // appel de la view
+      ['err' => $_SESSION['err']]
+      );*/
 
     if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif']){ // Si champs pas vides
         // Définition de la taille du mot de passe aléatoire
@@ -115,7 +124,8 @@ class LoginController extends Controller{
           mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est :' . $mdp, $header);
             }
             else{
-             $err = true;
+              $_SESSION['err'] = true;
+              redirect('/');
             }
           }
 
