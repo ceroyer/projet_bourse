@@ -49,10 +49,12 @@ function backofficeDelete(){
 }
 
 
-/*function backofficeUpgrade(){
+function backofficeUpgrade(){
+   $id = $_POST['id'];
+   Users::getInstance()->edit($id, ['role'=>'admin']);
+   redirect('/bo');
 
 }
-*/
 
 
 }
