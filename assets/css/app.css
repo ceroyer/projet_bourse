@@ -14,6 +14,7 @@ html {
 
 body {
   background-color:#2b2b2b;
+  color: white;
 }
 h1,label{
   color:white !important;

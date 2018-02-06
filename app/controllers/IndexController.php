@@ -2,6 +2,7 @@
 
 namespace Controllers;
 use Models\Users;
+use Models\Actions;
 
 
 class IndexController extends Controller{
@@ -44,11 +45,11 @@ function backofficeIndex(){
 
 function connectedPage(){
   global $blade;
-
+  $actions=Actions::getInstance()->getAll();
 
      echo $blade->render(
         'stats',
-        []
+        ['actions'=>$actions]
       );
 }
 
