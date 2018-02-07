@@ -9,6 +9,10 @@ use Models\Users;
 class LoginController extends Controller{
 
   public function loginPage(){
+    if (isset($_SESSION['err'])){ // Création Variable error
+      $_SESSION['err'] = false; // contient "faux"
+      }
+
     if (isset($_SESSION['login'])){  //Lorsque l'utilisateur est deja connecté
 
       redirect('/stats'); // Accès à l'espace connecté
@@ -21,11 +25,17 @@ class LoginController extends Controller{
       $_SESSION['error'] = false; // contient "faux"
       }
 
+      if (!isset($_SESSION['deactive'])){ // Création Variable Deactive
+      $_SESSION['deactive'] = false; // contient "faux"
+      }
+
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error'],
-        //'deactive' => $login['active']
+      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err']
+
+
+
     ]
       );
     }
@@ -37,7 +47,7 @@ class LoginController extends Controller{
 
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
 
-      
+
       $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
       $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
 
@@ -48,21 +58,13 @@ class LoginController extends Controller{
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
       foreach ($logins as $login) {
-        
+
         $_SESSION['deactive']=$login['active'];
 
-        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect AND $login['active']== 0) {    // Si pseudo & mdp correct
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
-
-          if ($login['active'] = 0) {
-            redirect('/stats'); // acces aux stats
-          }
-          else{ 
-            redirect('/'); // acces aux stats
-          }
-          
-          
+          redirect('/stats'); // acces aux stats
           break;
         }
       }
@@ -84,7 +86,8 @@ class LoginController extends Controller{
 
 
   public function signup(){
-    /*global $blade; 
+    global $blade;
+    /*
     if (!isset($_SESSION['err'])){
       $_SESSION['err'] = false; //si c'est vide, c'est faux
       }
@@ -94,7 +97,8 @@ class LoginController extends Controller{
       ['err' => $_SESSION['err']]
       );*/
 
-    if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif']){ // Si champs pas vides
+      //teste si mail a forme correcte + champs pleins + mails identiques
+    if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif'] AND filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ // Si champs pas vides
         // Définition de la taille du mot de passe aléatoire
         $longueur = 10;
         // On initialise la variable $mdp
@@ -127,14 +131,17 @@ class LoginController extends Controller{
 
           // On retourne le mot de passe généré aléatoirement
           $datas = ['email' => $_POST['email'] , 'password' => sha1($mdp), 'pseudo' =>$_POST['pseudo'], 'role' => 'user'];
-          dump($mdp);
-          dump($datas);
           Users::getInstance()->add($datas);
           mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est :' . $mdp, $header);
             }
             else{
               $_SESSION['err'] = true;
-              redirect('/');
+               echo $blade->render(
+              'login', // appel de la view
+             ['err' => $_SESSION['err'], 'error' => $_SESSION['error']
+        //'deactive' => $login['active']
+    ]
+      );
             }
           }
 

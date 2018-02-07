@@ -25,8 +25,15 @@ Le titre
                       <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                     </form>
+                    <?php if($_SESSION['id']!=$user['id']): ?>
+                    <form action="<?php echo e(url('/bo/downgrade')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <td><button class="btn btn-secondary" type="submit"><i class="fa fa-angle-double-down"></i>
+                      </button></td>
+                    </form>
+                    <?php endif; ?>
+                        <td></td>              
                   </tr>
-
                   <?php
 
                   }
@@ -43,7 +50,7 @@ Le titre
                     <th>Email</th>
                     <th>Supprimer</th>
                     <th>Promouvoir</th>
-                    <th>Desactiver</th>
+                    <th>Mode Vacances</th>
                 </thead>
                 <tbody>
                 <?php
@@ -62,14 +69,23 @@ Le titre
                     <form action="<?php echo e(url('/bo/upgrade')); ?>" method="POST">
                     <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
                     <td><button type="submit" class="btn btn-primary"><i class="fa fa-diamond" aria-hidden="true"></i></button></td>
-
-                    
                     </form>
+
+                    <?php if($user['active']==0): ?><!-- Si l'utilisateur est activé affichage du mode vacances  --> 
                     <form action="<?php echo e(url('/bo/deactivaded')); ?>" method="POST">
                       <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
-                      <td><input type="submit" class="form-check-input"></input></td>
+                      <td><button type="submit" class="btn btn-danger"><i class="fa fa-plane"></i>
+                      </button></td>
                     </form>
-                    
+                    <?php else: ?>
+                    <form action="<?php echo e(url('/bo/reactivaded')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <td><button type="submit" class="btn btn-success"><i class="fa fa-coffee"></i>
+                      </button></td>
+                    </form>
+                    <?php endif; ?>
+
+
                   </tr>
 
                   <?php

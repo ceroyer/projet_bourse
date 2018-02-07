@@ -40,8 +40,13 @@ body
   flex-direction:column;
   justify-content: center;
   align-items: center;
-  wrap:no-wrap;
+  flex-wrap:nowrap;
 }
+.container-fluid{
+  width:100%;
+  padding:0;
+}
+
 .content
 {
   overflow: auto;
@@ -55,7 +60,7 @@ body
   z-index: -1;
 
 
-  background-image: url('./img/photo page d_acceuil 1.jpg');
+  background-image: url('../img/acceuil1.jpg');
   background-size:cover;
   width: 100%;
   height: 100%;
@@ -148,3 +153,56 @@ section
 
 
 /* Deuxième partie - Inscription & connexion */
+
+.inscription, .connexion
+{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  height:75vh;
+  width:35vw;
+  position: absolute;
+  right::50%;
+}
+.connexion
+{
+  display:none;
+}
+form
+{
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: start;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.connecttext
+{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: start;
+  width:100%;
+}
+input
+{
+  width:80%;
+  height:50px;
+  border-radius: 5px;
+}
+#date
+{
+  display:flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width:100%;
+}
+select
+{
+  margin-right:10%;
+}

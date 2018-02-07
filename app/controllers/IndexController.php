@@ -12,13 +12,10 @@ function editProfile(){
   if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     $user = Users::getInstance()->get($id);
-    dump($_SESSION);
     echo $blade->render('profile' , ['user' => $user]);
   }else{
     redirect('/');
   }
-
-
 }
 
 function saveProfile(){
@@ -76,14 +73,23 @@ function backofficeUpgrade(){
    $id = $_POST['id'];
    Users::getInstance()->edit($id, ['role'=>'admin']);
    redirect('/bo');
-
 }
 function backofficeDeactivaded(){
    $id = $_POST['id'];
    Users::getInstance()->edit($id, ['active'=>'1']);
    redirect('/bo');
-
 }
+function backofficeReactivaded(){
+   $id = $_POST['id'];
+   Users::getInstance()->edit($id, ['active'=>'0']);
+   redirect('/bo');
+}
+function backofficeDowngrade(){
+  $id = $_POST['id'];
+  Users::getInstance()->edit($id, ['role'=>'user']);
+  redirect('/bo');
+  }
+   
 
 
 }
