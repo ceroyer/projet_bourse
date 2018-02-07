@@ -2,23 +2,37 @@
 @section('title')
 Accueil
 @endsection
-@section('content')
-<header>
-  <form method="post" action="{{ url('/deco') }}">
-    <input type="submit" name="deco" value="DECONNEXION">
-  </form>
-  <style type="text/css">
+@section('additional_css')
+<style type="text/css">
     *{
       color:white;
     }
     table{
       border: 1px solid white;
     }
-  </style>
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: red;
+    }
+</style>
+@endsection
+@section('content')
+<header>
+  <form method="post" action="{{ url('/deco') }}">
+    <input type="submit" name="deco" value="DECONNEXION">
+  </form>
 
 
 
-  <a href="{{ url('/profile') }}" class="button">Mon profil</a>
+<div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div>
+<div class="content">
+  <p>Voici votre bulletin</p>
+</div>
+
+<a href="{{ url('/profile') }}" class="button">Mon profil</a>
 
 </header>
 

@@ -1,6 +1,5 @@
 <?php $__env->startSection('content'); ?>
 
-
 <h1>INSCRIPTION</h1>
 <form action="<?php echo e(url('/signup')); ?>" method="POST">
 	<label>Entrez votre login</label>

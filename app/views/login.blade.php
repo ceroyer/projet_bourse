@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <h1>INSCRIPTION</h1>
 <form action="{{ url('/signup') }}" method="POST">
 	<label>Entrez votre login</label>
