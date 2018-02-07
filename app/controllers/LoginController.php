@@ -51,18 +51,11 @@ class LoginController extends Controller{
         
         $_SESSION['deactive']=$login['active'];
 
-        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect AND $login['active']== 0) {    // Si pseudo & mdp correct
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
+          redirect('/stats'); // acces aux stats
 
-          if ($login['active'] = 0) {
-            redirect('/stats'); // acces aux stats
-          }
-          else{ 
-            redirect('/'); // acces aux stats
-          }
-          
-          
           break;
         }
       }
@@ -118,8 +111,6 @@ class LoginController extends Controller{
 
           // On retourne le mot de passe généré aléatoirement
           $datas = ['email' => $_POST['email'] , 'password' => sha1($mdp), 'pseudo' =>$_POST['pseudo'], 'role' => 'user'];
-          dump($mdp);
-          dump($datas);
           Users::getInstance()->add($datas);
           mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est :' . $mdp, $header);
             }

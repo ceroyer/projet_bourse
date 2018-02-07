@@ -5,7 +5,9 @@ $route->addRoute( 'GET'  , '/' ,         'LoginController@loginPage' );
 $route->addRoute( 'GET'   , '/bo' ,       'IndexController@backofficeIndex' );
 $route->addRoute( 'POST'  , '/bo/delete' , 'IndexController@backofficeDelete' );
 $route->addRoute( 'POST'  , '/bo/upgrade' , 'IndexController@backofficeUpgrade' );
+$route->addRoute( 'POST'  , '/bo/downgrade' , 'IndexController@backofficeDowngrade' );
 $route->addRoute( 'POST'  , '/bo/deactivaded' , 'IndexController@backofficeDeactivaded' );
+$route->addRoute( 'POST'  , '/bo/reactivaded' , 'IndexController@backofficeReactivaded' );
 
 
 
