@@ -2,15 +2,18 @@
 <link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
 <?php $__env->stopSection(); ?>
 
-<<<<<<< HEAD
+<?php $__env->startSection('content'); ?>
+
+<?php if($err == true): ?>
+<h2 style='color:red'>Email Incorrect!</h2>
+<?php endif; ?>
+
 <?php if($error): ?>
 <h2 style='color:red'>Identifiants invalides!</h2>
 <?php endif; ?>
 <?php if($deactive ==1): ?>
 <h2 style='color:red'>Compte désactivé</h2>
-=======
-<?php $__env->startSection('content'); ?>
->>>>>>> 5e6cc640b3dea0156316b550466fdb696c964e55
+
 
 <section class="accueil content">
   <div>

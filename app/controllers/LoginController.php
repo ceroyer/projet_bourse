@@ -9,7 +9,7 @@ use Models\Users;
 class LoginController extends Controller{
 
   public function loginPage(){
-    if (isset($_SESSION['err'])){ // Création Variable error
+    if (!isset($_SESSION['err'])){ // Création Variable error
       $_SESSION['err'] = false; // contient "faux"
       }
 
