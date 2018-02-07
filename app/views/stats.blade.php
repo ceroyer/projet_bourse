@@ -2,12 +2,8 @@
 @section('title')
 Accueil
 @endsection
-@section('content')
-<header>
-  <form method="post" action="{{ url('/deco') }}">
-    <input type="submit" name="deco" value="DECONNEXION">
-  </form>
-  <style type="text/css">
+@section('additional_css')
+<style type="text/css">
     *{
       color:white;
     }
@@ -21,7 +17,14 @@ Accueil
       overflow: hidden;
       background-color: red;
     }
-  </style>
+</style>
+@endsection
+@section('content')
+<header>
+  <form method="post" action="{{ url('/deco') }}">
+    <input type="submit" name="deco" value="DECONNEXION">
+  </form>
+
 
 
 <div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div>
