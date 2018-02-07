@@ -14,7 +14,7 @@
 <?php if($error): ?>
 <h2 style='color:red'>Identifiants invalides!</h2>
 <?php endif; ?>
-<?php if($login['active']=1): ?>
+<?php if($deactive ==1): ?>
 <h2 style='color:red'>Compte désactivé</h2>
 
 <?php endif; ?>

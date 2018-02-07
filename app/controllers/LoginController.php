@@ -20,12 +20,14 @@ class LoginController extends Controller{
       if (!isset($_SESSION['error'])){ // Création Variable error
       $_SESSION['error'] = false; // contient "faux"
       }
+      if (!isset($_SESSION['deactive'])){ // Création Variable Deactive
+      $_SESSION['deactive'] = false; // contient "faux"
+      }
 
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error'],
-        //'deactive' => $login['active']
+      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive']
     ]
       );
     }
