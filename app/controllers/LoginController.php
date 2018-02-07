@@ -27,7 +27,7 @@ class LoginController extends Controller{
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error'], 'err' => $_SESSION['err']
+      ['error' => $_SESSION['error'], 'err' => $_SESSION['err'],
         //'deactive' => $login['active']
     ]
       );
