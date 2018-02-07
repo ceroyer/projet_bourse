@@ -1,5 +1,9 @@
 <?php $__env->startSection('content'); ?>
 
+<?php if($err == true): ?>
+<h2 style='color:red'>Email Incorrect!</h2>
+<?php endif; ?>
+
 <h1>INSCRIPTION</h1>
 <form action="<?php echo e(url('/signup')); ?>" method="POST">
 	<label>Entrez votre login</label>
@@ -10,6 +14,7 @@
 	<input type="text" name="emailverif">
 	<input type="submit">
 </form>
+
 
 <?php if($error): ?>
 <h2 style='color:red'>Identifiants invalides!</h2>

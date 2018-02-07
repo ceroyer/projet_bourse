@@ -2,6 +2,10 @@
 
 @section('content')
 
+@if($err == true)
+<h2 style='color:red'>Email Incorrect!</h2>
+@endif
+
 <h1>INSCRIPTION</h1>
 <form action="{{ url('/signup') }}" method="POST">
 	<label>Entrez votre login</label>
@@ -12,6 +16,7 @@
 	<input type="text" name="emailverif">
 	<input type="submit">
 </form>
+
 
 @if($error)
 <h2 style='color:red'>Identifiants invalides!</h2>

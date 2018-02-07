@@ -9,6 +9,10 @@ use Models\Users;
 class LoginController extends Controller{
 
   public function loginPage(){
+    if (isset($_SESSION['err'])){ // Création Variable error
+      $_SESSION['err'] = false; // contient "faux"
+      }
+
     if (isset($_SESSION['login'])){  //Lorsque l'utilisateur est deja connecté
 
       redirect('/stats'); // Accès à l'espace connecté
@@ -20,11 +24,10 @@ class LoginController extends Controller{
       if (!isset($_SESSION['error'])){ // Création Variable error
       $_SESSION['error'] = false; // contient "faux"
       }
-
       //dump($_SESSION['error']);die();
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error'],
+      ['error' => $_SESSION['error'], 'err' => $_SESSION['err']
         //'deactive' => $login['active']
     ]
       );
@@ -84,7 +87,8 @@ class LoginController extends Controller{
 
 
   public function signup(){
-    /*global $blade;
+    global $blade;
+    /*
     if (!isset($_SESSION['err'])){
       $_SESSION['err'] = false; //si c'est vide, c'est faux
       }
@@ -94,7 +98,7 @@ class LoginController extends Controller{
       ['err' => $_SESSION['err']]
       );*/
 
-//teste si mail a forme correcte + champs pleins + mails identiques
+      //teste si mail a forme correcte + champs pleins + mails identiques
     if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif'] AND filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ // Si champs pas vides
         // Définition de la taille du mot de passe aléatoire
         $longueur = 10;
@@ -135,7 +139,12 @@ class LoginController extends Controller{
             }
             else{
               $_SESSION['err'] = true;
-              redirect('/');
+               echo $blade->render(
+              'login', // appel de la view
+             ['err' => $_SESSION['err'], 'error' => $_SESSION['error']
+        //'deactive' => $login['active']
+    ]
+      );
             }
           }
 
