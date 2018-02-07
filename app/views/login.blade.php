@@ -11,18 +11,6 @@
 <h2 style='color:red'>Email Incorrect!</h2>
 @endif
 
-<h1>INSCRIPTION</h1>
-<form action="{{ url('/signup') }}" method="POST">
-	<label>Entrez votre login</label>
-	<input type="text" name="pseudo">
-	<label>Entrez votre adresse mail</label>
-	<input type="text" name="email">
-	<label>Entrez à nouveau votre adresse mail</label>
-	<input type="text" name="emailverif">
-	<input type="submit">
-</form>
-
-
 @if($error)
 <h2 style='color:red'>Identifiants invalides!</h2>
 @endif
