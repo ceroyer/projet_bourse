@@ -1,23 +1,37 @@
 <?php $__env->startSection('title'); ?>
 Accueil
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('content'); ?>
-<header>
-  <form method="post" action="<?php echo e(url('/deco')); ?>">
-    <input type="submit" name="deco" value="DECONNEXION">
-  </form>
-  <style type="text/css">
+<?php $__env->startSection('additional_css'); ?>
+<style type="text/css">
     *{
       color:white;
     }
     table{
       border: 1px solid white;
     }
-  </style>
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: red;
+    }
+</style>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<header>
+  <form method="post" action="<?php echo e(url('/deco')); ?>">
+    <input type="submit" name="deco" value="DECONNEXION">
+  </form>
 
 
 
-  <a href="<?php echo e(url('/profile')); ?>" class="button">Mon profil</a>
+<div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div>
+<div class="content">
+  <p>Voici votre bulletin</p>
+</div>
+
+<a href="<?php echo e(url('/profile')); ?>" class="button">Mon profil</a>
 
 </header>
 
