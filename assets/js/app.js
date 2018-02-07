@@ -37,8 +37,10 @@ for (i = 0; i < coll.length; i++) {
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
+      this.classList.replace("fa-bell-o","fa-bell");
     } else {
       content.style.display = "block";
+      this.classList.replace("fa-bell","fa-bell-o");
     }
   });
 }
