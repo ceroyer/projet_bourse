@@ -55,18 +55,6 @@ class LoginController extends Controller{
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
           redirect('/stats'); // acces aux stats
-
-<<<<<<< HEAD
-=======
-          if ($login['active'] = 0) {
-            redirect('/stats'); // acces aux stats
-          }
-          else{
-            redirect('/'); // acces aux stats
-          }
-
-
->>>>>>> cb31a584efe32db37e47a795b471f94bb2d300d6
           break;
         }
       }
