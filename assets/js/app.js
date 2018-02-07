@@ -35,10 +35,13 @@ for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
+    var cloche = this.children[0];
     if (content.style.display === "block") {
       content.style.display = "none";
+      cloche.classList.replace("fa-bell-o","fa-bell");
     } else {
       content.style.display = "block";
+      cloche.classList.replace("fa-bell","fa-bell-o");
     }
   });
 }

@@ -23,7 +23,8 @@ Accueil
     }
   </style>
 
-<i class="fa fa-bell collapsible" aria-hidden="true"></i>
+
+<div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div>
 <div class="content">
   <p>Voici votre bulletin</p>
 </div>
