@@ -11,7 +11,7 @@
   <?php echo $__env->yieldContent('additional_css'); ?>
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
   <?php echo $__env->yieldContent('content'); ?>
   </div>
 
