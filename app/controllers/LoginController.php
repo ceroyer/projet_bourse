@@ -37,7 +37,7 @@ class LoginController extends Controller{
 
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
 
-      
+
       $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
       $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
 
@@ -48,7 +48,7 @@ class LoginController extends Controller{
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
       foreach ($logins as $login) {
-        
+
         $_SESSION['deactive']=$login['active'];
 
         if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
@@ -58,11 +58,11 @@ class LoginController extends Controller{
           if ($login['active'] = 0) {
             redirect('/stats'); // acces aux stats
           }
-          else{ 
+          else{
             redirect('/'); // acces aux stats
           }
-          
-          
+
+
           break;
         }
       }
@@ -84,7 +84,7 @@ class LoginController extends Controller{
 
 
   public function signup(){
-    /*global $blade; 
+    /*global $blade;
     if (!isset($_SESSION['err'])){
       $_SESSION['err'] = false; //si c'est vide, c'est faux
       }
@@ -94,7 +94,8 @@ class LoginController extends Controller{
       ['err' => $_SESSION['err']]
       );*/
 
-    if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif']){ // Si champs pas vides
+//teste si mail a forme correcte + champs pleins + mails identiques
+    if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['emailverif']) AND $_POST['email'] == $_POST['emailverif'] AND filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ // Si champs pas vides
         // Définition de la taille du mot de passe aléatoire
         $longueur = 10;
         // On initialise la variable $mdp
