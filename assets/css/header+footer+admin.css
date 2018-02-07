@@ -201,6 +201,92 @@ a>p:first-of-type
 { width: 95%;
   height: 80%;
   background-color: #C3C6D1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#espace_admin label
+{ font-family: king;
+  width: 100%;
+  font-size: 1.7rem;
+  text-align: center;
+  justify-content: center;
+}
+
+#recherche
+{ width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#recherche input:first-of-type
+{ width: 40%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#recherche input:last-of-type
+{ background-color: #20233F;
+  color: white;
+  font-family: caviar;
+  padding: 10px;
+}
+
+#recherche input:last-of-type:hover
+{ background-color: white;
+  color: #20233F;
+  cursor: pointer;
 }
 
 
+#user
+{ display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  background-color: white;
+  border: 2px solid #20233F;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: caviar;
+}
+
+#infos
+{ width: 60%;
+}
+
+#infos p
+{ margin-left: 15px;
+}
+
+#boutons
+{ font-style: italic;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+#boutons a
+{ border-radius: 10px;
+  border: 2px solid #20233F;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: #20233F;
+  margin-bottom: 15px;
+  margin-left: 25px;
+}
+
+#boutons a:last-of-type
+{ background-color: #20233F;
+  color: white;
+}
+
+#boutons a:hover
+{ background-color: #C3C6D1;
+  color:  #20233F;
+}
