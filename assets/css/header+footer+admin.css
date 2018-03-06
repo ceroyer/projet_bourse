@@ -1,0 +1,292 @@
+/*Polices*/
+@font-face
+{ font-family: "caviar";
+  src: url("./../fonts/caviar/CaviarDreams.ttf");
+}
+
+@font-face
+{ font-family: "caviar";
+  font-weight: bold;
+  src: url("./../fonts/caviar/CaviarDreams_Bold.ttf");
+}
+
+@font-face
+{ font-family: "caviar";
+  font-style: italic;
+  src: url("./../fonts/caviar/CaviarDreams_Italic.ttf");
+}
+
+@font-face
+{ font-family : "raspoutine";
+  src: url("./../fonts/raspoutine/RaspoutineClassic_TB.otf");
+}
+
+@font-face
+{ font-family: "king";
+  src: url("./../fonts/king/Modern_King.ttf");
+}
+
+@font-face
+{ font-family: "signature";
+  src: url("./../fonts/signature/Signature.ttf");
+}
+
+/*Reset*/
+
+*
+{ box-sizing:border-box;
+}
+a
+{ text-decoration:none;
+}
+
+nav
+{ background-color: #20233F;
+}
+
+body
+{ margin: 0px;
+  font-size: 18px;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header */
+
+#header
+{ display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  width: 100vw;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#header img
+{ height: 80%;
+}
+
+#header>div
+{ height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+h1
+{ font-family: caviar;
+  font-weight: bold;
+}
+
+#tradeheaven
+{ margin-left: 50px;
+  font-family: raspoutine;
+}
+
+#compte
+{ padding-right: 70px;
+}
+
+#alerte img
+{ height: 100%;
+  width: auto;
+}
+
+#compte a:first-of-type
+{ margin-right: 10px;
+  font-family: caviar;
+  font-size: 0.7em;
+  color: white;
+  text-align: right;
+}
+
+#compte a:first-of-type:hover
+{ text-decoration: underline;
+}
+
+
+#compte a:last-of-type
+{ margin-left: 20px;
+  font-family: caviar;
+  font-style: italic;
+  font-size: 0.75em;
+  color: #B0B3C1;
+  border: 1px solid #B0B3C1;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#compte a:last-of-type:hover
+{ background-color: #B0B3C1;
+  color: #20233F;
+}
+
+a>p:first-of-type
+{ margin-bottom: -15px;
+  color: #B0B3C1;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+/* Footer */
+#footer
+{ position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+}
+
+#footer ul
+{ display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: caviar;
+  font-size: 0.65em;
+  color: white;
+}
+
+#footer li
+{ list-style-type: none;
+  margin: 5px;
+}
+
+#footer li:before
+{ content: "|     ";
+}
+
+#footer li:first-of-type:before
+{ content: "";
+}
+
+#footer li a
+{ color: white;
+}
+
+#footer li a:hover
+{ text-decoration: underline;
+}
+
+/* Alerte */
+
+#alerte
+{ height: 60%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 50px;
+}
+#alerte div
+{ height: 10px;
+  width: 10px;
+  background-color: #F91206;
+  border-radius: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+/*=======================================
+  ========= Page administrateur =========
+  =======================================*/
+
+#espace_admin
+{ width: 95%;
+  height: 80%;
+  background-color: #C3C6D1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#espace_admin label
+{ font-family: king;
+  width: 100%;
+  font-size: 1.7rem;
+  text-align: center;
+  justify-content: center;
+}
+
+#recherche
+{ width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#recherche input:first-of-type
+{ width: 40%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#recherche input:last-of-type
+{ background-color: #20233F;
+  color: white;
+  font-family: caviar;
+  padding: 10px;
+}
+
+#recherche input:last-of-type:hover
+{ background-color: white;
+  color: #20233F;
+  cursor: pointer;
+}
+
+
+#user
+{ display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  background-color: white;
+  border: 2px solid #20233F;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: caviar;
+}
+
+#infos
+{ width: 60%;
+}
+
+#infos p
+{ margin-left: 15px;
+}
+
+#boutons
+{ font-style: italic;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+#boutons a
+{ border-radius: 10px;
+  border: 2px solid #20233F;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: #20233F;
+  margin-bottom: 15px;
+  margin-left: 25px;
+}
+
+#boutons a:last-of-type
+{ background-color: #20233F;
+  color: white;
+}
+
+#boutons a:hover
+{ background-color: #C3C6D1;
+  color:  #20233F;
+}
