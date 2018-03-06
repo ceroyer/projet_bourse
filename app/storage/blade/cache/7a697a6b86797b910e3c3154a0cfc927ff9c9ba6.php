@@ -24,15 +24,11 @@ Accueil
     <input type="submit" name="deco" value="DECONNEXION">
   </form>
 
-
-
 <div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div>
 <div class="content">
   <p>Voici votre bulletin</p>
 </div>
-
 <a href="<?php echo e(url('/profile')); ?>" class="button">Mon profil</a>
-
 </header>
 
 <section>
@@ -61,7 +57,6 @@ Accueil
         </tr>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </table>
-
   </div>
 
   <div id="cac80">
@@ -114,13 +109,7 @@ Accueil
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </table>
   </div>
-
-
 </section>
-
-
-
-
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
