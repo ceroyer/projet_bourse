@@ -19,13 +19,13 @@
         <li>Anticipez vos futures actions</li>
       </ul>
       <button class="view-more1" onclick="fonctionDescendreInscription">Inscription</button>
-      <button class="view-more2" onclick="fonctionDescendreConnextion">Déjà inscrit?</button>
+      <button class="view-more2" onclick="fonctionDescendreConnexion">Déjà inscrit?</button>
     </div>
   </section>
   <section id="information">
     <div class="inscription">
     <form method="POST" id="formulaireInscription">
-      <h1>Inscription</h1>
+      <h2>Inscription</h2>
       <div class="connecttext">
         <label class="form_col" for="nom"> Identifiant: </label>
         <input type="text" name="nom"/>
@@ -69,6 +69,7 @@
     </div>
     <div class="connexion">
     <form method="POST" id="formulaireConnexion">
+      <h2>Connexion</h2>
       <div class="connecttext">
         <label class="form_col" for="nom"> Identifiant: </label>
         <input type="text" name="nom"/>
