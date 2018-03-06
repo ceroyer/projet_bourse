@@ -9,7 +9,7 @@ use Models\Users;
 class LoginController extends Controller{
 
   public function loginPage(){
-    if (isset($_SESSION['err'])){ // Création Variable error
+    if (!isset($_SESSION['err'])){ // Création Variable error
       $_SESSION['err'] = false; // contient "faux"
       }
 
@@ -29,15 +29,10 @@ class LoginController extends Controller{
       $_SESSION['deactive'] = false; // contient "faux"
       }
 
-      //dump($_SESSION['error']);die();
+
       echo $blade->render(
       'login', // appel de la view
-      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err']
-
-
-
-    ]
-      );
+      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err']]);
     }
   }
 
