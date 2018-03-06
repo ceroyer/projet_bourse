@@ -4,17 +4,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-<?php if($err == true): ?>
-<h2 style='color:red'>Email Incorrect!</h2>
-<?php endif; ?>
-
-<?php if($error): ?>
-<h2 style='color:red'>Identifiants invalides!</h2>
-<?php endif; ?>
-<?php if($deactive ==1): ?>
-<h2 style='color:red'>Compte désactivé</h2>
-<?php endif; ?>
-
 <section class="accueil content">
   <div>
     <img src="<?php echo e(url('/assets/img/logoGros.png')); ?>" alt="Logo">
@@ -73,13 +62,16 @@
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
-
+    <?php if($err == true): ?>
+    <h2 style='color:red'>Email Incorrect!</h2>
+   <?php endif; ?>
     <?php if($error): ?>
       <h2 style='color:red'>Identifiants invalides!</h2>
     <?php endif; ?>
-    <?php if($login['active']=1): ?>
+    <?php if($deactive === true): ?>
       <h2 style='color:red'>Compte désactivé</h2>
     <?php endif; ?>
+
 
     <div id="connexion">
     <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
