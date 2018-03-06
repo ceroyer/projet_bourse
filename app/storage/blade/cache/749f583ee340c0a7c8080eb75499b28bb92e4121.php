@@ -13,32 +13,26 @@ Le titre
                     <th>Dégrader</th>
                 </thead>
                 <tbody>
-                <?php
-                foreach ($users as $user) {
-
-                  if ($user['role'] === "admin") {
-                  ?>
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php if($user['role'] === "admin"): ?>
                   <tr>
-                      <td><?php echo $user['pseudo'] ?></td>
-                      <td><?php echo $user['email'] ?></td>
+                      <td><?php echo e($user['pseudo']); ?></td>
+                      <td><?php echo e($user['email']); ?></td>
                     <form action="<?php echo e(url('/bo/delete')); ?>" method="POST">
-                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                     </form>
                     <?php if($_SESSION['id']!=$user['id']): ?>
                     <form action="<?php echo e(url('/bo/downgrade')); ?>" method="POST">
-                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-angle-double-down"></i>
                       </button></td>
                     </form>
                     <?php endif; ?>
-                        <td></td>              
+                        <td></td>
                   </tr>
-                  <?php
-
-                  }
-                }
-                 ?>
+                  <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
 
@@ -53,50 +47,41 @@ Le titre
                     <th>Mode Vacances</th>
                 </thead>
                 <tbody>
-                <?php
-                foreach ($users as $user) {
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                  if ($user['role'] === "user") {
-                  ?>
+                  <?php if($user['role'] === "user"): ?>
+
                   <tr>
-                      <td><?php echo $user['pseudo'] ?></td>
-                      <td><?php echo $user['email'] ?></td>
+                      <td><?php echo e($user['pseudo']); ?></td>
+                      <td><?php echo e($user['email']); ?></td>
                     <form action="<?php echo e(url('/bo/delete')); ?>" method="POST">
-                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                     </form>
 
                     <form action="<?php echo e(url('/bo/upgrade')); ?>" method="POST">
-                    <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                    <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                     <td><button type="submit" class="btn btn-primary"><i class="fa fa-diamond" aria-hidden="true"></i></button></td>
                     </form>
 
-                    <?php if($user['active']==0): ?><!-- Si l'utilisateur est activé affichage du mode vacances  --> 
+                    <?php if($user['active']==0): ?><!-- Si l'utilisateur est activé affichage du mode vacances  -->
                     <form action="<?php echo e(url('/bo/deactivaded')); ?>" method="POST">
-                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button type="submit" class="btn btn-danger"><i class="fa fa-plane"></i>
                       </button></td>
                     </form>
                     <?php else: ?>
                     <form action="<?php echo e(url('/bo/reactivaded')); ?>" method="POST">
-                      <input type="text" name="id" value="<?php echo $user['id'] ?>" hidden>
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button type="submit" class="btn btn-success"><i class="fa fa-coffee"></i>
                       </button></td>
                     </form>
                     <?php endif; ?>
-
-
                   </tr>
-
-                  <?php
-
-                  }
-                }
-                 ?>
+                  <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
-
-
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
