@@ -1,8 +1,7 @@
-@extends( 'layoutheaderfooter' )
-@section('title')
+<?php $__env->startSection('title'); ?>
 Le titre
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <style type="text/css">*{color: white; } .modal-header,.modal-body>p{color:black;}</style>
 <h1>Les administrateurs</h1>
 <table class="table">
@@ -14,26 +13,26 @@ Le titre
                     <th>Dégrader</th>
                 </thead>
                 <tbody>
-                @foreach ($users as $user)
-                  @if ($user['role'] === "admin")
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php if($user['role'] === "admin"): ?>
                   <tr>
-                      <td>{{ $user['pseudo'] }}</td>
-                      <td>{{ $user['email'] }}</td>
-                    <form action="{{url('/bo/delete')}}" method="POST">
-                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                      <td><?php echo e($user['pseudo']); ?></td>
+                      <td><?php echo e($user['email']); ?></td>
+                    <form action="<?php echo e(url('/bo/delete')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                     </form>
-                    @if($_SESSION['id']!=$user['id'])
-                    <form action="{{url('/bo/downgrade')}}" method="POST">
-                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                    <?php if($_SESSION['id']!=$user['id']): ?>
+                    <form action="<?php echo e(url('/bo/downgrade')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-angle-double-down"></i>
                       </button></td>
                     </form>
-                    @endif
+                    <?php endif; ?>
                         <td></td>
                   </tr>
-                  @endif
-                @endforeach
+                  <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
 
@@ -48,15 +47,15 @@ Le titre
                     <th>Mode Vacances</th>
                 </thead>
                 <tbody>
-                @foreach ($users as $user)
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                  @if ($user['role'] === "user")
+                  <?php if($user['role'] === "user"): ?>
 
                   <tr>
-                      <td>{{ $user['pseudo'] }}</td>
-                      <td>{{ $user['email'] }}</td>
-                    <form action="{{url('/bo/delete')}}" method="POST">
-                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                      <td><?php echo e($user['pseudo']); ?></td>
+                      <td><?php echo e($user['email']); ?></td>
+                    <form action="<?php echo e(url('/bo/delete')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button class="btn btn-secondary" type="button" data-toggle="modal"  href="#myModal"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                       <div id="myModal" class="modal fade">
                         <div class="modal-dialog">
@@ -66,7 +65,7 @@ Le titre
                                   <h4 class="modal-title">Confirmation</h4>
                               </div>
                               <div class="modal-body">
-                                  <p>Voulez vous vraiment supprimé {{ $user['pseudo'] }}</p>
+                                  <p>Voulez vous vraiment supprimé <?php echo e($user['pseudo']); ?></p>
                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
                              </div>
                               <div class="modal-footer">
@@ -78,27 +77,33 @@ Le titre
                       </div>
                     </form>
 
-                    <form action="{{url('/bo/upgrade')}}" method="POST">
-                    <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                    <form action="<?php echo e(url('/bo/upgrade')); ?>" method="POST">
+                    <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                     <td><button type="submit" class="btn btn-primary"><i class="fa fa-diamond" aria-hidden="true"></i></button></td>
                     </form>
 
-                    @if($user['active']==0)<!-- Si l'utilisateur est activé affichage du mode vacances  -->
-                    <form action="{{url('/bo/deactivaded')}}" method="POST">
-                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                    <?php if($user['active']==0): ?><!-- Si l'utilisateur est activé affichage du mode vacances  -->
+                    <form action="<?php echo e(url('/bo/deactivaded')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button type="submit" class="btn btn-danger"><i class="fa fa-plane"></i>
                       </button></td>
                     </form>
-                    @else
-                    <form action="{{url('/bo/reactivaded')}}" method="POST">
-                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                    <?php else: ?>
+                    <form action="<?php echo e(url('/bo/reactivaded')); ?>" method="POST">
+                      <input type="text" name="id" value="<?php echo e($user['id']); ?>" hidden>
                       <td><button type="submit" class="btn btn-success"><i class="fa fa-coffee"></i>
                       </button></td>
                     </form>
-                    @endif
+                    <?php endif; ?>
                   </tr>
-                  @endif
-                @endforeach
+                  <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
-@endsection
+<!-- 
+
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
