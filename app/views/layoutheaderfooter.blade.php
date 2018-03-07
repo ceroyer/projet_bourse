@@ -9,6 +9,21 @@
   <link rel="stylesheet" href="{{ url( '/assets/css/app.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/assets/css/header+footer+admin.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+  <style type="text/css">
+    *{
+      color:white;
+    }
+    table{
+      border: 1px solid white;
+    }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: red;
+    }
+  </style>
   @yield('additional_css')
 </head>
 <body>
@@ -21,7 +36,6 @@
     <div id="compte">
       <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
-        <div></div>
       </div>
       <div class="content">
         <p>Voici votre bulletin</p>
