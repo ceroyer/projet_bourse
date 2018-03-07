@@ -17,11 +17,14 @@ class LoginController extends Controller{
       redirect('/stats'); // Accès à l'espace connecté
     }
 
+<<<<<<< HEAD
     if (!isset($_SESSION['errorAge'])){  //si var arrorAge pas créée
         $_SESSION['errorAge'] = false;
     }
 
 
+=======
+>>>>>>> 8bf5024b65330f57341b98ea72643412898c052f
     else { // Si pas connecté affichage de l'espace connexion
       global $blade;
       $logins = Users::getInstance()->getAll();
@@ -35,18 +38,22 @@ class LoginController extends Controller{
 
       echo $blade->render(
       'login', // appel de la view
+<<<<<<< HEAD
       ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err'], 'errorAge' => $_SESSION['errorAge']]);
       $_SESSION['err'] = false;
       $_SESSION['deactive'] = false;
       $_SESSION['error'] = false;
       $_SESSION['errorAge'] = false;
+=======
+      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err']]);
+>>>>>>> 8bf5024b65330f57341b98ea72643412898c052f
     }
   }
 
   public function login(){
 
     $logins = Users::getInstance()->getAll();
-    global $blade;
+
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
 
       $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
@@ -56,6 +63,7 @@ class LoginController extends Controller{
 
       foreach ($logins as $login) {
 
+<<<<<<< HEAD
         if ($login['active']== 1) {
           $_SESSION['deactive']=true;
           redirect('/');
@@ -70,18 +78,27 @@ class LoginController extends Controller{
             $_SESSION['error'] = true;
             }
           }
+=======
+        $_SESSION['deactive']=$login['active'];
+
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect AND $login['active']== 0) {    // Si pseudo & mdp correct
+          $_SESSION['login']=$login['pseudo'];
+          $_SESSION['id']=$login['id'];
+          redirect('/stats'); // acces aux stats
+          break;
+        }
+>>>>>>> 8bf5024b65330f57341b98ea72643412898c052f
       }
       $_POST=null; // Vider les champs & variables
       $loginconnect=null;
       $passwordconnect=null;
-      $_SESSION['error'] = false;
+      $_SESSION['error'] = true;
 
       // Message erreur 'Pseudo ou mdp incorrects'
 
      redirect('/');
     } else {
       redirect('/');
-      $_SESSION['error']=true;
         // Afficher message erreur 'Champs vides'
     }
 
@@ -133,9 +150,20 @@ class LoginController extends Controller{
             if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['email'])){
               $passage_ligne = "\r\n";
             }
+<<<<<<< HEAD
             else
             {
               $passage_ligne = "\n";
+=======
+            else{
+              $_SESSION['err'] = true;
+               echo $blade->render(
+              'login', // appel de la view
+             ['err' => $_SESSION['err'], 'error' => $_SESSION['error']
+        //'deactive' => $login['active']
+    ]
+      );
+>>>>>>> 8bf5024b65330f57341b98ea72643412898c052f
             }
             //Création boudary pour mail
             $boundary = "-----=".md5(rand());

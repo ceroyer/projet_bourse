@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 07 Février 2018 à 17:48
+-- Généré le :  Mer 07 Mars 2018 à 15:53
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -36,16 +36,17 @@ CREATE TABLE `actions` (
   `fermeture` decimal(10,0) NOT NULL,
   `volume` decimal(30,0) NOT NULL,
   `haut` decimal(10,0) NOT NULL,
-  `bas` decimal(10,0) NOT NULL
+  `bas` decimal(10,0) NOT NULL,
+  `indice` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `actions`
 --
 
-INSERT INTO `actions` (`id`, `nom`, `ISIN`, `cours`, `variation`, `ouverture`, `fermeture`, `volume`, `haut`, `bas`) VALUES
-(1, 'orange', 'ORG', '5624', '27', '1995', '4552', '25000', '9544', '1255'),
-(2, 'orange', 'ORG', '5624', '272', '1995', '4552', '25000', '9544', '1255');
+INSERT INTO `actions` (`id`, `nom`, `ISIN`, `cours`, `variation`, `ouverture`, `fermeture`, `volume`, `haut`, `bas`, `indice`) VALUES
+(1, 'orange', 'ORG', '5624', '27', '1995', '4552', '25000', '9544', '1255', '40'),
+(2, 'orange', 'ORG', '5624', '272', '1995', '4552', '25000', '9544', '1255', '40');
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,7 @@ INSERT INTO `users` (`id`, `pseudo`, `password`, `email`, `role`, `active`) VALU
 (6, 'julie', 'c2757c0df6b080e82ce1317149841c6befc10243', 'juliiie1108@gmail.com', 'user', 0),
 (7, 'vincent', '6846105c1de1b40576f2238af8b0bd10ad4527ca', 'punkymotvgame@gmail.com', 'user', 0),
 (8, 'margaux', '12e26feca31b91af92d9e1eb4bc2bb56213874b9', 'margaux.gautherin@gmail.com', 'user', 1),
-(9, 'camille', 'fc01271603f25b35b3f92c61dde551259dbdc3ed', 'bleuarmy24@gmail.com', 'user', 1),
+(9, 'camille', 'fc01271603f25b35b3f92c61dde551259dbdc3ed', 'bleuarmy24@gmail.com', 'user', 0),
 (10, 'yann', '88bb8f43f9095b2c018fca064f388c7673bdabd0', 'ydubois87@gmail.com', 'user', 0),
 (11, 'david', '9e4bb55b0e1cbe606849117db1b97f179405daf3', 'Darknessy@gmail.com', 'user', 0),
 (12, 'william', '3edff0367d6b01ca818cdfebd2344a38cd1f7814', 'willou9979@gmail.com', 'user', 0),

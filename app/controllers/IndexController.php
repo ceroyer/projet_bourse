@@ -48,11 +48,15 @@ function backofficeIndex(){
 function connectedPage(){
   global $blade;
   $actions=Actions::getInstance()->getAll();
-
-     echo $blade->render(
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $user = Users::getInstance()->get($id);
+    echo $blade->render(
         'stats',
-        ['actions'=>$actions]
+        ['actions'=>$actions, 'user' => $user]
       );
+  }
+     
 }
 
 function deconnectedPage(){

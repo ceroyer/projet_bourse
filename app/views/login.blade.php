@@ -3,6 +3,7 @@
 
 @section('additional_css')
 <link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
+<link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
 @endsection
 
 @section('content')
@@ -11,38 +12,45 @@
   <div>
     <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo">
   </div>
-  <div>
+  <div class="accueilText">
     <h1>Trade Heaven</h1>
     <h2>" Ne cherchez plus la bourse, elle s'invite chez vous ! "</h2>
     <ul>
       <li>Consultation de la bourse en temps réel</li>
       <li>Anticipez vos futures actions</li>
     </ul>
-    <button class="view-more1" onclick="fonctionDescendreInscription">Inscription</button>
-    <button class="view-more2" onclick="fonctionDescendreConnextion">Déjà inscrit?</button>
+    <a class="view-more1" href="#information">Inscription</a>
+    <a class="view-more2" href="#information">Déjà inscrit?</a>
   </div>
 </section>
 
 <section id="information">
-    <div id="inscription">
+    <div class="inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
-      <div>
+      <h2>Inscription</h2>
+      <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
       </div>
-      <div>
+      <div class="connecttext">
         <label class="form_col" for="email"> Adresse mail: </label>
         <input type="email" name="email"/>
       </div>
-      <div>
+      <div class="connecttext">
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>
+<<<<<<< HEAD
       <select name="jour" id="jour">
       @for($i=1;$i<=31;$i++)
         @if(0<$i AND $i<10)
           $i = "0" + $i;
         @endif
+=======
+      <div id="date">
+        <select name="jour" id="jour">
+      @for($i=1;$i<=31;$i++){
+>>>>>>> 8bf5024b65330f57341b98ea72643412898c052f
         <option value='{{$i}}'>{{$i}}</option>";
       @endfor
       </select>
@@ -65,6 +73,8 @@
           <option value='{{$i}}'>{{$i}}</option>";
         @endfor
       </select>
+      </div>
+
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
@@ -81,13 +91,15 @@
         <h2 style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     @endif
 
-    <div id="connexion">
+    <div class="connexion" id="connexion">
+
     <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
-      <div>
+      <h2>Connexion</h2>
+      <div class="connecttext">
         <label class="form_col" for="login"> Identifiant: </label>
         <input type="text" name="login"/>
       </div>
-      <div>
+      <div class="connecttext">
         <label class="form_col" for="password"> Mot de passe: </label>
         <input type="password" name="password"/>
       </div>
@@ -103,7 +115,7 @@
     </div>
     <div>
       <h1>Silvie SAVIE</h1>
-      <h2>"Waouh ! Trade heaven a changer ma vie !<br>Je gagne mieux ma vie dorénavant !"</h2>
+      <h2>"Waouh ! Trade heaven a changé ma vie ! Je gagne mieux ma vie dorénavant !"</h2>
     </div>
     <div>
       <h1>Gaetan GENTE</h1>
