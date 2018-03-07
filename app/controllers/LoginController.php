@@ -37,10 +37,7 @@ class LoginController extends Controller{
       'login', // appel de la view
 
       ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err'], 'errorAge' => $_SESSION['errorAge']]);
-      $_SESSION['err'] = false;
-      $_SESSION['deactive'] = false;
-      $_SESSION['error'] = false;
-      $_SESSION['errorAge'] = false;
+       LoginController::resetError();
 
     }
   }
@@ -86,10 +83,7 @@ class LoginController extends Controller{
     } else {
       $_SESSION['error'] = true;
       redirect('/');
-      $_SESSION['err'] = false;
-      $_SESSION['deactive'] = false;
-      $_SESSION['error'] = false;
-      $_SESSION['errorAge'] = false;
+       LoginController::resetError();
 
         // Afficher message erreur 'Champs vides'
     }
@@ -115,10 +109,7 @@ class LoginController extends Controller{
           echo $blade->render(
                   'login', // appel de la view
                  ['err' => $_SESSION['err'], 'error' => $_SESSION['error'],'deactive' =>  $_SESSION['deactive'], 'errorAge' => $_SESSION['errorAge']]);
-              $_SESSION['err'] = false;
-              $_SESSION['deactive'] = false;
-              $_SESSION['error'] = false;
-              $_SESSION['errorAge'] = false;
+              LoginController::resetError();
 
       }else{
       //teste si mail a forme correcte + champs pleins + mails identiques
@@ -165,12 +156,20 @@ class LoginController extends Controller{
                    echo $blade->render(
                   'login', // appel de la view
                  ['err' => $_SESSION['err'], 'error' => $_SESSION['error'],'deactive' =>  $_SESSION['deactive'], 'errorAge' => $_SESSION['errorAge']]);
-              $_SESSION['err'] = false;
-              $_SESSION['deactive'] = false;
-              $_SESSION['error'] = false;
-              $_SESSION['errorAge'] = false;
+              LoginController::resetError();
                 }
           }}
+
+
+   public function resetError() {
+          $_SESSION['err'] = false;
+          $_SESSION['deactive'] = false;
+          $_SESSION['error'] = false;
+          $_SESSION['errorAge'] = false;
+    }
+
+
+
 
 /*
   public function loginPage(){
