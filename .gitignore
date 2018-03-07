@@ -14,10 +14,4 @@
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
-<<<<<<< HEAD
-app/storage/blade/cache/e275b7c9f513e6149e16947275d4890da228fd2e.php
-app/storage/blade/cache/e275b7c9f513e6149e16947275d4890da228fd2e.php
-app/storage/blade/cache/e275b7c9f513e6149e16947275d4890da228fd2e.php
-=======
 
->>>>>>> cfd45ea770fd43912dc338b2ccde7c45d8ef32b3
