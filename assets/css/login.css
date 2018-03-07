@@ -1,22 +1,22 @@
 @font-face{
   font-family: Raspoutine;
-  src:url('./font/Raspoutine/RaspoutineClassic_TB.otf');
+  src:url('../font/Raspoutine/RaspoutineClassic_TB.otf');
 }
 @font-face{
   font-family: Signature of the Ancient;
-  src:url('./font/Signature of the Ancient/Signature of the Ancient.ttf');
+  src:url('../font/Signature of the Ancient/Signature of the Ancient.ttf');
 }
 @font-face{
   font-family: Modern King;
-  src:url('./font/Modern King/Modern King.ttf.otf');
+  src:url('../font/Modern King/Modern King.ttf.otf');
 }
 @font-face{
   font-family: CaviarDreams;
-  src:url('./font/CaviarDreams/CaviarDreams.ttf');
+  src:url('../font/CaviarDreams/CaviarDreams.ttf');
 }
 @font-face{
   font-family: CaviarDreamsIta;
-  src:url('./font/CaviarDreams/CaviarDreams_Italic.ttf');
+  src:url('../font/CaviarDreams/CaviarDreams_Italic.ttf');
 }
 
 html
@@ -25,7 +25,7 @@ html
   font-size:12px;
 }
 *
-{ box-sizing:content-box;
+{ box-sizing:border-box;
 }
 
 /* ////////////////// MISE EN FORME ////////////////// */
@@ -40,13 +40,8 @@ body
   flex-direction:column;
   justify-content: center;
   align-items: center;
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
 }
-.container-fluid{
-  width:100%;
-  padding:0;
-}
-
 .content
 {
   overflow: auto;
@@ -89,7 +84,7 @@ section
   justify-content: center;
   align-items: center;
 }
-.accueil>div:nth-child(2)
+.accueilText
 {
   display:flex;
   flex-direction:column;
@@ -105,7 +100,7 @@ section
 .accueil h1
 {
   font-family:Raspoutine;
-  height:8%;
+  height:20%;
   font-size:15vh;
   color:white;
   text-shadow: 0.1em 0.1em 0.1em black;
@@ -153,6 +148,29 @@ section
 
 
 /* Deuxième partie - Inscription & connexion */
+#information {
+  overflow: auto;
+  position: relative;
+}
+
+#information:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  background-image: url('../img/acceuil3.jpg');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
 
 .inscription, .connexion
 {
@@ -164,6 +182,7 @@ section
   width:35vw;
   position: absolute;
   right::50%;
+  background-color: #1F2340;
 }
 .connexion
 {
@@ -176,17 +195,30 @@ form
   display:flex;
   flex-direction:column;
   justify-content: space-around;
-  align-items: start;
+  align-items: center;
   padding-left: 10%;
   padding-right: 10%;
+}
+form h2 {
+  font-family: CaviarDreams;
+  font-size: 36px;
+  color: white;
+}
+form label {
+  font-family: CaviarDreams;
+  font-size: 28px;
+  color: white;
 }
 .connecttext
 {
   display:flex;
   flex-direction:column;
   justify-content: space-around;
-  align-items: start;
+  align-items: center;
   width:100%;
+}
+.connecttext label {
+  align-items: start;
 }
 input
 {
@@ -198,11 +230,21 @@ input
 {
   display:flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: center;
+  justify-content: space-around;
+  align-items: end;
   width:100%;
 }
 select
 {
-  margin-right:10%;
+  height:2vw;
+  width:6vw;
+}
+button
+{
+  height:7%;
+  width:33%;
+  background-color: #1F2340;
+  font-family: CaviarDreams;
+  font-size: 28px;
+  color: white;
 }
