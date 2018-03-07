@@ -3,7 +3,6 @@
 Espace administrateur
 @endsection
 @section('content')
-<<<<<<< HEAD
 @section('additional_css')
   <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/admin.css' ) }}">
   <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
