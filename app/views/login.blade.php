@@ -19,8 +19,8 @@
       <li>Consultation de la bourse en temps réel</li>
       <li>Anticipez vos futures actions</li>
     </ul>
-    <a class="view-more1" onclick="fonctionDescendreInscription();" href="#information">Inscription</a>
-    <a class="view-more2" onclick="fonctionDescendreConnexion();" href="#information">Déjà inscrit?</a>
+    <a class="view-more1" href="#information">Inscription</a>
+    <a class="view-more2" href="#information">Déjà inscrit?</a>
   </div>
 </section>
 

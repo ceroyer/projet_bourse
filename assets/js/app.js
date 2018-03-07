@@ -46,11 +46,13 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-function fonctionDescendreInscription(){
-  document.getElementsById("connexion").style.display="none";
-  document.getElementsById("inscription").style.display="flex";
-}
-function fonctionDescendreConnexion(){
-  document.getElementsById("connexion").style.display="flex";
-  document.getElementsById("inscription").style.display="none";
-}
+$('.view-more1').click( function (event) {
+  $("#connexion").css("display","none");
+  $("#inscription").css("display","flex");
+});
+
+$('.view-more2').click( function (event) {
+  $("#connexion").css("display","flex");
+  $("#inscription").css("display","none");
+});
+
