@@ -252,7 +252,7 @@ button
 
 /* Troisième partie - Bulles */
 #commentaire {
-	height:100vh;
+	min-height:100vh;
 	background-image:url(../img/accueil2.jpg);
 	display:flex;
 	flex-wrap:wrap;
