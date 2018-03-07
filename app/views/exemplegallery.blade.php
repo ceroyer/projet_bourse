@@ -89,8 +89,4 @@ Accueil
               <!--end modal-content--></div>
               <!--end modal-dialoge--></div>
 
-
-
-
-
 @endsection
