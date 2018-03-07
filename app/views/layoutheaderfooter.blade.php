@@ -19,16 +19,19 @@
     </div>
     <h1>@yield('title')</h1>
     <div id="compte">
-      <div id="alerte">
+      <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
         <div></div>
       </div>
-      <a href="#">
+      <div class="content">
+        <p>Voici votre bulletin</p>
+      </div>
+      <a href="{{ url('/profile') }}">
         <p>{{ $user['pseudo'] }}</p>
         <p>Mon profil</p>
       </a>
       <img src="assets/img/profil.png" alt="profil">
-      <a href="#">Déconnexion</a>
+      <a method="post" href="{{ url('/deco') }}">Déconnexion</a>
     </div>
   </nav>
 
