@@ -1,25 +1,15 @@
 <?php $__env->startSection('additional_css'); ?>
 <link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-
-<?php if($err == true): ?>
-<h2 style='color:red'>Email Incorrect!</h2>
-<?php endif; ?>
-
-<?php if($error): ?>
-<h2 style='color:red'>Identifiants invalides!</h2>
-<?php endif; ?>
-<?php if($deactive ==1): ?>
-<h2 style='color:red'>Compte désactivé</h2>
-<?php endif; ?>
 
 <section class="accueil content">
   <div>
     <img src="<?php echo e(url('/assets/img/logoGros.png')); ?>" alt="Logo">
   </div>
-  <div>
+  <div class="accueilText">
     <h1>Trade Heaven</h1>
     <h2>" Ne cherchez plus la bourse, elle s'invite chez vous ! "</h2>
     <ul>
@@ -32,21 +22,23 @@
 </section>
 
 <section id="information">
-    <div id="inscription">
+    <div class="inscription">
     <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
-      <div>
+      <h2>Inscription</h2>
+      <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
       </div>
-      <div>
+      <div class="connecttext">
         <label class="form_col" for="email"> Adresse mail: </label>
         <input type="email" name="email"/>
       </div>
-      <div>
+      <div class="connecttext">
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>
-      <select name="jour" id="jour">
+      <div id="date">
+        <select name="jour" id="jour">
       <?php for($i=1;$i<=31;$i++): ?>{
         <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
       <?php endfor; ?>
@@ -70,24 +62,34 @@
           <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
         <?php endfor; ?>
       </select>
+      </div>
+
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
-
+    <?php if($err == true): ?>
+    <h2 style='color:red'>Email Incorrect!</h2>
+   <?php endif; ?>
     <?php if($error): ?>
       <h2 style='color:red'>Identifiants invalides!</h2>
     <?php endif; ?>
-    <?php if($login['active']=1): ?>
+    <?php if($deactive === true): ?>
       <h2 style='color:red'>Compte désactivé</h2>
     <?php endif; ?>
 
+<<<<<<< HEAD
+    <div class="connexion">
+=======
+
     <div id="connexion">
+>>>>>>> 70e65a2505d21e517f7902b28e5f0cbeb82bdc4b
     <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
-      <div>
+      <h2>Connexion</h2>
+      <div class="connecttext">
         <label class="form_col" for="login"> Identifiant: </label>
         <input type="text" name="login"/>
       </div>
-      <div>
+      <div class="connecttext">
         <label class="form_col" for="password"> Mot de passe: </label>
         <input type="password" name="password"/>
       </div>
