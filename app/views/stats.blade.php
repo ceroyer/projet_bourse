@@ -1,8 +1,9 @@
-@extends('layout')
+@extends('layoutheaderfooter')
 @section('title')
 Accueil
 @endsection
 @section('additional_css')
+<link rel="stylesheet" href="assets/css/header+footer+admin.css">
 <style type="text/css">
     *{
       color:white;
