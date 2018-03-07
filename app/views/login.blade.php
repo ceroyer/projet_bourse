@@ -105,7 +105,7 @@
     </div>
     <div>
       <h1>Silvie SAVIE</h1>
-      <h2>"Waouh ! Trade heaven a changer ma vie !<br>Je gagne mieux ma vie dorénavant !"</h2>
+      <h2>"Waouh ! Trade heaven a changé ma vie ! Je gagne mieux ma vie dorénavant !"</h2>
     </div>
     <div>
       <h1>Gaetan GENTE</h1>
