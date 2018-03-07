@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url( '/assets/css/app.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/assets/css/header+footer+admin.css' ) }}">
+  <link rel="stylesheet" href="{{ url( '/assets/css/font-family.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/font-awesome-4.7.0/css/font-awesome.min.css')}}">
   <style type="text/css">
     *{
@@ -36,6 +37,7 @@
     <div id="compte">
       <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
+        <div></div>
       </div>
       <div class="content">
         <p>Voici votre bulletin</p>
