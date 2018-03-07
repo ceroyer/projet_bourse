@@ -253,7 +253,7 @@ button
 /* Troisième partie - Bulles */
 #commentaire {
 	height:100vh;
-	background-image:url(img/test.jpg);
+	background-image:url(../img/test.jpg);
 	display:flex;
 	flex-wrap:wrap;
 }
@@ -278,11 +278,11 @@ button
 }
 
 #commentaire div:nth-child(odd){
-	background-image:url(img/bulle.png);
+	background-image:url(../img/bulle.png);
 }
 
 #commentaire div:nth-child(even){
-	background-image:url(img/bulle2.png);
+	background-image:url(../img/bulle2.png);
 }
 
 #commentaire h2{
