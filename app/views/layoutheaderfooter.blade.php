@@ -26,10 +26,12 @@
       <div class="content">
         <p>Voici votre bulletin</p>
       </div>
+      @if ($user != null)
       <a href="{{ url('/profile') }}">
         <p>{{ $user['pseudo'] }}</p>
         <p>Mon profil</p>
       </a>
+      @endif
       <img src="assets/img/profil.png" alt="profil">
       <a method="post" href="{{ url('/deco') }}">Déconnexion</a>
     </div>
