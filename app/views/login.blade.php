@@ -3,6 +3,7 @@
 
 @section('additional_css')
 <link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
+<link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
 @endsection
 
 @section('content')

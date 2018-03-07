@@ -9,7 +9,7 @@
 <body>
   <section class="accueil content">
     <div>
-      <img src="./img/logoGros.png" alt="Logo">
+      <img src="./assets/img/logoGros.png" alt="Logo">
     </div>
     <div>
       <h1>Trade Heaven</h1>
