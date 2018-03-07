@@ -3,20 +3,6 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-<<<<<<< HEAD
-
-<?php if($err == true): ?>
-<h2 style='color:red'>Email Incorrect!</h2>
-<?php endif; ?>
-
-<?php if($error): ?>
-<h2 style='color:red'>Identifiants invalides!</h2>
-<?php endif; ?>
-<?php if($deactive ==1): ?>
-<h2 style='color:red'>Compte désactivé</h2>
-<?php endif; ?>
-=======
->>>>>>> 634445b4108fd51c1cf2828da04eb46df8d58b0b
 
 <section class="accueil content">
   <div>
