@@ -37,17 +37,11 @@
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>
-<<<<<<< HEAD
       <select name="jour" id="jour">
       <?php for($i=1;$i<=31;$i++): ?>
         <?php if(0<$i AND $i<10): ?>
           $i = "0" + $i;
         <?php endif; ?>
-=======
-      <div id="date">
-        <select name="jour" id="jour">
-      <?php for($i=1;$i<=31;$i++): ?>{
->>>>>>> 8bf5024b65330f57341b98ea72643412898c052f
         <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
       <?php endfor; ?>
       </select>
@@ -70,8 +64,6 @@
           <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
         <?php endfor; ?>
       </select>
-      </div>
-
       <button type="submit"> S'inscrire </button>
     </form>
     </div>

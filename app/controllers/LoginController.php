@@ -33,7 +33,6 @@ class LoginController extends Controller{
       if (!isset($_SESSION['deactive'])){ // Création Variable Deactive
         $_SESSION['deactive'] = false; // contient "faux"
       }
-
       echo $blade->render(
       'login', // appel de la view
 
@@ -85,6 +84,7 @@ class LoginController extends Controller{
 
      redirect('/');
     } else {
+      $_SESSION['error'] = true;
       redirect('/');
         // Afficher message erreur 'Champs vides'
     }
