@@ -46,3 +46,11 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+function fonctionDescendreInscription(){
+  document.getElementsById("connexion").style.display="none";
+  document.getElementsById("inscription").style.display="flex";
+}
+function fonctionDescendreConnexion(){
+  document.getElementsById("connexion").style.display="flex";
+  document.getElementsById("inscription").style.display="none";
+}
