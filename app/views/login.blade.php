@@ -16,7 +16,7 @@
 @endif
 @if($deactive ==1)
 <h2 style='color:red'>Compte désactivé</h2>
-
+@endif
 
 <section class="accueil content">
   <div>
