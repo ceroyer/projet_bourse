@@ -1,3 +1,0 @@
-Time : 16:03:52
-SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bd_bourse.action' doesn't exist
-Raw SQL : SELECT * FROM action
