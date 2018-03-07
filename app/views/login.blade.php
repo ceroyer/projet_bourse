@@ -40,7 +40,8 @@
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>
-      <select name="jour" id="jour">
+      <div id="date">
+        <select name="jour" id="jour">
       @for($i=1;$i<=31;$i++)
         @if(0<$i AND $i<10)
           $i = "0" + $i;
