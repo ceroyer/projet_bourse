@@ -80,12 +80,9 @@
       <h2 style='color:red'>Compte désactivé</h2>
     @endif
 
-<<<<<<< HEAD
-    <div class="connexion">
-=======
 
-    <div id="connexion">
->>>>>>> 70e65a2505d21e517f7902b28e5f0cbeb82bdc4b
+    <div class="connexion">
+
     <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
       <h2>Connexion</h2>
       <div class="connecttext">
