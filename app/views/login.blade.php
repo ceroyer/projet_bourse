@@ -25,7 +25,7 @@
 </section>
 
 <section id="information">
-    <div class="inscription">
+    <div class="inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       <div class="connecttext">
@@ -81,7 +81,7 @@
     @endif
 
 
-    <div class="connexion">
+    <div class="connexion" id="connexion">
 
     <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
       <h2>Connexion</h2>
