@@ -4,21 +4,6 @@ Accueil
 @endsection
 @section('additional_css')
 <link rel="stylesheet" href="assets/css/header+footer+admin.css">
-<style type="text/css">
-    *{
-      color:white;
-    }
-    table{
-      border: 1px solid white;
-    }
-
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: red;
-    }
-</style>
 @endsection
 @section('content')
 <header>

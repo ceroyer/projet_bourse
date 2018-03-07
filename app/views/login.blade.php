@@ -42,20 +42,23 @@
       </div>
       <div id="date">
         <select name="jour" id="jour">
-      @for($i=1;$i<=31;$i++){
+      @for($i=1;$i<=31;$i++)
+        @if(0<$i AND $i<10)
+          $i = "0" + $i;
+        @endif
         <option value='{{$i}}'>{{$i}}</option>";
       @endfor
       </select>
       <select name="mois" id="mois">
-        <option value="1">Janvier</option>
-        <option value="2">Février</option>
-        <option value="3">Mars</option>
-        <option value="4">Avril</option>
-        <option value="5">Mai</option>
-        <option value="6">Juin</option>
-        <option value="7">Juillet</option>
-        <option value="8">Août</option>
-        <option value="9">Septembre</option>
+        <option value="01">Janvier</option>
+        <option value="02">Février</option>
+        <option value="03">Mars</option>
+        <option value="04">Avril</option>
+        <option value="05">Mai</option>
+        <option value="06">Juin</option>
+        <option value="07">Juillet</option>
+        <option value="08">Août</option>
+        <option value="09">Septembre</option>
         <option value="10">Octobre</option>
         <option value="11">Novembre</option>
         <option value="12">Décembre</option>
@@ -79,7 +82,9 @@
     @if($deactive === true)
       <h2 style='color:red'>Compte désactivé</h2>
     @endif
-
+    @if($errorAge)
+        <h2 style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
+    @endif
 
     <div class="connexion" id="connexion">
 
