@@ -1,4 +1,4 @@
-@extends( 'layout' )
+@extends( 'layoutheaderfooter' )
 @section('title')
 Le titre
 @endsection

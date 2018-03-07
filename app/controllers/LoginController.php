@@ -18,7 +18,6 @@ class LoginController extends Controller{
       redirect('/stats'); // Accès à l'espace connecté
     }
 
-
     else { // Si pas connecté affichage de l'espace connexion
       global $blade;
       $logins = Users::getInstance()->getAll();
@@ -34,16 +33,13 @@ class LoginController extends Controller{
       echo $blade->render(
       'login', // appel de la view
       ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err']]);
-      $_SESSION['err'] = false;
-      $_SESSION['deactive'] = false;
-      $_SESSION['error'] = false;
     }
   }
 
   public function login(){
 
     $logins = Users::getInstance()->getAll();
-    global $blade;
+
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
 
 
@@ -57,33 +53,20 @@ class LoginController extends Controller{
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
       foreach ($logins as $login) {
-        if ($login['active']== 1) {
-          $_SESSION['deactive']=true;
-           redirect('/');
 
-        }else{
-       // $_SESSION['deactive']=$login['active'];
-        //var_dump($login['active']);die();
-        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
+        $_SESSION['deactive']=$login['active'];
+
+        if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect AND $login['active']== 0) {    // Si pseudo & mdp correct
           $_SESSION['login']=$login['pseudo'];
           $_SESSION['id']=$login['id'];
           redirect('/stats'); // acces aux stats
           break;
-        }else{
-          $_SESSION['error'] = true;
-
         }
-
-      }
-
-
-
-
       }
       $_POST=null; // Vider les champs & variables
       $loginconnect=null;
       $passwordconnect=null;
-      $_SESSION['error'] = false;
+      $_SESSION['error'] = true;
 
       // Message erreur 'Pseudo ou mdp incorrects'
 
@@ -91,7 +74,6 @@ class LoginController extends Controller{
     }
     else{
       redirect('/');
-      $_SESSION['error']=true;
         // Afficher message erreur 'Champs vides'
     }
 
@@ -151,10 +133,10 @@ class LoginController extends Controller{
               $_SESSION['err'] = true;
                echo $blade->render(
               'login', // appel de la view
-             ['err' => $_SESSION['err'], 'error' => $_SESSION['error'],'deactive' =>  $_SESSION['deactive']]);
-          $_SESSION['err'] = false;
-          $_SESSION['deactive'] = false;
-          $_SESSION['error'] = false;
+             ['err' => $_SESSION['err'], 'error' => $_SESSION['error']
+        //'deactive' => $login['active']
+    ]
+      );
             }
           }
 

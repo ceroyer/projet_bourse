@@ -17,6 +17,7 @@ $route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
 
 
 $route->addRoute( 'POST'  , '/deco' ,    'IndexController@deconnectedPage' );
+$route->addRoute( 'GET'  , '/deco' ,    'IndexController@deconnectedPage' );
 // $route->addRoute( 'POST' , '/deco' ,    'IndexController@deconnectedPage' );
 
 // Route appelée quand on valide l'un des deux formulaires

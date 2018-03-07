@@ -1,8 +1,9 @@
-@extends('layout')
+@extends('layoutheaderfooter')
 @section('title')
 Accueil
 @endsection
 @section('additional_css')
+<link rel="stylesheet" href="assets/css/header+footer+admin.css">
 <style type="text/css">
     *{
       color:white;
@@ -21,15 +22,13 @@ Accueil
 @endsection
 @section('content')
 <header>
-  <form method="post" action="{{ url('/deco') }}">
+  <!-- <form method="post" action="{{ url('/deco') }}">
     <input type="submit" name="deco" value="DECONNEXION">
-  </form>
+  </form> -->
 
-<div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div>
-<div class="content">
-  <p>Voici votre bulletin</p>
-</div>
-<a href="{{ url('/profile') }}" class="button">Mon profil</a>
+<!-- <div class="collapsible"  style="background-color: blue"><i class="fa fa-bell" aria-hidden="true" ></i></div> -->
+
+<!-- <a href="{{ url('/profile') }}" class="button">Mon profil</a> -->
 </header>
 
 <section>
