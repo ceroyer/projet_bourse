@@ -17,7 +17,7 @@
       <li>Anticipez vos futures actions</li>
     </ul>
     <button class="view-more1" onclick="fonctionDescendreInscription">Inscription</button>
-    <button class="view-more2" onclick="fonctionDescendreConnextion">Déjà inscrit?</button>
+    <button class="view-more2" onclick="fonctionDescendreConnexion">Déjà inscrit?</button>
   </div>
 </section>
 
@@ -77,12 +77,9 @@
       <h2 style='color:red'>Compte désactivé</h2>
     <?php endif; ?>
 
-<<<<<<< HEAD
-    <div class="connexion">
-=======
 
-    <div id="connexion">
->>>>>>> 70e65a2505d21e517f7902b28e5f0cbeb82bdc4b
+    <div class="connexion">
+
     <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
       <h2>Connexion</h2>
       <div class="connecttext">
