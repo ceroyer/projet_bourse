@@ -253,7 +253,7 @@ button
 /* Troisième partie - Bulles */
 #commentaire {
 	height:100vh;
-	background-image:url(../img/test.jpg);
+	background-image:url(../img/accueil2.jpg);
 	display:flex;
 	flex-wrap:wrap;
 }
@@ -292,10 +292,12 @@ button
 	margin-bottom: 0px;
 	margin-top: 0px;
 	text-shadow:2px 2px white;
+	color:black;
 }
 
 #commentaire h1{
 	font-family:Raspoutine;
+	color:black;
 	
 }
 
