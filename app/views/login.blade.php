@@ -67,8 +67,6 @@
           <option value='{{$i}}'>{{$i}}</option>";
         @endfor
       </select>
-      </div>
-
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
