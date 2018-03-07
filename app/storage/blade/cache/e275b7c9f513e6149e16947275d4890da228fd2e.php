@@ -37,7 +37,8 @@
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>
-      <select name="jour" id="jour">
+      <div id="date">
+        <select name="jour" id="jour">
       <?php for($i=1;$i<=31;$i++): ?>
         <?php if(0<$i AND $i<10): ?>
           $i = "0" + $i;
@@ -64,20 +65,22 @@
           <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
         <?php endfor; ?>
       </select>
+      </div>
+
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
     <?php if($err == true): ?>
-    <h2 style='color:red'>Email Incorrect!</h2>
+    <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
    <?php endif; ?>
     <?php if($error): ?>
-      <h2 style='color:red'>Identifiants invalides!</h2>
+      <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
     <?php endif; ?>
     <?php if($deactive === true): ?>
-      <h2 style='color:red'>Compte désactivé</h2>
+      <h2 class="erreur" style='color:red'>Compte désactivé</h2>
     <?php endif; ?>
     <?php if($errorAge): ?>
-        <h2 style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
+        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     <?php endif; ?>
 
     <div class="connexion" id="connexion">

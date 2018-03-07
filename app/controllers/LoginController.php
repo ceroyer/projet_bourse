@@ -86,6 +86,11 @@ class LoginController extends Controller{
     } else {
       $_SESSION['error'] = true;
       redirect('/');
+      $_SESSION['err'] = false;
+      $_SESSION['deactive'] = false;
+      $_SESSION['error'] = false;
+      $_SESSION['errorAge'] = false;
+
         // Afficher message erreur 'Champs vides'
     }
 

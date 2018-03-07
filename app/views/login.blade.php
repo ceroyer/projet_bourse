@@ -74,16 +74,16 @@
     </form>
     </div>
     @if($err == true)
-    <h2 style='color:red'>Email Incorrect!</h2>
+    <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
    @endif
     @if($error)
-      <h2 style='color:red'>Identifiants invalides!</h2>
+      <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
     @endif
     @if($deactive === true)
-      <h2 style='color:red'>Compte désactivé</h2>
+      <h2 class="erreur" style='color:red'>Compte désactivé</h2>
     @endif
     @if($errorAge)
-        <h2 style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
+        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     @endif
 
     <div class="connexion" id="connexion">
