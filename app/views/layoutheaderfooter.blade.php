@@ -36,6 +36,7 @@
     <div id="compte">
       <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
+        <div></div>
       </div>
       <div class="content">
         <p>Voici votre bulletin</p>
