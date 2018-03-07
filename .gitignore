@@ -1,2 +1,16 @@
+# Cache and logs (Symfony2)
+/app/storage/blade/cache/*
+/app/storage/log/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
 
-**/app/storage/blade/cache
+# Email spool folder
+/app/spool/*
+
+# Cache, session files and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep

@@ -1,0 +1,94 @@
+*
+{ box-sizing:border-box;
+}
+
+@font-face {
+    font-family: modernking;
+    src: url(./../fonts/modernking.ttf);
+}
+
+@font-face {
+    font-family: caviardreams;
+    src: url(./../fonts/caviardreams.ttf);
+}
+
+
+section{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  clear:both;
+}
+
+#infos{
+background-color: #C3C6D1;
+padding:20px;
+width:30%;
+float:left;
+}
+
+#droite{
+  float:right;
+  width:65%;
+
+
+
+}
+
+#supp{
+	  padding:20px;
+	  margin:20px;
+  background-color: #C3C6D1;
+}
+
+#bloc{
+	padding:20px;
+	margin:20px;
+  background-color: #C3C6D1;
+}
+
+h1{
+  font-family:modernking;
+  text-transform:uppercase;
+  text-decoration: underline;
+  font-size:20px;
+}
+
+#mail div{
+  padding-left: 50px;
+}
+
+#entreprises div{
+  padding-left: 50px;
+}
+
+#supp div{
+  padding-left: 50px;
+}
+
+#supp h4{
+  color:#e50000;
+  font-size:18px;
+  padding-left: 25px;
+}
+
+#bloc div{
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
+
+
+#mdp div{
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
+
+p, h4{
+  font-family: caviardreams;
+}
+
+/*table, th, td {
+    border: 1px solid black;
+    font-family: caviardreams;
+    text-align:center;
+}*/

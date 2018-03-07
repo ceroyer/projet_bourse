@@ -7,6 +7,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
 @if($err == true)
 <h2 style='color:red'>Email Incorrect!</h2>
 @endif
@@ -18,6 +19,8 @@
 <h2 style='color:red'>Compte désactivé</h2>
 @endif
 
+=======
+>>>>>>> 634445b4108fd51c1cf2828da04eb46df8d58b0b
 <section class="accueil content">
   <div>
     <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo">
@@ -76,13 +79,16 @@
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
-
+    @if($err == true)
+    <h2 style='color:red'>Email Incorrect!</h2>
+   @endif
     @if($error)
       <h2 style='color:red'>Identifiants invalides!</h2>
     @endif
-    @if($login['active']=1)
+    @if($deactive === true)
       <h2 style='color:red'>Compte désactivé</h2>
     @endif
+
 
     <div id="connexion">
     <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
