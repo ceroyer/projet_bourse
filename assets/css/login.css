@@ -4,11 +4,11 @@
 }
 @font-face{
   font-family: Signature of the Ancient;
-  src:url('../font/Signature of the Ancient/Signature of the Ancient.ttf');
+  src:url('../font/SignatureoftheAncient/Signature.ttf');
 }
 @font-face{
   font-family: Modern King;
-  src:url('../font/Modern King/Modern King.ttf.otf');
+  src:url('../font/ModernKing/Modern_King.ttf.otf');
 }
 @font-face{
   font-family: CaviarDreams;
@@ -287,7 +287,7 @@ button
 
 #commentaire h2{
 	width:60%;
-	text-align: justify; 
+	text-align: justify;
 	font-family: CaviarDreams;
 	margin-bottom: 0px;
 	margin-top: 0px;
@@ -298,7 +298,7 @@ button
 #commentaire h1{
 	font-family:Raspoutine;
 	color:black;
-	
+
 }
 
 #commentaire div:first-child{
