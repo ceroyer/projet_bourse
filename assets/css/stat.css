@@ -1,0 +1,173 @@
+body{
+margin:0;
+padding: 0;
+ }
+@font-face{
+  font-family: "Modern King";
+  src: url("./../font/modern_king.ttf");
+}
+@font-face{
+  font-family: "Caviar Dreams";
+  src: url("./../font/CaviarDreams.ttf");
+}
+@font-face{
+  font-family: "Raspoutine";
+  src: url("./../font/Raspoutine.otf");
+}
+.all{
+  height:100vh;
+ }
+#conteneur{
+  background-color: #c3c6d1;
+  border-radius: 5px;
+  height: 50%;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right:20px;
+}
+#crossbar1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#crossbar1 h1{
+   font-family: "Modern King";
+   color:#20233f;
+}
+.searchbar1{
+  font-family: "Raspoutine";
+  border-radius: 3px;
+  border:1px #20233f solid;
+}
+.btn_searchbar{
+    border-radius: 3px;
+  border:1px #20233f solid;
+}
+.fa-arrow-up{
+  color:green;
+  transform: rotate(45deg);
+}
+.fa-arrow-down{
+  color:red;
+  transform: rotate(-45deg);
+}
+table button{
+  background-color: white;
+  border-style: none;
+}
+#cac{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#cac40{
+  border-radius: 5px;
+    margin-left: auto;
+  margin-right:auto;
+width: 40%;
+height: 50%;
+background-color: white;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+border:2px #20233f solid;
+}
+#cac80{
+  border-radius: 5px;
+    margin-left: auto;
+  margin-right:auto;
+width: 40%;
+height: 50%;
+background-color: white;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+border:2px #20233f solid;
+}
+#cac h1{
+  font-family: "Caviar Dreams";
+  text-align: center;
+  color:#20233f;
+}
+#cac table{
+  text-align: center;
+  margin-bottom: 20px;
+  border:1px black solid;
+  font-family: "Caviar Dreams";
+  color:#20233f;
+}
+#cac th{
+  padding:5px;
+  width:auto;
+  height:auto;
+  border-bottom:1px black solid;
+  background-color: #7e8089;
+  color:white;
+}
+#cac td{
+  padding:5px;
+  width:auto;
+  height:auto;
+}
+#fav{
+  margin-top: 10px;
+  background-color: #c3c6d1;
+  border-radius: 5px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right:20px;
+  position: relative;
+}
+#fav1{
+
+  background-color: white;
+  margin-left: auto;
+margin-right: auto;
+width: 50%;
+height: 50%;
+display: flex;
+align-items: center;
+border-radius: 5px;
+border:2px #20233f solid;
+ }
+#fav h1{
+  text-align: center;
+  font-family: "Caviar Dreams";
+  color:#20233f;
+}
+#fav table{
+  margin-right:auto;
+  margin-left:auto;
+  text-align: center;
+  margin-bottom: 20px;
+  border:1px black solid;
+  font-family: "Caviar Dreams";
+  color:#20233f;
+}
+#fav th{
+  padding:5px;
+  width:auto;
+  height:auto;
+  border-bottom:1px black solid;
+  background-color: #7e8089;
+  color:white;
+}
+#fav td{
+  padding:5px;
+  width:auto;
+  height:auto;
+}
+a{
+  position: absolute;
+  right:50px;
+  font-size:15px;
+  text-decoration: underline;
+  font-family: "Caviar Dreams";
+  bottom: 60px;
+  color:#20233f;
+}
