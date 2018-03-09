@@ -29,11 +29,7 @@ function saveProfile(){
     Users::getInstance()->edit($id , $datas);
     IndexController::envoieMail();
     session_destroy();
-    redirect('/')
-
-  }else{
-    redirect('/');
-  }
+    redirect('/');}
 }
 
 function backofficeIndex(){
@@ -59,7 +55,7 @@ function connectedPage(){
         ['actions'=>$actions, 'user' => $user]
       );
   }
-     
+
 }
 
 function deconnectedPage(){
@@ -96,7 +92,7 @@ function backofficeDowngrade(){
   Users::getInstance()->edit($id, ['role'=>'user']);
   redirect('/bo');
   }
-   
+
 function envoieMail(){
   if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['email'])){
               $passage_ligne = "\r\n";
