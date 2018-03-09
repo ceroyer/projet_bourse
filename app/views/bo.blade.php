@@ -3,6 +3,55 @@
 Espace administrateur
 @endsection
 @section('content')
+<<<<<<< HEAD
+<style type="text/css">*{color: white; } .modal-header,.modal-body>p{color:black;}</style>
+<h1>Les administrateurs</h1>
+<table class="table">
+                <thead>
+                  <tr>
+                    <th>Pseudo</th>
+                    <th>Email</th>
+                    <th>Supprimer</th>
+                    <th>Dégrader</th>
+                </thead>
+                <tbody>
+                @foreach ($users as $user)
+                  @if ($user['role'] === "admin")
+                  <tr>
+                      <td>{{ $user['pseudo'] }}</td>
+                      <td>{{ $user['email'] }}</td>
+                    <form action="{{url('/bo/delete')}}" method="POST">
+                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                      <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                    </form>
+                    @if($_SESSION['id']!=$user['id'])
+                    <form action="{{url('/bo/downgrade')}}" method="POST">
+                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                      <td><button class="btn btn-secondary" type="submit"><i class="fa fa-angle-double-down"></i>
+                      </button></td>
+                    </form>
+                    @endif
+                        <td></td>
+                  </tr>
+                  @endif
+                @endforeach
+                </tbody>
+              </table>
+
+<h1>Les utilisateurs</h1>
+<table class="table">
+                <thead>
+                  <tr>
+                    <th>Pseudo</th>
+                    <th>Email</th>
+                    <th>Supprimer</th>
+                    <th>Promouvoir</th>
+                    <th>Mode Vacances</th>
+                </thead>
+                <tbody>
+                @foreach ($users as $user)
+                  @if ($user['role'] === "user")
+=======
 @section('additional_css')
   <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/admin.css' ) }}">
   <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
@@ -59,21 +108,25 @@ Espace administrateur
         @foreach ($users as $user)
 
           @if ($user['role'] === "user")
+>>>>>>> f7d32c06925af01363bcee54587f55b9a4761468
                   <tr>
                       <td>{{ $user['pseudo'] }}</td>
                       <td>{{ $user['email'] }}</td>
-                    <form action="{{url('/bo/delete')}}" method="POST">
+                    <form action="{{url('/bo/delete/')}}" method="POST">
                       <input type="text" name="id" value="{{ $user['id'] }}" hidden>
-                      <td><button class="btn btn-secondary" type="button" data-toggle="modal"  href="#myModal"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                      <td><button class="btn btn-secondary suppr" type="button" data-toggle="modal" data-target="#myModal" data-pseudo="{{ $user['pseudo'] }}" data-id="{{ $user['id'] }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                      
                       <div id="myModal" class="modal fade">
+                        
                         <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                   <h4 class="modal-title">Confirmation</h4>
                               </div>
+
                               <div class="modal-body">
-                                  <p>Voulez vous vraiment supprimé {{ $user['pseudo'] }}</p>
+                                  <p>Voulez vous vraiment supprimer <span class="userIDSuppr"></span> </p>
                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
                              </div>
                               <div class="modal-footer">
@@ -109,4 +162,20 @@ Espace administrateur
         </tbody>
       </table>
   </section>
+@endsection
+
+@section('additional_js')
+
+<script type="text/javascript">
+$('#myModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var pseudo = button.data('pseudo');
+  var id = button.data('id');
+  var modal = $(this);
+  $(".userIDSuppr").html(pseudo);
+  $(".userIDSuppr").val(id);
+})
+
+</script>
+
 @endsection
