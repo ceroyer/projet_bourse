@@ -2,8 +2,12 @@
 @section('title')
 Espace administrateur
 @endsection
+@section('additional_css')
+  <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/admin.css' ) }}">
+  <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
+@endsection
 @section('content')
-<<<<<<< HEAD
+
 <style type="text/css">*{color: white; } .modal-header,.modal-body>p{color:black;}</style>
 <h1>Les administrateurs</h1>
 <table class="table">
@@ -49,13 +53,7 @@ Espace administrateur
                     <th>Mode Vacances</th>
                 </thead>
                 <tbody>
-                @foreach ($users as $user)
-                  @if ($user['role'] === "user")
-=======
-@section('additional_css')
-  <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/admin.css' ) }}">
-  <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
-@endsection
+               
 <section class="gestion">
   <h2>Les administrateurs</h2>
   <div id="recherche">
@@ -108,7 +106,6 @@ Espace administrateur
         @foreach ($users as $user)
 
           @if ($user['role'] === "user")
->>>>>>> f7d32c06925af01363bcee54587f55b9a4761468
                   <tr>
                       <td>{{ $user['pseudo'] }}</td>
                       <td>{{ $user['email'] }}</td>
@@ -174,7 +171,7 @@ $('#myModal').on('show.bs.modal', function (event) {
   var modal = $(this);
   $(".userIDSuppr").html(pseudo);
   $(".userIDSuppr").val(id);
-})
+});
 
 </script>
 
