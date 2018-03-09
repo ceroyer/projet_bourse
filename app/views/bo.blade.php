@@ -8,7 +8,7 @@ Espace administrateur
 @endsection
 @section('content')
 
-<style type="text/css">*{color: white; } .modal-header,.modal-body>p{color:black;}</style>
+<style type="text/css">*{color: black; } .modal-header,.modal-body>p{color:black;}</style>
 <h1>Les administrateurs</h1>
 <table class="table">
                 <thead>
@@ -109,8 +109,8 @@ Espace administrateur
                   <tr>
                       <td>{{ $user['pseudo'] }}</td>
                       <td>{{ $user['email'] }}</td>
-                    <form action="{{url('/bo/delete/')}}" method="POST">
-                      <input type="text" name="id" value="{{ $user['id'] }}" hidden>
+                    <form action="{{url('/bo/delete')}}" method="POST">
+                      <input type="text" class="userIDSuppr" name="id" value="{{ $user['id'] }}" hidden>
                       <td><button class="btn btn-secondary suppr" type="button" data-toggle="modal" data-target="#myModal" data-pseudo="{{ $user['pseudo'] }}" data-id="{{ $user['id'] }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                       
                       <div id="myModal" class="modal fade">
