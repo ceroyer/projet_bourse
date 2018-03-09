@@ -1,7 +1,7 @@
 h2
 { font-family: king;
-  font-size: 2.5rem;
-  color: black;
+  font-size: 2.2rem;
+  color: white;
 }
 
 button:hover
@@ -24,6 +24,7 @@ button:hover
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  padding: 5vh 0vh;
 }
 
 #recherche input

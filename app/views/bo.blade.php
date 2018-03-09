@@ -3,7 +3,7 @@
 Espace administrateur
 @endsection
 @section('additional_css')
-  <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/admin.css' ) }}">
+  <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/bo.css' ) }}">
   <style type="text/css">*{color: black; } .modal-header,.modal-body>p{color:black;}</style>
   <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
 @endsection
