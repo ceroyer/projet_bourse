@@ -1,0 +1,32 @@
+/*Polices*/
+@font-face
+{ font-family: "caviar";
+  src: url("./../font/CaviarDreams/CaviarDreams.ttf");
+}
+
+@font-face
+{ font-family: "caviar";
+  font-weight: bold;
+  src: url("./../font/CaviarDreams/CaviarDreams_Bold.ttf");
+}
+
+@font-face
+{ font-family: "caviar";
+  font-style: italic;
+  src: url("./../font/CaviarDreams/CaviarDreams_Italic.ttf");
+}
+
+@font-face
+{ font-family : "raspoutine";
+  src: url("./../font/Raspoutine/RaspoutineClassic_TB.otf");
+}
+
+@font-face
+{ font-family: "king";
+  src: url("./../font/ModernKing/Modern_King.ttf");
+}
+
+@font-face
+{ font-family: "signature";
+  src: url("./../font/SignatureOfTheAncient/Signature.ttf");
+}

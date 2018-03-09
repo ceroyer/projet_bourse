@@ -46,3 +46,15 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+$('.view-more1').click( function (event) {
+  $("#connexion").css("display","none");
+  $("#inscription").css("display","flex");
+  $(".erreur").css("display","none");
+});
+
+$('.view-more2').click( function (event) {
+  $("#connexion").css("display","flex");
+  $("#inscription").css("display","none");
+  $(".erreur").css("display","none");
+});
+

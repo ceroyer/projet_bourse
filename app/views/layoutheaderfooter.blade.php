@@ -8,7 +8,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url( '/assets/css/app.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/assets/css/header+footer+admin.css' ) }}">
+  <link rel="stylesheet" href="{{ url( '/assets/css/font-family.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+  <style type="text/css">
+    *{
+      color:white;
+    }
+    table{
+      border: 1px solid white;
+    }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: red;
+    }
+  </style>
   @yield('additional_css')
 </head>
 <body>
@@ -26,10 +42,12 @@
       <div class="content">
         <p>Voici votre bulletin</p>
       </div>
+      @if ($user != null)
       <a href="{{ url('/profile') }}">
         <p>{{ $user['pseudo'] }}</p>
         <p>Mon profil</p>
       </a>
+      @endif
       <img src="assets/img/profil.png" alt="profil">
       <a method="post" href="{{ url('/deco') }}">Déconnexion</a>
     </div>

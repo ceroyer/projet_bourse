@@ -4,11 +4,11 @@
 }
 @font-face{
   font-family: Signature of the Ancient;
-  src:url('../font/Signature of the Ancient/Signature of the Ancient.ttf');
+  src:url('../font/SignatureoftheAncient/Signature.ttf');
 }
 @font-face{
   font-family: Modern King;
-  src:url('../font/Modern King/Modern King.ttf.otf');
+  src:url('../font/ModernKing/Modern_King.ttf.otf');
 }
 @font-face{
   font-family: CaviarDreams;
@@ -44,27 +44,11 @@ body
 }
 .content
 {
-  overflow: auto;
-  position: relative;
-}
-.content:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: -1;
 
 
   background-image: url('../img/acceuil1.jpg');
   background-size:cover;
-  width: 100%;
-  height: 100%;
-
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  min-height:100vh;
 }
 section
 {
@@ -94,16 +78,17 @@ section
 }
 .accueil img
 {
-  height:80%;
+  height:70%;
   width:auto;
 }
 .accueil h1
 {
   font-family:Raspoutine;
   height:20%;
-  font-size:15vh;
+  font-size:7vw;
   color:white;
   text-shadow: 0.1em 0.1em 0.1em black;
+  white-space: nowrap;
 }
 .accueil h2
 {
@@ -112,6 +97,7 @@ section
   font-size:5vh;
   color:white;
   text-shadow: 0.08em 0.08em 0.08em black;
+  white-space: nowrap;
 }
 .accueil ul
 {
@@ -123,6 +109,7 @@ section
   font-size:4vh;
   color:white;
   text-shadow: 0.08em 0.08em 0.08em black;
+  white-space: nowrap;
 }
 .view-more1
 {
@@ -149,27 +136,11 @@ section
 
 /* Deuxième partie - Inscription & connexion */
 #information {
-  overflow: auto;
-  position: relative;
-}
 
-#information:before{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: -1;
 
   background-image: url('../img/acceuil3.jpg');
   background-size:cover;
-  width: 100%;
-  height: 100%;
-
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+ min-height:100vh;
 }
 
 .inscription, .connexion
@@ -247,4 +218,72 @@ button
   font-family: CaviarDreams;
   font-size: 28px;
   color: white;
+}
+
+
+/* Troisième partie - Bulles */
+#commentaire {
+	min-height:100vh;
+	background-image:url(../img/accueil2.jpg);
+	display:flex;
+	flex-wrap:wrap;
+}
+
+
+#commentaire img{
+	height:60%;
+}
+
+#commentaire div{
+	width:450px;
+	margin:auto;
+	background-size: 80%;
+	height: 300px;
+	text-align:center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-position: bottom;
+}
+
+#commentaire div:nth-child(odd){
+	background-image:url(../img/bulle.png);
+}
+
+#commentaire div:nth-child(even){
+	background-image:url(../img/bulle2.png);
+}
+
+#commentaire h2{
+	width:60%;
+	text-align: justify;
+	font-family: CaviarDreams;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	text-shadow:2px 2px white;
+	color:black;
+}
+
+#commentaire h1{
+	font-family:Raspoutine;
+	color:black;
+
+}
+
+#commentaire div:first-child{
+	margin-left:170px;
+}
+
+#commentaire div:nth-child(2){
+	margin-top:130px;
+}
+
+#commentaire div:nth-child(3){
+	margin-bottom:100px;
+}
+
+#commentaire div:last-child{
+	margin-right:150px;
 }

@@ -1,16 +1,13 @@
-@extends( 'layout' )
+<?php $__env->startSection('additional_css'); ?>
+<link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-
-@section('additional_css')
-<link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
-<link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
-@endsection
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <section class="accueil content">
   <div>
-    <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo">
+    <img src="<?php echo e(url('/assets/img/logoGros.png')); ?>" alt="Logo">
   </div>
   <div class="accueilText">
     <h1>Trade Heaven</h1>
@@ -26,7 +23,7 @@
 
 <section id="information">
     <div class="inscription" id="inscription">
-    <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
+    <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
@@ -42,12 +39,12 @@
       </div>
       <div id="date">
         <select name="jour" id="jour">
-      @for($i=1;$i<=31;$i++)
-        @if(0<$i AND $i<10)
+      <?php for($i=1;$i<=31;$i++): ?>
+        <?php if(0<$i AND $i<10): ?>
           $i = "0" + $i;
-        @endif
-        <option value='{{$i}}'>{{$i}}</option>";
-      @endfor
+        <?php endif; ?>
+        <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
+      <?php endfor; ?>
       </select>
       <select name="mois" id="mois">
         <option value="01">Janvier</option>
@@ -64,31 +61,31 @@
         <option value="12">Décembre</option>
       </select>
       <select name="annee" id="annee">
-        @for($i=1900;$i<=2018;$i++)
-          <option value='{{$i}}'>{{$i}}</option>";
-        @endfor
+        <?php for($i=1900;$i<=2018;$i++): ?>
+          <option value='<?php echo e($i); ?>'><?php echo e($i); ?></option>";
+        <?php endfor; ?>
       </select>
       </div>
 
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
-    @if($err == true)
+    <?php if($err == true): ?>
     <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
-   @endif
-    @if($error)
+   <?php endif; ?>
+    <?php if($error): ?>
       <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
-    @endif
-    @if($deactive === true)
+    <?php endif; ?>
+    <?php if($deactive === true): ?>
       <h2 class="erreur" style='color:red'>Compte désactivé</h2>
-    @endif
-    @if($errorAge)
+    <?php endif; ?>
+    <?php if($errorAge): ?>
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
-    @endif
+    <?php endif; ?>
 
     <div class="connexion" id="connexion">
 
-    <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
+    <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
       <h2>Connexion</h2>
       <div class="connecttext">
         <label class="form_col" for="login"> Identifiant: </label>
@@ -122,4 +119,6 @@
     </div>
   </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
