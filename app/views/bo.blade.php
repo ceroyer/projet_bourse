@@ -49,24 +49,25 @@ Le titre
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
-
                   @if ($user['role'] === "user")
-
                   <tr>
                       <td>{{ $user['pseudo'] }}</td>
                       <td>{{ $user['email'] }}</td>
-                    <form action="{{url('/bo/delete')}}" method="POST">
+                    <form action="{{url('/bo/delete/')}}" method="POST">
                       <input type="text" name="id" value="{{ $user['id'] }}" hidden>
-                      <td><button class="btn btn-secondary" type="button" data-toggle="modal"  href="#myModal"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                      <td><button class="btn btn-secondary suppr" type="button" data-toggle="modal" data-target="#myModal" data-pseudo="{{ $user['pseudo'] }}" data-id="{{ $user['id'] }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                      
                       <div id="myModal" class="modal fade">
+                        
                         <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                   <h4 class="modal-title">Confirmation</h4>
                               </div>
+
                               <div class="modal-body">
-                                  <p>Voulez vous vraiment supprimé {{ $user['pseudo'] }}</p>
+                                  <p>Voulez vous vraiment supprimer <span class="userIDSuppr"></span> </p>
                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
                              </div>
                               <div class="modal-footer">
@@ -101,4 +102,20 @@ Le titre
                 @endforeach
                 </tbody>
               </table>
+@endsection
+
+@section('additional_js')
+
+<script type="text/javascript">
+$('#myModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var pseudo = button.data('pseudo');
+  var id = button.data('id');
+  var modal = $(this);
+  $(".userIDSuppr").html(pseudo);
+  $(".userIDSuppr").val(id);
+})
+
+</script>
+
 @endsection
