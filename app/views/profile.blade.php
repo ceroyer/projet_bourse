@@ -8,8 +8,10 @@ Votre compte
 
 @section('content')
 
-<h1>Modifier vos informations</h1>
-<h2>{{ $user['pseudo'] }}</h2>
+<div id="titre">
+	<h1>Modifier vos informations</h1>
+	<h2>{{ $user['pseudo'] }}</h2>
+</div>
 
 <div id="infos">
 	<form action="{{ url('/profile') }}" method="POST">
@@ -37,7 +39,7 @@ Votre compte
     <input type="text" name="id" value="{{ $user['id'] }}" hidden>
     <td><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger"><i class="fa fa-plane"></i>
     </button></td>
-    <div id="myModal" class="modal fade">               
+    <div id="myModal" class="modal fade">
 	    <div class="modal-dialog">
 	      <div class="modal-content">
 	          <div class="modal-header">
