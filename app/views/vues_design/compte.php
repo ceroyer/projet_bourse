@@ -38,42 +38,6 @@
       </div>
 
 <div id="droite">
-  <!--  <div id="entreprises">
-      <h1>Entreprises suivies</h1>
-      <div>
-        <p>Ajouter :
-          <input type="search" placeholder="Rechercher">
-          <input type="submit" value="Q"/>
-        </p>
-        <table style="width:100%">
-            <tr>
-              <th>Nom</th>
-              <th>Valeur</th>
-              <th>Variations</th>
-              <th>Supprimer</th>
-            </tr>
-            <tr>
-              <td>Blabla</td>
-              <td>Blabla</td>
-              <td>Blabla</td>
-              <td>Blabla</td>
-            </tr>
-            <tr>
-              <td>Blabla</td>
-              <td>Blabla</td>
-              <td>Blabla</td>
-              <td>Blabla</td>
-            </tr>
-            <tr>
-              <td>Blabla</td>
-              <td>Blabla</td>
-              <td>Blabla</td>
-              <td>Blabla</td>
-            </tr>
-          </table>
-        </div>
-    </div>-->
-
     <div id="supp">
        <h1>Supprimer mon compte</h1>
        <div>
