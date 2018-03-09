@@ -2,27 +2,35 @@
 @section('title')
 Votre compte
 @endsection
+@section('additional_css')
+<link rel="stylesheet" href="{{ url('/assets/css/compte.css')}}">
+@endsection
+
 @section('content')
 
-
-
-<h1>VOTRE COMPTE</h1>
+<h1>Modifier vos informations</h1>
 <h2>{{ $user['pseudo'] }}</h2>
-<form action="{{ url('/profile') }}" method="POST">
-	<label>Changer l'email</label>
-	<input type="text" name="email" value="{{$user['email']}}">
 
-
-	<h3>Changer votre mot de passe</h3>
-	<label>Tapez votre ancien mot de passe</label>
-	<input type="password" name="password_old">
-	<label>Votre nouveau mot de passe</label>
-	<input type="password" name="password_new">
-	<label>Confirmer le mot de passe</label>
-	<input type="password" name="password_verif">
-	<input type="hidden" name="id" value="{{$user['id']}}" />
-	<button type="submit">Enregistrer</button>
-</form>
+<div id="infos">
+	<form action="{{ url('/profile') }}" method="POST">
+		<div id="mail">
+			<h4><label>Changer l'email</label></h4>
+			<input type="text" name="email" value="{{$user['email']}}">
+		</div>
+		<div id="mdp">
+			<h4>Changer votre mot de passe</h4>
+			<div>
+				<label>Tapez votre ancien mot de passe :</label>
+				<input type="password" name="password_old">
+				<label>Votre nouveau mot de passe :</label>
+				<input type="password" name="password_new">
+				<label>Confirmer le mot de passe :</label>
+				<input type="password" name="password_verif">
+				<input type="hidden" name="id" value="{{$user['id']}}" />
+				<button type="submit">Enregistrer</button>
+			</div>
+		</div>
+	</form>
 
 <form action="{{url('/deactivaded')}}" method="POST">
 	<label>Partir en vacances et desactiver mon compte</label>
@@ -55,6 +63,7 @@ Votre compte
 <a href="{{ url('/bo') }}">
 	ACCEDER A LESPACE ADMIN
 </a>
+</div>
 
 @endif
 

@@ -27,25 +27,7 @@ width:30%;
 float:left;
 }
 
-#droite{
-  float:right;
-  width:65%;
 
-
-
-}
-
-#supp{
-	  padding:20px;
-	  margin:20px;
-  background-color: #C3C6D1;
-}
-
-#bloc{
-	padding:20px;
-	margin:20px;
-  background-color: #C3C6D1;
-}
 
 h1{
   font-family:modernking;
@@ -54,16 +36,54 @@ h1{
   font-size:20px;
 }
 
-#mail div{
-  padding-left: 50px;
+
+#mail{
+  padding:10px;
+  text-align: center;
 }
 
-#entreprises div{
+#mail input{
+  text-align: center;
+  color:black;
+  width:100%;
+}
+
+#mdp div{
   padding-left: 50px;
+  padding-bottom: 10px;
+}
+
+#mdp button{
+  color:black;
+}
+
+
+p, h4, h2,label{
+  font-family: caviardreams;
+}
+
+
+/*Fonctionnalités pas encore présentes
+
+#droite{
+  float:right;
+  width:65%;
+}
+
+#supp{
+    padding:20px;
+    margin:20px;
+  background-color: #C3C6D1;
+}
+
+#bloc{
+  padding:20px;
+  margin:20px;
+  background-color: #C3C6D1;
 }
 
 #supp div{
-  padding-left: 50px;
+  padding: 50px;
 }
 
 #supp h4{
@@ -76,19 +96,4 @@ h1{
   padding-left: 50px;
   padding-bottom: 10px;
 }
-
-
-#mdp div{
-  padding-left: 50px;
-  padding-bottom: 10px;
-}
-
-p, h4{
-  font-family: caviardreams;
-}
-
-/*table, th, td {
-    border: 1px solid black;
-    font-family: caviardreams;
-    text-align:center;
-}*/
+*/
