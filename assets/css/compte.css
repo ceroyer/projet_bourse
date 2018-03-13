@@ -74,6 +74,7 @@ p, h4,label{
   text-align: center;
   padding:20px;
 }
+<<<<<<< HEAD
 
 h4>label{
   text-decoration: underline;
@@ -91,4 +92,29 @@ h4{
   text-align: center;
   font-size: 1.1rem;
   font-weight: bold;
+=======
+
+h4>label{
+  text-decoration: underline;
+  font-size: 1.1rem;
+  font-weight: bold;}
+
+
+h4{
+  margin-bottom:15px;
+}
+
+.admin h4{
+  text-decoration: underline;
+  color:white;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.text-warning{
+  color:red !important;
+  font-weight:bold;
+>>>>>>> 026738317deb7e410a14b2e07a9bd80c73314207
 }

@@ -38,7 +38,6 @@
     <a class="view-more1" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
-
 <section id="information">
   <div class="inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
@@ -87,7 +86,7 @@
 
       <button type="submit"> S'inscrire </button>
     </form>
-    </div>
+  </div>
     @if($err == true)
     <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
    @endif
@@ -100,8 +99,7 @@
     @if($errorAge)
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     @endif
-
-  </section>
+</section>
 
 <section id="commentaire">
     <div>
