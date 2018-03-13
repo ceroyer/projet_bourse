@@ -27,7 +27,6 @@ margin:20px;
 }
 
 h1{
-  font-family:modernking;
   text-transform:uppercase;
   text-decoration: underline;
   font-size:20px;
@@ -46,7 +45,7 @@ h1{
 }
 
 #mdp div{
-  padding-left: 50px;
+  padding-left: 70px;
   padding-bottom: 10px;
 }
 
