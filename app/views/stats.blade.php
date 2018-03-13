@@ -18,6 +18,8 @@ Accueil
 
 <!-- <a href="{{ url('/profile') }}" class="button">Mon profil</a> -->
 </header>
+
+
 <div class="all">
   <div id="conteneur">
     <div id="crossbar1">
@@ -44,6 +46,7 @@ Accueil
         </tr>
        </thead>
       @foreach ($actions as $action)
+      
       <tbody>
         <tr>
           <td>{{ $action['nom'] }}</td>
@@ -52,7 +55,12 @@ Accueil
           <td>{{ $action['fermeture'] }}</td>
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
-          <td>{{ $action['variation'] }}</td>
+          <td>{{ $action['variation'] }} 
+            @if($action['variation']>= 0) <!-- fleche vers le haut -->
+              <svg style="fill:green"><polygon points='28,137.333 62.333,171.667 136.333,96.667 136.333,147.333 172,148 172,28.667 52,27.667 52.333,63.667 101.333,63.667'/></svg>
+            @else
+              <svg style="fill:red"><polygon points="101.356,135.319 52.359,135.794 52.372,171.795 172.359,169.634 171.203,50.306 135.544,51.318 136.034,101.981  61.314,27.702 27.315,62.366 "/> </svg>
+            @endif</td>
           <td><a href="{{ url('/fav/') . $action['id'] }}"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>
         </tr>
        </tbody>
