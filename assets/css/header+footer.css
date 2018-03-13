@@ -53,6 +53,10 @@ h1
   font-weight: bold;
 }
 
+#header h1
+{ font-size: 2rem !important;
+}
+
 #tradeheaven
 { margin-left: 50px;
 }
