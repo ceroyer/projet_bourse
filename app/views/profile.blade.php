@@ -10,7 +10,6 @@ Votre compte
 
 <div id="titre">
 	<h1>Modifier vos informations</h1>
-	<h2>{{ $user['pseudo'] }}</h2>
 </div>
 
 <div id="infos">
