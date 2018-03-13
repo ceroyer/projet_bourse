@@ -1,5 +1,5 @@
 h2
-{ font-family: king;
+{ font-family: coolvetica;
   font-size: 2.2rem;
   color: white;
 }
@@ -57,7 +57,37 @@ table
   font-family: caviar;
 }
 
-tbody
-{ height: 20%;
-  overflow: auto;
+table td
+{ vertical-align: baseline !important;
 }
+
+
+tbody
+{ overflow-y: scroll;
+  height: 5em;
+}
+
+tr
+{ width: 100%;
+}
+
+/* Thead fixe et tableau déroulant
+
+.table-fixed
+{ height: 100%;
+}
+
+.table-fixed thead {
+  width: 97%;
+}
+.table-fixed tbody {
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}*/
