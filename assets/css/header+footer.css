@@ -31,7 +31,7 @@ body
 { height: 80%;
 }
 
-#header>div
+#header>div, #header>a
 { height: 100%;
   display: flex;
   align-items: center;
@@ -144,7 +144,7 @@ a>p:first-of-type
   position: relative;
   margin-right: 50px;
 }
-#alerte div
+#alertelight
 { height: 10px;
   width: 10px;
   background-color: #F91206;
@@ -153,4 +153,9 @@ a>p:first-of-type
   top: 0px;
   right: 0px;
 }
-
+#alertediv
+{
+  position: absolute;
+  top: 70px;
+  width: 200px;
+}

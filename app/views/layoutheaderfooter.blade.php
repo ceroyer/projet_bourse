@@ -29,19 +29,20 @@
 </head>
 <body>
   <nav id="header">
-    <div id="tradeheaven">
+    <a id="tradeheaven" href="{{ url('/stats') }}">
       <img src="assets/img/logo_simple.png" alt="logo">
       <h2>Trade Heaven</h2>
-    </div>
+    </a>
     <h1>@yield('title')</h1>
     <div id="compte">
       <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
-        <div></div>
+        <div id="alertelight"></div>
+        <div id="alertediv" class="content">
+          <p>Voici votre bulletin</p>
+        </div>
       </div>
-      <div class="content">
-        <p>Voici votre bulletin</p>
-      </div>
+
       @if ($user != null)
       <a href="{{ url('/profile') }}">
         <p>{{ $user['pseudo'] }}</p>
@@ -73,4 +74,3 @@
   @yield('additional_js')
 </body>
 </html>
-
