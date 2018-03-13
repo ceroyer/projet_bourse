@@ -58,3 +58,8 @@ $('.view-more2').click( function (event) {
   $(".erreur").css("display","none");
 });
 
+$('#connect').click( function (event) {
+
+  $("#connexion").css("display","flex");
+  $("#inscription").css("display","none");
+});

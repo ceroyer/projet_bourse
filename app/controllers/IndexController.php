@@ -30,6 +30,8 @@ function saveProfile(){
     IndexController::envoieMail();
     session_destroy();
     redirect('/');}
+    redirect('/');
+  }
 }
 
 function backofficeIndex(){
