@@ -55,6 +55,7 @@ h1
 
 #header h1
 { font-size: 2rem !important;
+  padding-left: 8vw;
 }
 
 #tradeheaven
