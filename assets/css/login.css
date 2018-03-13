@@ -169,34 +169,33 @@ section
   font-family: caviar;
   font-size: 28px;
   color: white;
-
+}
+.connexion button:hover
+{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3f9415), color-stop(1, #7cb362));
+  background:-moz-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:-webkit-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:-o-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:-ms-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:linear-gradient(to bottom, #3f9415 5%, #7cb362 100%);
+  background-color:#3f9415;
+  color:white;
+  cursor:pointer;
 }
 
 .view-more1
 {
-  font-family:raspoutine;
-  text-decoration: none;
-  color:white;
-  -moz-box-shadow:inset 0px 8px 0px -1px #bce0ac;
-  -webkit-box-shadow:inset 0px 8px 0px -1px #bce0ac;
-  box-shadow:inset 0px 8px 0px -1px #bce0ac;
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7cb362), color-stop(1, #3f9415));
-  background:-moz-linear-gradient(top, #7cb362 5%, #3f9415 100%);
-  background:-webkit-linear-gradient(top, #7cb362 5%, #3f9415 100%);
-  background:-o-linear-gradient(top, #7cb362 5%, #3f9415 100%);
-  background:-ms-linear-gradient(top, #7cb362 5%, #3f9415 100%);
-  background:linear-gradient(to bottom, #7cb362 5%, #3f9415 100%);
-  background-color:#7cb362;
-  -moz-border-radius:14px;
-  -webkit-border-radius:14px;
-  border-radius:14px;
-  border:3px solid #304227;
-  display:inline-block;
-  cursor:pointer;
-  font-size:25px;
-  padding:11px 26px;
-  text-decoration:none;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:5%;
+  width:33%;
+  min-width: 200px;
+  background-color: #1F2340;
+  font-family: caviar;
+  font-size: 28px;
+  color: white;
 }
 .view-more1:hover
 {
@@ -297,7 +296,18 @@ section
   font-family: caviar;
   font-size: 28px;
   color: white;
-
+}
+.inscription button:hover
+{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3f9415), color-stop(1, #7cb362));
+  background:-moz-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:-webkit-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:-o-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:-ms-linear-gradient(top, #3f9415 5%, #7cb362 100%);
+  background:linear-gradient(to bottom, #3f9415 5%, #7cb362 100%);
+  background-color:#3f9415;
+  color:white;
+  cursor:pointer;
 }
 
 
