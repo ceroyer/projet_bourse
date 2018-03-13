@@ -16,6 +16,17 @@ body
   font-size: 18px;
 }
 
+table{
+  border: 1px solid white;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: red;
+}
+
 /* Header */
 
 #header
