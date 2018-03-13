@@ -83,6 +83,11 @@ function backofficeDeactivaded(){
    Users::getInstance()->edit($id, ['active'=>'1']);
    redirect('/bo');
 }
+function Deactivaded(){
+   $id = $_POST['id'];
+   Users::getInstance()->edit($id, ['active'=>'1']);
+   redirect('/deco');
+}
 function backofficeReactivaded(){
    $id = $_POST['id'];
    Users::getInstance()->edit($id, ['active'=>'0']);

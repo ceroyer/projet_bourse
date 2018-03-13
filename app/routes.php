@@ -7,6 +7,7 @@ $route->addRoute( 'POST'  , '/bo/delete' , 'IndexController@backofficeDelete' );
 $route->addRoute( 'POST'  , '/bo/upgrade' , 'IndexController@backofficeUpgrade' );
 $route->addRoute( 'POST'  , '/bo/downgrade' , 'IndexController@backofficeDowngrade' );
 $route->addRoute( 'POST'  , '/bo/deactivaded' , 'IndexController@backofficeDeactivaded' );
+$route->addRoute( 'POST'  , '/deactivaded' , 'IndexController@Deactivaded' );
 $route->addRoute( 'POST'  , '/bo/reactivaded' , 'IndexController@backofficeReactivaded' );
 
 

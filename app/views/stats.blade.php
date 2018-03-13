@@ -6,7 +6,7 @@ Accueil
 <link rel="stylesheet" href="assets/css/header+footer+admin.css">
 @endsection
 @section('additional_css')
- <link rel="stylesheet" type="text/css" href="./css/stat.css">
+ <link rel="stylesheet" type="text/css" href="assets/css/stat.css">
 @endsection
 @section('content')
 <header>
