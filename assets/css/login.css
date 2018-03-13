@@ -169,6 +169,7 @@ section
   font-family: caviar;
   font-size: 28px;
   color: white;
+  white-space:nowrap;
 }
 .connexion button:hover
 {
@@ -196,6 +197,7 @@ section
   font-family: caviar;
   font-size: 28px;
   color: white;
+  white-space:nowrap;
 }
 .view-more1:hover
 {
