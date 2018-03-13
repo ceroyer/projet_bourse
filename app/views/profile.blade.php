@@ -34,7 +34,7 @@ Votre compte
 	</form>
 <div id="desac">
 <form action="{{url('/deactivaded')}}" method="POST">
-	<label>Partir en vacances et desactiver mon compte</label>
+	<h4><label>Partir en vacances et desactiver mon compte</label></h4>
     <input type="text" name="id" value="{{ $user['id'] }}" hidden>
     <td><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger"><i class="fa fa-plane"></i>
     </button></td>
