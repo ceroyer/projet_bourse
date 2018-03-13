@@ -249,10 +249,12 @@ button
 {
   height:7%;
   width:33%;
+  min-width: 200px;
   background-color: #1F2340;
   font-family: caviar;
   font-size: 28px;
   color: white;
+
 }
 
 
