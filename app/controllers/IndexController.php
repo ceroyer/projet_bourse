@@ -3,6 +3,7 @@
 namespace Controllers;
 use Models\Users;
 use Models\Actions;
+use Models\Favoris;
 
 
 class IndexController extends Controller{
@@ -48,12 +49,15 @@ function backofficeIndex(){
 function connectedPage(){
   global $blade;
   $actions=Actions::getInstance()->getAll();
+  $_SESSION['id'] = "11";
   if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     $user = Users::getInstance()->get($id);
+    $favoris=Favoris::getInstance()->getFavorisOfUser($id);
+
     echo $blade->render(
         'stats',
-        ['actions'=>$actions, 'user' => $user]
+        ['actions'=>$actions, 'user' => $user, 'favoris' => $favoris]
       );
   }
 

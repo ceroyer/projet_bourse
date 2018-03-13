@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="{{ url( '/assets/css/app.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/assets/css/font-family.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+
+  <link rel="stylesheet" href="{{ url( '/assets/css/font-family.css' ) }}">
+  <link rel="stylesheet" href="{{ url( '/assets/css/stat.css' ) }}">
+
   @yield('additional_css')
 </head>
 <body>
@@ -24,4 +28,3 @@
   @yield('additional_js')
 </body>
 </html>
-

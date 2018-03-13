@@ -3,7 +3,7 @@
 namespace Models;
 
 class Actions extends Base{
-	protected $tableName = TABLE_PREFIX . 'actions';
+	protected $tableName = TABLE_PREFIX . 'wesh';
   	private static $instance;
 
   public static function getInstance(){
