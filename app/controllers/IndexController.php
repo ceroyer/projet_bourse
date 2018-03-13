@@ -29,7 +29,6 @@ function saveProfile(){
     Users::getInstance()->edit($id , $datas);
     IndexController::envoieMail();
     session_destroy();
-    redirect('/');}
     redirect('/');
   }
 }
