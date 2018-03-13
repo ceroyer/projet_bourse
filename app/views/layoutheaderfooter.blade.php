@@ -37,11 +37,12 @@
     <div id="compte">
       <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
-        <div></div>
+        <div id="alertelight"></div>
+        <div id="alertediv" class="content">
+          <p>Voici votre bulletin</p>
+        </div>
       </div>
-      <div class="content">
-        <p>Voici votre bulletin</p>
-      </div>
+
       @if ($user != null)
       <a href="{{ url('/profile') }}">
         <p>{{ $user['pseudo'] }}</p>
