@@ -40,3 +40,8 @@
 { font-family: "coolvetica";
   src: url("./../font/Coolvetica/coolvetica.ttf");
 }
+
+@font-face
+{ font-family: "bluefish";
+  src: url("./../font/Bluefish/Bluefish_Light.otf");
+}
