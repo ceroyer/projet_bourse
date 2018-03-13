@@ -23,7 +23,7 @@ Accueil
     <div id="crossbar1">
         <h1>SBF 120</h1>
         <div id="search">
-          <input class="searchbar1" type="text" value="Recherche"/>
+          <input style="color:black" class="searchbar1" type="text" value="" placeholder="Recherche"/>
           <button type="" class="btn_searchbar"><i class="fa fa-search"></i></button>
         </div>
     </div>

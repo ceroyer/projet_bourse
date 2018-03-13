@@ -10,21 +10,6 @@
   <link rel="stylesheet" href="{{ url( '/assets/css/header+footer.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/assets/css/font-family.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/font-awesome-4.7.0/css/font-awesome.min.css')}}">
-  <style type="text/css">
-    *{
-      color:white;
-    }
-    table{
-      border: 1px solid white;
-    }
-
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: red;
-    }
-  </style>
   @yield('additional_css')
 </head>
 <body>

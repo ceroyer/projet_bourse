@@ -18,13 +18,29 @@
       <li>Consultation de la bourse en temps réel</li>
       <li>Anticipez vos futures actions</li>
     </ul>
-    <a class="view-more1" href="#information">Inscription</a>
-    <a class="view-more2" href="#information">Déjà inscrit?</a>
+    <div class="connexion" id="connexion">
+      <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
+        <h2>Connexion</h2>
+        <div id="entrees">
+          <div class="connecttext">
+            <label class="form_col" for="login"> Identifiant: </label>
+            <input type="text" name="login"/>
+          </div>
+          <div class="connecttext">
+            <label class="form_col" for="password"> Mot de passe: </label>
+            <input type="password" name="password"/>
+          </div>
+        </div>
+
+        <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
+      </form>
+    </div>
+    <a class="view-more1" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
 
 <section id="information">
-    <div class="inscription" id="inscription">
+  <div class="inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       <div class="connecttext">
@@ -85,21 +101,6 @@
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     @endif
 
-    <div class="connexion" id="connexion">
-
-    <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
-      <h2>Connexion</h2>
-      <div class="connecttext">
-        <label class="form_col" for="login"> Identifiant: </label>
-        <input type="text" name="login"/>
-      </div>
-      <div class="connecttext">
-        <label class="form_col" for="password"> Mot de passe: </label>
-        <input type="password" name="password"/>
-      </div>
-      <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
-    </form>
-    </div>
   </section>
 
 <section id="commentaire">

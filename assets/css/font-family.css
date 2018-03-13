@@ -35,3 +35,8 @@
 { font-family: "dream";
   src: url("./../font/DreamOrphans/dream_orphans_bd.ttf");
 }
+
+@font-face
+{ font-family: "coolvetica";
+  src: url("./../font/Coolvetica/coolvetica.ttf");
+}
