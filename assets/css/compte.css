@@ -91,4 +91,10 @@ h4{
   text-align: center;
   font-size: 1.1rem;
   font-weight: bold;
+  padding: 10px;
+}
+
+.text-warning{
+  color:red !important;
+  font-weight:bold;
 }
