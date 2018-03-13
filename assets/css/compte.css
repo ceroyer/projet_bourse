@@ -102,4 +102,6 @@ h4{
   font-family: caviarBold;
 }
 
-
+input, button{
+  border-radius: 5px;
+}
