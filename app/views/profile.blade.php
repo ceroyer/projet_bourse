@@ -64,10 +64,10 @@ Votre compte
 <a href="{{ url('/bo') }}">
 	ACCEDER A LESPACE ADMIN
 </a>
-</div>
+
 
 @endif
-
+</div>
 @endsection
 
 @section('additional_js')
@@ -80,4 +80,3 @@ $('#myModal').on('show.bs.modal', function (event) {
 </script>
 
 @endsection
-

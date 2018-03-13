@@ -3,7 +3,6 @@
 
 @section('additional_css')
 <link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
-<link rel="stylesheet" href="{{ url('/assets/css/login.css')}}">
 @endsection
 
 @section('content')
@@ -98,7 +97,7 @@
         <label class="form_col" for="password"> Mot de passe: </label>
         <input type="password" name="password"/>
       </div>
-      <button type="submit"> Connexion </button>
+      <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
     </form>
     </div>
   </section>

@@ -1,6 +1,5 @@
 <?php $__env->startSection('additional_css'); ?>
 <link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
-<link rel="stylesheet" href="<?php echo e(url('/assets/css/login.css')); ?>">
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -95,7 +94,7 @@
         <label class="form_col" for="password"> Mot de passe: </label>
         <input type="password" name="password"/>
       </div>
-      <button type="submit"> Connexion </button>
+      <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
     </form>
     </div>
   </section>
