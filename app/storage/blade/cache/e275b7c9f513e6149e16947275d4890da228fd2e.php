@@ -20,8 +20,7 @@
   </div>
 </section>
 
-<section id="information">
-    <div class="inscription" id="inscription">
+<section id="information"><div class="inscription" id="inscription">
     <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       <div class="connecttext">
@@ -81,7 +80,6 @@
     <?php if($errorAge): ?>
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     <?php endif; ?>
-
     <div class="connexion" id="connexion">
 
     <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">

@@ -23,8 +23,7 @@
   </div>
 </section>
 
-<section id="information">
-    <div class="inscription" id="inscription">
+<section id="information"><div class="inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       <div class="connecttext">
@@ -84,7 +83,6 @@
     @if($errorAge)
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     @endif
-
     <div class="connexion" id="connexion">
 
     <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">

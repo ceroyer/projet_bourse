@@ -87,6 +87,12 @@ class LoginController extends Controller{
 
 
   public function signup(){
+    // Verif pseudo déjà existant dans bdd
+    $pseudo = $_POST['pseudo'];
+    $users = Users::getInstance()->getAll();
+    dump($users);
+    
+
     global $blade;
       //récupérer le serveur utilisé en cours
       date_default_timezone_get();
