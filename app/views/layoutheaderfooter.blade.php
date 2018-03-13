@@ -29,10 +29,10 @@
 </head>
 <body>
   <nav id="header">
-    <div id="tradeheaven">
+    <a id="tradeheaven" href="{{ url('/stats') }}">
       <img src="assets/img/logo_simple.png" alt="logo">
       <h2>Trade Heaven</h2>
-    </div>
+    </a>
     <h1>@yield('title')</h1>
     <div id="compte">
       <div class="collapsible" id="alerte">
@@ -73,4 +73,3 @@
   @yield('additional_js')
 </body>
 </html>
-

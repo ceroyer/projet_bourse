@@ -31,7 +31,7 @@ body
 { height: 80%;
 }
 
-#header>div
+#header>div, #header>a
 { height: 100%;
   display: flex;
   align-items: center;
@@ -153,4 +153,3 @@ a>p:first-of-type
   top: 0px;
   right: 0px;
 }
-
