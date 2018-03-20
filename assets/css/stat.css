@@ -17,7 +17,7 @@ padding: 0;
 .all{
   height:100vh;
  }
-#conteneur{
+.conteneur{
   background-color: #c3c6d1;
   border-radius: 5px;
   height: 50%;
@@ -25,12 +25,12 @@ padding: 0;
   margin-left: 20px;
   margin-right:20px;
 }
-#crossbar1{
+.crossbar1{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-#crossbar1 h1{
+.crossbar1 h1{
    font-family: "Modern King";
    color:#20233f;
 }
@@ -55,12 +55,12 @@ table button{
   background-color: white;
   border-style: none;
 }
-#cac{
+.cac{
       display: flex;
     justify-content: space-around;
     align-items: center;
 }
-#cac40{
+.cac40{
   border-radius: 5px;
     margin-left: auto;
   margin-right:auto;
@@ -73,7 +73,7 @@ flex-direction: column;
 align-items: center;
 border:2px #20233f solid;
 }
-#cac80{
+.cac80{
   border-radius: 5px;
     margin-left: auto;
   margin-right:auto;
@@ -86,19 +86,19 @@ flex-direction: column;
 align-items: center;
 border:2px #20233f solid;
 }
-#cac h1{
+.cac h1{
   font-family: "Caviar Dreams";
   text-align: center;
   color:#20233f;
 }
-#cac table{
+.cac table{
   text-align: center;
   margin-bottom: 20px;
   border:1px black solid;
   font-family: "Caviar Dreams";
   color:#20233f;
 }
-#cac th{
+.cac th{
   padding:5px;
   width:auto;
   height:auto;
@@ -106,12 +106,12 @@ border:2px #20233f solid;
   background-color: #7e8089;
   color:white;
 }
-#cac td{
+.cac td{
   padding:5px;
   width:auto;
   height:auto;
 }
-#fav{
+.fav{
   margin-top: 10px;
   background-color: #c3c6d1;
   border-radius: 5px;
@@ -123,7 +123,7 @@ border:2px #20233f solid;
   margin-right:20px;
   position: relative;
 }
-#fav1{
+.fav1{
 
   background-color: white;
   margin-left: auto;
@@ -135,12 +135,12 @@ align-items: center;
 border-radius: 5px;
 border:2px #20233f solid;
  }
-#fav h1{
+.fav h1{
   text-align: center;
   font-family: "Caviar Dreams";
   color:#20233f;
 }
-#fav table{
+.fav table{
   margin-right:auto;
   margin-left:auto;
   text-align: center;
@@ -149,7 +149,7 @@ border:2px #20233f solid;
   font-family: "Caviar Dreams";
   color:#20233f;
 }
-#fav th{
+.fav th{
   padding:5px;
   width:auto;
   height:auto;
@@ -157,7 +157,7 @@ border:2px #20233f solid;
   background-color: #7e8089;
   color:white;
 }
-#fav td{
+.fav td{
   padding:5px;
   width:auto;
   height:auto;

@@ -21,16 +21,16 @@ Accueil
 
 
 <div class="all">
-  <div id="conteneur">
-    <div id="crossbar1">
+  <div class="conteneur">
+    <div class="crossbar1">
         <h1>SBF 120</h1>
         <div id="search">
           <input style="color:black" class="searchbar1" type="text" value="" placeholder="Recherche"/>
           <button type="" class="btn_searchbar"><i class="fa fa-search"></i></button>
         </div>
     </div>
-    <div id="cac">
-      <div id="cac40">
+    <div class="cac">
+      <div class="cac40">
         <h1>CAC 40</h1>
     <table>
       <thead>
@@ -68,7 +68,7 @@ Accueil
     </table>
   </div>
 
-  <div id="cac80">
+  <div class="cac80">
   <h1>CAC 80</h1>
     <table>
     <thead>
@@ -100,9 +100,9 @@ Accueil
   </div>
   </div>
   </div>
-  <div id="fav">
+  <div class="fav">
     <h1>MES FAVORIS</h1>
-    <div id="fav1">
+    <div class="fav1">
     <table>
     <thead>
       <tr>
