@@ -3,7 +3,10 @@
 Accueil
 @endsection
 @section('additional_css')
-<link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/stat.css' ) }}">
+<link rel="stylesheet" href="assets/css/header+footer.css">
+@endsection
+@section('additional_css')
+ <link rel="stylesheet" type="text/css" href="assets/css/stat.css">
 @endsection
 @section('content')
 <header>
@@ -29,7 +32,7 @@ Accueil
     <div class="cac">
       <div class="cac40">
         <h1>CAC 40</h1>
-    <table class="table">
+    <table>
       <thead>
         <tr>
           <td>Nom</td>
@@ -67,7 +70,7 @@ Accueil
 
   <div class="cac80">
   <h1>CAC 80</h1>
-    <table class="table">
+    <table>
     <thead>
       <tr>
         <td>Nom</td>
@@ -100,7 +103,7 @@ Accueil
   <div class="fav">
     <h1>MES FAVORIS</h1>
     <div class="fav1">
-    <table class="table">
+    <table>
     <thead>
       <tr>
         <td>Nom</td>
@@ -112,9 +115,9 @@ Accueil
         <td>Variation</td>
         <td>Fav</td>
       </tr>
-    </thead>
+       </thead>
       @foreach ($actions as $action)
-    <tbody>
+      <tbody>
         <tr>
           <td>{{ $action['nom'] }}</td>
           <td>{{ $action['ISIN'] }}</td>
@@ -124,7 +127,7 @@ Accueil
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
         </tr>
-      </tbody>
+         </tbody>
       @endforeach
     </table>
   </div>
