@@ -99,6 +99,9 @@
     @if($errorAge)
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
     @endif
+    @if($pseudoexist == true)
+    <h2 class="erreur" style='color:red'>Pseudo déjà existant</h2>
+   @endif
 </section>
 
 <section id="commentaire">

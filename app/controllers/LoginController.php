@@ -29,11 +29,14 @@ class LoginController extends Controller{
      if (!isset($_SESSION['errorAge'])){  //si var arrorAge pas créée
         $_SESSION['errorAge'] = false;
       }
+       if (!isset($_SESSION['pseudoexist'])){  //si var arrorAge pas créée
+        $_SESSION['pseudoexist'] = false;
+      }
 
       echo $blade->render(
       'login', // appel de la view
 
-      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err'], 'errorAge' => $_SESSION['errorAge']]);
+      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'err' => $_SESSION['err'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist']]);
        LoginController::resetError();
 
     }
@@ -90,7 +93,13 @@ class LoginController extends Controller{
     // Verif pseudo déjà existant dans bdd
     $pseudo = $_POST['pseudo'];
     $users = Users::getInstance()->getAll();
-    dump($users);
+    foreach ($users as $user ) {
+      if($pseudo=$user['pseudo']){
+        $_SESSION['pseudoexist']==true;
+
+      }
+    }
+    
     
 
     global $blade;
