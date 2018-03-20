@@ -50,26 +50,25 @@ class LoginController extends Controller{
       $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
       foreach ($logins as $login) {
-
           if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
-              $_SESSION['login']=$login['pseudo'];
-              $_SESSION['id']=$login['id'];
-              $desactive = $login['active'] ;
-              if($desactive == 0) {
-                redirect('/stats'); // acces aux stats*
+              $desactive = $login['active'];
+              if($desactive == 1) {
+                  $_SESSION['deactive'] = true;
+                  redirect('/');
               } else {
-                $_SESSION['deactive'] = true;
-              break;
+                $_SESSION['login']=$login['pseudo'];
+                $_SESSION['id']=$login['id'];
+                redirect('/stats');
+                break;
               }
 
       }}}
         else{
           $_SESSION['error'] = true;
           redirect('/');
-
         }
 
-      redirect('/#information'); // Afficher message erreur 'Pseudo ou mdp incorrects'
+      redirect('/'); // Afficher message erreur 'Pseudo ou mdp incorrects'
       LoginController::resetError();
       $_POST=null; // Vider les champs & variables
       $loginconnect=null;
@@ -86,8 +85,8 @@ class LoginController extends Controller{
 
       }
     }
-    
-    
+
+
 
     global $blade;
       //récupérer le serveur utilisé en cours
