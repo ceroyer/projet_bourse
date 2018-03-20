@@ -1,6 +1,5 @@
 .all{
   height:100vh;
-  width: 100vw;
  }
 .conteneur{
   background-color: #c3c6d1;
@@ -15,8 +14,8 @@
     justify-content: space-around;
     align-items: center;
 }
-.all h1, .fav h1{
-   font-family: "bluefish";
+.crossbar1 h1{
+   font-family: "Modern King";
    color:#20233f;
 }
 .searchbar1{
@@ -122,6 +121,7 @@ border:2px #20233f solid;
  }
 .fav h1{
   text-align: center;
+  font-family: "Caviar Dreams";
   color:#20233f;
 }
 .fav table{
@@ -146,7 +146,7 @@ border:2px #20233f solid;
   width:auto;
   height:auto;
 }
-.all a{
+a{
   position: absolute;
   right:50px;
   font-size:15px;
