@@ -29,7 +29,7 @@ Accueil
     <div class="cac">
       <div class="cac40">
         <h1>CAC 40</h1>
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <td>Nom</td>
@@ -67,7 +67,7 @@ Accueil
 
   <div class="cac80">
   <h1>CAC 80</h1>
-    <table>
+    <table class="table">
     <thead>
       <tr>
         <td>Nom</td>
@@ -100,7 +100,7 @@ Accueil
   <div class="fav">
     <h1>MES FAVORIS</h1>
     <div class="fav1">
-    <table>
+    <table class="table">
     <thead>
       <tr>
         <td>Nom</td>
