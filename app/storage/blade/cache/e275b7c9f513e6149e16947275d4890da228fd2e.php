@@ -24,6 +24,12 @@
     <div class="inscription" id="inscription">
     <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
+      <?php if($err == true): ?>
+      <h2 class="erreur" style='color:red'>Email ou identifiant incorrect.</h2>
+      <?php endif; ?>
+      <?php if($errorAge): ?>
+        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
+      <?php endif; ?>
       <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
@@ -69,23 +75,19 @@
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
-    <?php if($err == true): ?>
-    <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
-   <?php endif; ?>
-    <?php if($error): ?>
-      <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
-    <?php endif; ?>
-    <?php if($deactive === true): ?>
-      <h2 class="erreur" style='color:red'>Compte désactivé</h2>
-    <?php endif; ?>
-    <?php if($errorAge): ?>
-        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
-    <?php endif; ?>
+
+
 
     <div class="connexion" id="connexion">
 
     <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
       <h2>Connexion</h2>
+      <?php if($error): ?>
+      <h2 class="erreur" style='color:red'>Identifiants invalides.</h2>
+      <?php endif; ?>
+      <?php if($deactive): ?>
+      <h2 class="erreur" style='color:red'>Compte désactivé.</h2>
+      <?php endif; ?>
       <div class="connecttext">
         <label class="form_col" for="login"> Identifiant: </label>
         <input type="text" name="login"/>

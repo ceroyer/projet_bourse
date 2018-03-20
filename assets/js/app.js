@@ -55,7 +55,5 @@ $('.view-more2').click( function (event) {
 });
 
 $('#connect').click( function (event) {
-
-  $("#connexion").css("display","flex");
-  $("#inscription").css("display","none");
+  $(".erreur").css("display","none");
 });

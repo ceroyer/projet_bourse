@@ -40,51 +40,38 @@ class LoginController extends Controller{
   }
 
   public function login(){
-
+    global $blade;
     $logins = Users::getInstance()->getAll();
-
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
       $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
       $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
-      $loginconnect = $_POST['login']; // Récupération des variables
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
-
       foreach ($logins as $login) {
 
-        if ($login['active']== 1) {
-          $_SESSION['deactive']=true;
-          redirect('/');
-        } else {
-
           if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
-            $_SESSION['login']=$login['pseudo'];
-            $_SESSION['id']=$login['id'];
-            redirect('/stats'); // acces aux stats
-            break;
-          } else {
-            $_SESSION['error'] = true;
-            }
-          }
+              $_SESSION['login']=$login['pseudo'];
+              $_SESSION['id']=$login['id'];
+              $desactive = $login['active'] ;
+              if($desactive == 0) {
+                redirect('/stats'); // acces aux stats*
+              } else {
+                $_SESSION['deactive'] = true;
+              break;
+              }
 
-      }
+      }}}
+        else{
+          $_SESSION['error'] = true;
+          redirect('/');
+
+        }
+
+      redirect('/#information'); // Afficher message erreur 'Pseudo ou mdp incorrects'
+      LoginController::resetError();
       $_POST=null; // Vider les champs & variables
       $loginconnect=null;
       $passwordconnect=null;
-      $_SESSION['error'] = true;
-
-      // Message erreur 'Pseudo ou mdp incorrects'
-
-     redirect('/#connexion');
-    } else {
-      $_SESSION['error'] = true;
-      redirect('/#connexion');
-       LoginController::resetError();
-
-        // Afficher message erreur 'Champs vides'
-    }
-
 }
-
 
   public function signup(){
     global $blade;
@@ -145,6 +132,9 @@ class LoginController extends Controller{
                 $datas = ['email' => $_POST['email'] , 'password' => sha1($mdp), 'pseudo' =>$_POST['pseudo'], 'role' => 'user'];
                 Users::getInstance()->add($datas);
                 mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est :' . $mdp, $header);
+                redirect('/#information');
+                LoginController::resetError();
+
                   }
 
            else{

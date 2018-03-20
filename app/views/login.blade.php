@@ -27,6 +27,12 @@
     <div class="inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
+      @if($err == true)
+      <h2 class="erreur" style='color:red'>Email ou identifiant incorrect.</h2>
+      @endif
+      @if($errorAge)
+        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
+      @endif
       <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
@@ -72,23 +78,19 @@
       <button type="submit"> S'inscrire </button>
     </form>
     </div>
-    @if($err == true)
-    <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
-   @endif
-    @if($error)
-      <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
-    @endif
-    @if($deactive === true)
-      <h2 class="erreur" style='color:red'>Compte désactivé</h2>
-    @endif
-    @if($errorAge)
-        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
-    @endif
+
+
 
     <div class="connexion" id="connexion">
 
     <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
       <h2>Connexion</h2>
+      @if($error)
+      <h2 class="erreur" style='color:red'>Identifiants invalides.</h2>
+      @endif
+      @if($deactive)
+      <h2 class="erreur" style='color:red'>Compte désactivé.</h2>
+      @endif
       <div class="connecttext">
         <label class="form_col" for="login"> Identifiant: </label>
         <input type="text" name="login"/>
