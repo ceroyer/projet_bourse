@@ -59,6 +59,10 @@ margin:20px;
   cursor: pointer;
 }
 
+#infos label, #mdp h4
+{ color: #0f1339 !important;
+}
+
 #mdp div button{
   margin-top: 10px;
 }
@@ -70,7 +74,6 @@ margin:20px;
 
 #mdp h4{
   text-align: center;
-  color:white !important;
   text-decoration: underline;
   font-size: 1.1rem;
   font-weight: bold;
