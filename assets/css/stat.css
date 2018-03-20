@@ -146,7 +146,7 @@ border:2px #20233f solid;
   width:auto;
   height:auto;
 }
-a{
+.all a{
   position: absolute;
   right:50px;
   font-size:15px;
