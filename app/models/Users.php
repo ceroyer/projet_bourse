@@ -14,5 +14,15 @@ class Users extends Base{
   	return self::$instance;
   }
 
+  public static function getConnectedUser(){
+    if (isset($_SESSION['id'])) {
+      $id = $_SESSION['id'];
+      $user = Users::getInstance()->get($id);
+      return $user;
+    }else{
+      return false;
+    }
+  }
+
 }
 ?>

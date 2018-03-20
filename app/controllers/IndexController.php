@@ -9,9 +9,16 @@ class IndexController extends Controller{
 
 function editProfile(){
   global $blade;
-  if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
-    $user = Users::getInstance()->get($id);
+  //if (isset($_SESSION['id'])) {
+  //  $id = $_SESSION['id'];
+  //  $user = Users::getInstance()->get($id);
+  //  echo $blade->render('profile' , ['user' => $user]);
+  //}else{
+  //  redirect('/');
+  //}
+
+  //Users::getConnectedUser() pour acquérir la personne logué (false si pas loggé)
+  if ($user = Users::getConnectedUser()){
     echo $blade->render('profile' , ['user' => $user]);
   }else{
     redirect('/');
@@ -38,23 +45,43 @@ function backofficeIndex(){
 
     $listUsers = Users::getInstance()->getAll();
 
-     echo $blade->render(
-        'bo',
-        ['users'=>$listUsers]
-      );
+     //echo $blade->render(
+      //  'bo',
+      //  ['users'=>$listUsers]
+      //);
+
+      if ($user = Users::getConnectedUser()){
+        echo $blade->render(
+           'bo',
+           ['users'=>$listUsers, 'user' => $user]
+         );
+      }else{
+        echo $blade->render(
+           '405'
+         );
+      }
 }
 
 
 function connectedPage(){
   global $blade;
   $actions=Actions::getInstance()->getAll();
-  if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
-    $user = Users::getInstance()->get($id);
+  //if (isset($_SESSION['id'])) {
+  //  $id = $_SESSION['id'];
+  //  $user = Users::getInstance()->get($id);
+  //  echo $blade->render(
+  //      'stats',
+  //      ['actions'=>$actions, 'user' => $user]
+  //    );
+  //}
+
+  if ($user = Users::getConnectedUser()){
     echo $blade->render(
-        'stats',
-        ['actions'=>$actions, 'user' => $user]
-      );
+          'stats',
+          ['actions'=>$actions, 'user' => $user]
+        );
+  }else{
+    redirect('/');
   }
 
 }
