@@ -55,6 +55,10 @@ margin:20px;
   padding-bottom: 10px;
 }
 
+#infos button:hover{
+  cursor: pointer;
+}
+
 #mdp div button{
   margin-top: 10px;
 }
