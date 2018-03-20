@@ -48,9 +48,17 @@ margin:20px;
 }
 
 #mdp div{
-  padding-left: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 10px;
 }
+
+#mdp div button{
+  margin-top: 10px;
+}
+
 
 #mdp button,input{
   color:black;
