@@ -21,6 +21,12 @@
     <div class="connexion" id="connexion">
       <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
         <h2>Connexion</h2>
+            @if($error)
+              <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
+            @endif
+            @if($deactive === true)
+               <h2 class="erreur" style='color:red'>Compte désactivé</h2>
+            @endif
         <div id="entrees">
           <div class="connecttext">
             <label class="form_col" for="login"> Identifiant: </label>
@@ -47,6 +53,9 @@
       @endif
       @if($errorAge)
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
+      @endif
+      @if($pseudoexist == true)
+        <h2 class="erreur" style='color:red'>Pseudo déjà existant</h2>
       @endif
       <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
@@ -93,21 +102,6 @@
       <button type="submit"> S'inscrire </button>
     </form>
   </div>
-    @if($err == true)
-    <h2 class="erreur" style='color:red'>Email Incorrect!</h2>
-   @endif
-    @if($error)
-      <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
-    @endif
-    @if($deactive === true)
-      <h2 class="erreur" style='color:red'>Compte désactivé</h2>
-    @endif
-    @if($errorAge)
-        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette aplication</h2>
-    @endif
-    @if($pseudoexist == true)
-    <h2 class="erreur" style='color:red'>Pseudo déjà existant</h2>
-   @endif
 </section>
 
 <section id="commentaire">
