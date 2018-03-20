@@ -3,10 +3,8 @@
 Accueil
 @endsection
 @section('additional_css')
-<link rel="stylesheet" href="assets/css/header+footer.css">
-@endsection
-@section('additional_css')
- <link rel="stylesheet" type="text/css" href="assets/css/stat.css">
+ <!--<link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/stat.css' ) }}">-->
+ <link rel="stylesheet" type="text/css" href="{{ url( '/assets/css/bo.css' ) }}">
 @endsection
 @section('content')
 <header>
@@ -32,7 +30,7 @@ Accueil
     <div class="cac">
       <div class="cac40">
         <h1>CAC 40</h1>
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <td>Nom</td>
