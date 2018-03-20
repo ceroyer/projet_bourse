@@ -112,9 +112,9 @@ Accueil
         <td>Variation</td>
         <td>Fav</td>
       </tr>
-       </thead>
+    </thead>
       @foreach ($actions as $action)
-      <tbody>
+    <tbody>
         <tr>
           <td>{{ $action['nom'] }}</td>
           <td>{{ $action['ISIN'] }}</td>
@@ -124,7 +124,7 @@ Accueil
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
         </tr>
-         </tbody>
+      </tbody>
       @endforeach
     </table>
   </div>
