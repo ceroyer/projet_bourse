@@ -13,7 +13,9 @@ html
 /* ////////////////// PAGE D'ACCUEIL NON CONNECTÉ ////////////////// */
 
 /* Première partie - Présentation */
-
+.container-fluid {
+  padding: 0px !important;
+}
 body
 {
   display:flex;
@@ -63,56 +65,143 @@ section
 }
 .accueil h1
 {
-  font-family:Raspoutine;
+  font-family:raspoutine;
   height:20%;
   font-size:7vw;
   color:white;
-  text-shadow: 0.1em 0.1em 0.1em black;
+  text-shadow: 0.05em 0.05em 0.05em black;
   white-space: nowrap;
 }
 .accueil h2
 {
   margin-top:5px;
-  font-family:Signature of the Ancient;
-  font-size:5vh;
+  font-family:dream;
+  font-size:4vh;
   color:white;
   text-shadow: 0.08em 0.08em 0.08em black;
   white-space: nowrap;
 }
 .accueil ul
 {
-  margin-bottom:25px;
+  margin-bottom:35px;
 }
 .accueil li
 {
-  font-family:Signature of the Ancient;
-  font-size:4vh;
+  padding-top:20px;
+  font-family:dream;
+  font-size:3vh;
   color:white;
   text-shadow: 0.08em 0.08em 0.08em black;
   white-space: nowrap;
 }
-.view-more1
+
+.connexion
 {
-  height:8vh;
-  font-size:4vh;
-  width:auto;
-  font-family:Raspoutine;
-  border-radius: 8px;
-  border: 4px solid #367F33;
-  background-color: #91CC8E;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  height:20vh;
+  width:25vw;
+  background-color: #1F2340;
+  margin-bottom: 20px;
 }
-.view-more2
+.connexion form
 {
-  font-size:2vh;
-  width:auto;
-  font-family:Raspoutine;
-  color: black;
-  border-radius: 8px;
-  border: 2px solid #4E7F2B;
-  background-color: #A8CC8E;
-  margin-top: 20px;
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.connexion form h2 {
+  font-family: caviar;
+  font-size: 25px;
+  color: white;
+}
+#entrees {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.connexion form label {
+  font-family: caviar;
+  font-size: 18px;
+  color: white;
+}
+.connexion .connecttext
+{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  width:49%;
+}
+.connexion .connecttext label {
+  align-items: start;
+}
+.connexion input
+{
+  width:98%;
+  height:25px;
+  border-radius: 5px;
+}
+.connexion select
+{
+  height:2vw;
+  width:6vw;
+}
+.connexion button
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:20%;
+  width:33%;
+  min-width: 200px;
+  background-color: #1F2340;
+  font-family: caviar;
+  font-size: 20px;
+  color: white;
+  white-space:nowrap;
+}
+.connexion button:hover
+{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3f9415), color-stop(1, #7cb362));
+  background:-moz-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:-webkit-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:-o-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:-ms-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:linear-gradient(to bottom, #B6F2FF 5%, #2D717F 100%);
+  background-color:#B6F2FF;
+  color:white;
+  cursor:pointer;
 }
 
+.view-more1
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height:%;
+  width:50%;
+  min-width: 200px;
+  font-family: caviar;
+  font-size: 20px;
+  color: white;
+  white-space:nowrap;
+}
+.view-more1:hover
+{
+  color:white;
+}
 
 /* Deuxième partie - Inscription & connexion */
 #information {
@@ -125,11 +214,9 @@ section
   flex-direction:row;
   justify-content: space-around;
   align-items: center;
-
-
 }
 
-.inscription, .connexion
+.inscription
 {
   display:flex;
   flex-direction:column;
@@ -139,7 +226,7 @@ section
   width:35vw;
   background-color: #1F2340;
 }
-form
+.inscription form
 {
   height:100%;
   width:100%;
@@ -150,17 +237,17 @@ form
   padding-left: 10%;
   padding-right: 10%;
 }
-form h2 {
-  font-family: CaviarDreams;
+.inscription form h2 {
+  font-family: caviar;
   font-size: 36px;
   color: white;
 }
-form label {
-  font-family: CaviarDreams;
+.inscription form label {
+  font-family: caviar;
   font-size: 28px;
   color: white;
 }
-.connecttext
+.inscription .connecttext
 {
   display:flex;
   flex-direction:column;
@@ -168,10 +255,10 @@ form label {
   align-items: center;
   width:100%;
 }
-.connecttext label {
+.inscription .connecttext label {
   align-items: start;
 }
-input
+.inscription input
 {
   width:80%;
   height:50px;
@@ -185,25 +272,42 @@ input
   align-items: end;
   width:100%;
 }
-select
+.inscription select
 {
   height:2vw;
   width:6vw;
 }
-button
+.inscription button
 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height:7%;
   width:33%;
+  min-width: 200px;
   background-color: #1F2340;
-  font-family: CaviarDreams;
+  font-family: caviar;
   font-size: 28px;
   color: white;
+}
+.inscription button:hover
+{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3f9415), color-stop(1, #7cb362));
+  background:-moz-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:-webkit-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:-o-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:-ms-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
+  background:linear-gradient(to bottom, #B6F2FF 5%, #2D717F 100%);
+  background-color:#B6F2FF;
+  color:white;
+  cursor:pointer;
 }
 
 
 /* Troisième partie - Bulles */
 #commentaire {
-	height:100%;
+	height:100vh;
 	background-image:url(../img/accueil2.jpg);
 	display:flex;
 	flex-wrap:wrap;
@@ -239,7 +343,7 @@ button
 #commentaire h2{
 	width:60%;
 	text-align: justify;
-	font-family: CaviarDreams;
+	font-family: caviar;
 	margin-bottom: 0px;
 	margin-top: 0px;
 	text-shadow:2px 2px white;
@@ -247,7 +351,7 @@ button
 }
 
 #commentaire h1{
-	font-family:Raspoutine;
+	font-family:raspoutine;
 	color:black;
 
 }

@@ -10,7 +10,6 @@ Votre compte
 
 <div id="titre">
 	<h1>Modifier vos informations</h1>
-	<h2>{{ $user['pseudo'] }}</h2>
 </div>
 
 <div id="infos">
@@ -33,9 +32,9 @@ Votre compte
 			</div>
 		</div>
 	</form>
-
+<div id="desac">
 <form action="{{url('/deactivaded')}}" method="POST">
-	<label>Partir en vacances et desactiver mon compte</label>
+	<h4><label>Partir en vacances et desactiver mon compte</label></h4>
     <input type="text" name="id" value="{{ $user['id'] }}" hidden>
     <td><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger"><i class="fa fa-plane"></i>
     </button></td>
@@ -47,28 +46,26 @@ Votre compte
 	              <h4 class="modal-title">Confirmation</h4>
 	          </div>
 	          <div class="modal-body">
-	              <p>Voulez vous vraiment vous desactiver de manière definitive?</p>
-	               <p class="text-warning"><small>Pour réactiver, contacter l'administrateur du site par mail!</small></p>
+	              <p>Voulez-vous vraiment désactiver votre compte de manière definitive ?</p>
+	               <p class="text-warning"><small>Pour le réactiver, contactez l'administrateur du site par mail !</small></p>
 	         </div>
 	          <div class="modal-footer">
 	              <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-	              <button type="submit" class="btn btn-primary">Je me désactive !!! YOLO</button>
+	              <button type="submit" class="btn btn-primary">Je désactive mon compte</button>
 	          </div>
 	      </div>
 	  </div>
 	  </div>
 </form>
-
+</div>
 
 @if($user['role'] == 'admin' )
 
-<a href="{{ url('/bo') }}">
-	ACCEDER A LESPACE ADMIN
-</a>
-</div>
+<a href="{{ url('/bo') }}" class="admin"><h4>Accéder à l'espace admin</h4></a>
+
 
 @endif
-
+</div>
 @endsection
 
 @section('additional_js')
@@ -81,4 +78,3 @@ $('#myModal').on('show.bs.modal', function (event) {
 </script>
 
 @endsection
-

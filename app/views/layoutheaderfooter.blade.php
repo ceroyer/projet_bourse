@@ -10,38 +10,24 @@
   <link rel="stylesheet" href="{{ url( '/assets/css/header+footer.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/assets/css/font-family.css' ) }}">
   <link rel="stylesheet" href="{{ url( '/font-awesome-4.7.0/css/font-awesome.min.css')}}">
-  <style type="text/css">
-    *{
-      color:white;
-    }
-    table{
-      border: 1px solid white;
-    }
-
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: red;
-    }
-  </style>
   @yield('additional_css')
 </head>
 <body>
   <nav id="header">
-    <div id="tradeheaven">
+    <a id="tradeheaven" href="{{ url('/stats') }}">
       <img src="assets/img/logo_simple.png" alt="logo">
       <h2>Trade Heaven</h2>
-    </div>
+    </a>
     <h1>@yield('title')</h1>
     <div id="compte">
       <div class="collapsible" id="alerte">
         <img src="assets/img/cloche.png" alt="alerte">
-        <div></div>
+        <div id="alertelight"></div>
+        <div id="alertediv" class="content">
+          <p>Voici votre bulletin</p>
+        </div>
       </div>
-      <div class="content">
-        <p>Voici votre bulletin</p>
-      </div>
+
       @if ($user != null)
       <a href="{{ url('/profile') }}">
         <p>{{ $user['pseudo'] }}</p>
@@ -73,4 +59,3 @@
   @yield('additional_js')
 </body>
 </html>
-

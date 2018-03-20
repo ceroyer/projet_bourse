@@ -16,6 +16,17 @@ body
   font-size: 18px;
 }
 
+table{
+  border: 1px solid white;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: red;
+}
+
 /* Header */
 
 #header
@@ -31,7 +42,7 @@ body
 { height: 80%;
 }
 
-#header>div
+#header>div, #header>a
 { height: 100%;
   display: flex;
   align-items: center;
@@ -39,16 +50,27 @@ body
 
 h1
 { font-family: caviar;
+}
+
+#header h1
+{ font-size: 2rem !important;
+  padding-left: 8vw;
   font-weight: bold;
+}
 }
 
 #tradeheaven
 { margin-left: 50px;
-  font-family: raspoutine;
 }
 
 #tradeheaven>h2
 { color: white !important;
+  font-family: raspoutine;
+  font-size: 20px !important;
+}
+
+#tradeheaven:hover
+{ text-decoration: none;
 }
 
 #compte
@@ -144,7 +166,7 @@ a>p:first-of-type
   position: relative;
   margin-right: 50px;
 }
-#alerte div
+#alertelight
 { height: 10px;
   width: 10px;
   background-color: #F91206;
@@ -153,4 +175,9 @@ a>p:first-of-type
   top: 0px;
   right: 0px;
 }
-
+#alertediv
+{
+  position: absolute;
+  top: 70px;
+  width: 200px;
+}

@@ -13,13 +13,14 @@ Espace administrateur
   <button>Rechercher</button>
 </div>
 <h2>Les administrateurs</h2>
-<table class="table">
+<table class="table" >
   <thead>
     <tr>
       <th>Pseudo</th>
       <th>Email</th>
       <th>Supprimer</th>
       <th>Dégrader</th>
+    </tr>
   </thead>
   <tbody>
   @foreach ($users as $user)
@@ -45,7 +46,7 @@ Espace administrateur
   </tbody>
 </table>
   <h2>Les utilisateurs</h2>
-  <table class="table">
+  <table class="table table-fixed">
     <thead>
       <tr>
         <th>Pseudo</th>
@@ -53,6 +54,7 @@ Espace administrateur
         <th>Supprimer</th>
         <th>Promouvoir</th>
         <th>Mode Vacances</th>
+      </tr>
     </thead>
     <tbody>
     @foreach ($users as $user)
@@ -95,13 +97,13 @@ Espace administrateur
         @if($user['active']==0)<!-- Si l'utilisateur est activé affichage du mode vacances  -->
         <form action="{{url('/bo/deactivaded')}}" method="POST">
           <input type="text" name="id" value="{{ $user['id'] }}" hidden>
-          <td><button type="submit" class="btn btn-danger"><i class="fa fa-plane"></i>
+          <td><button type="submit" class="btn btn-success"><i class="fa fa-coffee"></i>
           </button></td>
         </form>
         @else
         <form action="{{url('/bo/reactivaded')}}" method="POST">
           <input type="text" name="id" value="{{ $user['id'] }}" hidden>
-          <td><button type="submit" class="btn btn-success"><i class="fa fa-coffee"></i>
+          <td><button type="submit" class="btn btn-danger"><i class="fa fa-plane"></i>
           </button></td>
         </form>
         @endif

@@ -34,13 +34,16 @@ var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    var content = this.nextElementSibling;
+    var content = this.children[2];
+    var notif = this.children[1];
     var cloche = this.children[0];
+
     if (content.style.display === "block") {
       content.style.display = "none";
       cloche.classList.replace("fa-bell-o","fa-bell");
     } else {
       content.style.display = "block";
+      notif.style.display = "none";
       cloche.classList.replace("fa-bell","fa-bell-o");
     }
   });
