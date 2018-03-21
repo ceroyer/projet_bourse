@@ -50,7 +50,7 @@ section
   justify-content: center;
   align-items: center;
 }
-.accueilText
+.accueil__text
 {
   display:flex;
   flex-direction:column;
