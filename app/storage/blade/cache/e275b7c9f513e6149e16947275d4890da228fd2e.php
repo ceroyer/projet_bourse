@@ -54,6 +54,9 @@
       <?php if($pseudoexist == true): ?>
         <h2 class="erreur" style='color:red'>Pseudo déjà existant</h2>
       <?php endif; ?>
+      <?php if($mailexist == true): ?>
+        <h2 class="erreur" style='color:red'>Email déjà existant</h2>
+      <?php endif; ?>
       <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
