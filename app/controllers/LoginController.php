@@ -21,7 +21,7 @@ class LoginController extends Controller{
       }
 
       if (!isset($_SESSION['deactive'])){ // Création Variable Deactive
-        $_SESSION['deactive'] = false; // contient "faux"
+         $_SESSION['deactive'] = false; // contient "faux"
       }
       if (!isset($_SESSION['err'])){ // Création Variable error
         $_SESSION['err'] = false; // contient "faux"
@@ -44,6 +44,7 @@ class LoginController extends Controller{
 
   public function login(){
     global $blade;
+    LoginController::resetError();
     $logins = Users::getInstance()->getAll();
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
       $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
@@ -55,24 +56,30 @@ class LoginController extends Controller{
               if($desactive == 1) {
                   $_SESSION['deactive'] = true;
                   redirect('/');
+
               } else {
                 $_SESSION['login']=$login['pseudo'];
                 $_SESSION['id']=$login['id'];
                 redirect('/stats');
                 break;
               }
+              dump( $_SESSION['deactive'],$_SESSION['error']);die;
+      }
+          else{
+            $temp=true;
 
-      }}}
-        else{
-          $_SESSION['error'] = true;
-          redirect('/');
-        }
+          }
+      }
+      if ($temp == true) {
+        $_SESSION['error'] = true;
+        redirect('/');
 
-      redirect('/'); // Afficher message erreur 'Pseudo ou mdp incorrects'
-      LoginController::resetError();
-      $_POST=null; // Vider les champs & variables
-      $loginconnect=null;
-      $passwordconnect=null;
+      }
+    }
+    else{
+        $_SESSION['error'] = true;
+        redirect('/');
+      }
 }
 
   public function signup(){
