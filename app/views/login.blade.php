@@ -7,7 +7,7 @@
 
 <section class="accueil content">
   <div class="accueil__logo">
-    <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo">
+    <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo" class="accueil__image">
   </div>
   <div class="accueil__text">
     <h1 class="accueil__titre">Trade Heaven</h1>
