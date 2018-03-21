@@ -59,11 +59,11 @@
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
       </div>
-      <div class="connecttext">
+      <div class="information__inscriptionConnect">
         <label class="form_col" for="email"> Adresse mail: </label>
         <input type="email" name="email"/>
       </div>
-      <div class="connecttext">
+      <div class="information__inscriptionConnect">
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>

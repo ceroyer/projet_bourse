@@ -224,7 +224,7 @@ section
   width:35vw;
   background-color: #1F2340;
 }
-.inscription form
+.information__inscription form
 {
   height:100%;
   width:100%;
@@ -235,17 +235,17 @@ section
   padding-left: 10%;
   padding-right: 10%;
 }
-.inscription form h2 {
+.information__inscription form h2 {
   font-family: caviar;
   font-size: 36px;
   color: white;
 }
-.inscription form label {
+.information__inscription form label {
   font-family: caviar;
   font-size: 28px;
   color: white;
 }
-.inscription .information__inscriptionConnect
+.information__inscription .information__inscriptionConnect
 {
   display:flex;
   flex-direction:column;
@@ -253,10 +253,10 @@ section
   align-items: center;
   width:100%;
 }
-.inscription .information__inscriptionConnect label {
+.information__inscription .information__inscriptionConnect label {
   align-items: start;
 }
-.inscription input
+.information__inscription input
 {
   width:80%;
   height:50px;
@@ -270,12 +270,12 @@ section
   align-items: end;
   width:100%;
 }
-.inscription select
+.information__inscription select
 {
   height:2vw;
   width:6vw;
 }
-.inscription button
+.information__inscription button
 {
   display: flex;
   flex-direction: column;
@@ -289,7 +289,7 @@ section
   font-size: 28px;
   color: white;
 }
-.inscription button:hover
+.information__inscription button:hover
 {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3f9415), color-stop(1, #7cb362));
   background:-moz-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
