@@ -26,8 +26,6 @@ body
 }
 .content
 {
-
-
   background-image: url('../img/acceuil1.jpg');
   background-size:cover;
   min-height:100vh;
@@ -50,7 +48,7 @@ section
   justify-content: center;
   align-items: center;
 }
-.accueilText
+.accueil__text
 {
   display:flex;
   flex-direction:column;

@@ -6,10 +6,10 @@
 @section('content')
 
 <section class="accueil content">
-  <div>
+  <div class="accueil__logo">
     <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo">
   </div>
-  <div class="accueilText">
+  <div class="accueil__text">
     <h1>Trade Heaven</h1>
     <h2>" Ne cherchez plus la bourse, elle s'invite chez vous ! "</h2>
     <ul>
@@ -17,7 +17,7 @@
       <li>Anticipez vos futures actions</li>
     </ul>
     <div class="connexion" id="connexion">
-      <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion">
+      <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion" class="connexion__formulaire">
         <h2>Connexion</h2>
             @if($error)
               <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
@@ -102,7 +102,7 @@
   </div>
 </section>
 
-<section id="commentaire">
+<section id="commentaire" class="commentaire">
     <div>
       <h1>Lucas FTEUR</h1>
       <h2>"Waouh ! Ce site m'a permis de gagner 10 000€ sans bouger de chez moi !"</h2>
