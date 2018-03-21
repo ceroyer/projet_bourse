@@ -103,19 +103,19 @@
 </section>
 
 <section id="commentaire" class="commentaire">
-    <div>
+    <div class="commentaire__temoignage">
       <h1>Lucas FTEUR</h1>
       <h2>"Waouh ! Ce site m'a permis de gagner 10 000€ sans bouger de chez moi !"</h2>
     </div>
-    <div>
+    <div class="commentaire__temoignage">
       <h1>Silvie SAVIE</h1>
       <h2>"Waouh ! Trade heaven a changé ma vie ! Je gagne mieux ma vie dorénavant !"</h2>
     </div>
-    <div>
+    <div class="commentaire__temoignage">
       <h1>Gaetan GENTE</h1>
       <h2>"Waouh ! Ce site m'a permis de devenir un trader aguerri !"</h2>
     </div>
-    <div>
+    <div class="commentaire__temoignage">
       <h1>Timothé CAFE</h1>
       <h2>"Waouh ! J'ai pu gagner un point de plus grâce à ce rôle de chef de projet !"</h2>
     </div>
