@@ -10,36 +10,36 @@
     <img src="{{ url('/assets/img/logoGros.png') }}" alt="Logo">
   </div>
   <div class="accueil__text">
-    <h1>Trade Heaven</h1>
-    <h2>" Ne cherchez plus la bourse, elle s'invite chez vous ! "</h2>
-    <ul>
-      <li>Consultation de la bourse en temps réel</li>
-      <li>Anticipez vos futures actions</li>
+    <h1 class="accueil__titre">Trade Heaven</h1>
+    <h2 class="accueil__soustitre">" Ne cherchez plus la bourse, elle s'invite chez vous ! "</h2>
+    <ul class="accueil__tiret">
+      <li class="accueil__argu">Consultation de la bourse en temps réel</li>
+      <li class="accueil__argu">Anticipez vos futures actions</li>
     </ul>
     <div class="connexion" id="connexion">
       <form action="{{ url('/login') }}" method="POST" id="formulaireConnexion" class="connexion__formulaire">
-        <h2>Connexion</h2>
+        <h2 class="connexion_titre">Connexion</h2>
             @if($error)
               <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
             @endif
             @if($deactive === true)
                <h2 class="erreur" style='color:red'>Compte désactivé</h2>
             @endif
-        <div id="entrees">
-          <div class="connecttext">
-            <label class="form_col" for="login"> Identifiant: </label>
-            <input type="text" name="login"/>
+        <div id="entrees" class="connexion__entrees">
+          <div class="connecttext connexion__identifiant">
+            <label class="form_col connexion__idLabel" for="login"> Identifiant: </label>
+            <input type="text" name="login" class="connexion_idInput"/>
           </div>
-          <div class="connecttext">
-            <label class="form_col" for="password"> Mot de passe: </label>
-            <input type="password" name="password"/>
+          <div class="connecttext connexion__mdp">
+            <label class="form_col connexion__mdpLabel" for="password"> Mot de passe: </label>
+            <input type="password" name="password" class="connexion__mdpInput"/>
           </div>
         </div>
 
-        <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
+        <button id="connect" class="connexion__button" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
       </form>
     </div>
-    <a class="view-more1" href="#information">Pas encore inscrit?</a>
+    <a class="view-more1 accueil_pasInscrit" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
 <section id="information">
