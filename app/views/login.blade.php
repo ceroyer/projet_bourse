@@ -55,17 +55,14 @@
       @if($pseudoexist == true)
         <h2 class="groupe__inscriptionErreur" style='color:red'>Pseudo déjà existant</h2>
       @endif
-<<<<<<< HEAD
       @if($mailexist == true)
         <h2 class="erreur" style='color:red'>Email déjà existant</h2>
       @endif
       <div class="connecttext">
-=======
-      <div class="information__inscriptionConnect">
->>>>>>> 595b4791485a9a97c2adeb45e980bb5f3ced159d
-        <label class="form_col" for="pseudo"> Identifiant: </label>
-        <input type="text" name="pseudo"/>
-      </div>
+        <div class="information__inscriptionConnect">
+          <label class="form_col" for="pseudo"> Identifiant: </label>
+          <input type="text" name="pseudo"/>
+        </div>
       <div class="information__inscriptionConnect">
         <label class="form_col" for="email"> Adresse mail: </label>
         <input type="email" name="email"/>

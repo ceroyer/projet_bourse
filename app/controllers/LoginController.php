@@ -43,6 +43,7 @@ class LoginController extends Controller{
 
   public function login(){
     global $blade;
+    $temp=false;
     LoginController::resetError();
     $logins = Users::getInstance()->getAll();
     if(!empty($_POST['password']) AND !empty($_POST['login'])){ // Si champs pas vides
@@ -51,31 +52,6 @@ class LoginController extends Controller{
       $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
       foreach ($logins as $login) {
           if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {    // Si pseudo & mdp correct
-<<<<<<< HEAD
-            $desactive = $login['active'];
-            if($desactive == 1) {
-                $_SESSION['deactive'] = true;
-                redirect('/');
-            } else {
-              $_SESSION['login']=$login['pseudo'];
-              $_SESSION['id']=$login['id'];
-              redirect('/stats');
-              break;
-            }
-         }
-      }
-    }
-    else{
-      $_SESSION['error'] = true;
-      redirect('/');
-    }
-
-      redirect('/'); // Afficher message erreur 'Pseudo ou mdp incorrects'
-      LoginController::resetError();
-      
-      $loginconnect=null;
-      $passwordconnect=null;
-=======
               $desactive = $login['active'];
               if($desactive == 1) {
                   $_SESSION['deactive'] = true;
@@ -104,8 +80,12 @@ class LoginController extends Controller{
         $_SESSION['error'] = true;
         redirect('/');
       }
->>>>>>> 595b4791485a9a97c2adeb45e980bb5f3ced159d
 }
+
+
+
+
+
 
   public function signup(){
     // Verif pseudo déjà existant dans bdd
