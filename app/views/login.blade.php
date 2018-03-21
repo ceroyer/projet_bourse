@@ -43,31 +43,31 @@
   </div>
 </section>
 <section id="information">
-  <div class="inscription" id="inscription">
+  <div class="information__inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       @if($err == true)
-      <h2 class="erreur" style='color:red'>Email ou identifiant incorrect.</h2>
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Email ou identifiant incorrect.</h2>
       @endif
       @if($errorAge)
-        <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
+        <h2 class="groupe__inscriptionErreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
       @endif
       @if($pseudoexist == true)
-        <h2 class="erreur" style='color:red'>Pseudo déjà existant</h2>
+        <h2 class="groupe__inscriptionErreur" style='color:red'>Pseudo déjà existant</h2>
       @endif
-      <div class="connecttext">
+      <div class="information__inscriptionConnect">
         <label class="form_col" for="pseudo"> Identifiant: </label>
         <input type="text" name="pseudo"/>
       </div>
-      <div class="connecttext">
+      <div class="information__inscriptionConnect">
         <label class="form_col" for="email"> Adresse mail: </label>
         <input type="email" name="email"/>
       </div>
-      <div class="connecttext">
+      <div class="information__inscriptionConnect">
         <label class="form_col" for="emailverif"> Confirmation du mail: </label>
         <input type="email" name="emailverif"/>
       </div>
-      <div id="date">
+      <div id="information__inscriptionDate">
         <select name="jour" id="jour">
       @for($i=1;$i<=31;$i++)
         @if(0<$i AND $i<10)
