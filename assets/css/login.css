@@ -134,7 +134,7 @@ section
   font-size: 18px;
   color: white;
 }
-.connexion .connecttext
+.connexion .information__inscriptionConnect
 {
   display:flex;
   flex-direction:column;
@@ -142,7 +142,7 @@ section
   align-items: center;
   width:49%;
 }
-.connexion .connecttext label {
+.connexion .information__inscriptionConnect label {
   align-items: start;
 }
 .connexion input
@@ -216,7 +216,7 @@ section
   align-items: center;
 }
 
-.inscription
+.information__inscription
 {
   display:flex;
   flex-direction:column;
@@ -247,7 +247,7 @@ section
   font-size: 28px;
   color: white;
 }
-.inscription .connecttext
+.inscription .information__inscriptionConnect
 {
   display:flex;
   flex-direction:column;
@@ -255,7 +255,7 @@ section
   align-items: center;
   width:100%;
 }
-.inscription .connecttext label {
+.inscription .information__inscriptionConnect label {
   align-items: start;
 }
 .inscription input
