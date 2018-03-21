@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.accueil>div:first-child
+.accueil__logo
 {
   height:100%;
   display:flex;
@@ -40,12 +40,12 @@
   align-items: center;
   height:100%;
 }
-.accueil img
+.accueil__image
 {
   height:70%;
   width:auto;
 }
-.accueil h1
+.accueil__titre
 {
   font-family:raspoutine;
   height:20%;
@@ -54,7 +54,7 @@
   text-shadow: 0.05em 0.05em 0.05em black;
   white-space: nowrap;
 }
-.accueil h2
+.accueil__soustitre , .erreur
 {
   margin-top:5px;
   font-family:dream;
@@ -63,11 +63,11 @@
   text-shadow: 0.08em 0.08em 0.08em black;
   white-space: nowrap;
 }
-.accueil ul
+.accueil__tiret
 {
   margin-bottom:35px;
 }
-.accueil li
+.accueil__argu
 {
   padding-top:20px;
   font-family:dream;
@@ -88,7 +88,7 @@
   background-color: #1F2340;
   margin-bottom: 20px;
 }
-.connexion form
+.connexion__formulaire
 {
   height:100%;
   width:100%;
@@ -99,24 +99,25 @@
   padding-left: 10%;
   padding-right: 10%;
 }
-.connexion form h2 {
+.connexion__titre {
   font-family: caviar;
   font-size: 25px;
   color: white;
 }
-#entrees {
+.connexion__entrees {
   width:100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-.connexion form label {
+.connexion__idLabel , .connexion__mdpLabel {
   font-family: caviar;
   font-size: 18px;
   color: white;
+  align-items: start;
 }
-.connexion .information__inscriptionConnect
+.connexion__identifiant , .connexion__mdp
 {
   display:flex;
   flex-direction:column;
@@ -124,21 +125,13 @@
   align-items: center;
   width:49%;
 }
-.connexion .information__inscriptionConnect label {
-  align-items: start;
-}
-.connexion input
+.connexion_idInput , .connexion__mdpInput
 {
   width:98%;
   height:25px;
   border-radius: 5px;
 }
-.connexion select
-{
-  height:2vw;
-  width:6vw;
-}
-.connexion button
+.connexion__button
 {
   display: flex;
   flex-direction: column;
@@ -153,7 +146,7 @@
   color: white;
   white-space:nowrap;
 }
-.connexion button:hover
+.connexion__button:hover
 {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3f9415), color-stop(1, #7cb362));
   background:-moz-linear-gradient(top, #B6F2FF 5%, #2D717F 100%);
