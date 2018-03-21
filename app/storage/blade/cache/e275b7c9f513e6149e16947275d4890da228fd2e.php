@@ -15,13 +15,34 @@
       <li>Consultation de la bourse en temps réel</li>
       <li>Anticipez vos futures actions</li>
     </ul>
-    <a class="view-more1" href="#information">Inscription</a>
-    <a class="view-more2" href="#information">Déjà inscrit?</a>
+    <div class="connexion" id="connexion">
+      <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
+        <h2>Connexion</h2>
+            <?php if($error): ?>
+              <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
+            <?php endif; ?>
+            <?php if($deactive === true): ?>
+               <h2 class="erreur" style='color:red'>Compte désactivé</h2>
+            <?php endif; ?>
+        <div id="entrees">
+          <div class="connecttext">
+            <label class="form_col" for="login"> Identifiant: </label>
+            <input type="text" name="login"/>
+          </div>
+          <div class="connecttext">
+            <label class="form_col" for="password"> Mot de passe: </label>
+            <input type="password" name="password"/>
+          </div>
+        </div>
+
+        <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
+      </form>
+    </div>
+    <a class="view-more1" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
-
 <section id="information">
-    <div class="inscription" id="inscription">
+  <div class="inscription" id="inscription">
     <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
       <?php if($err == true): ?>
@@ -29,6 +50,9 @@
       <?php endif; ?>
       <?php if($errorAge): ?>
         <h2 class="erreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
+      <?php endif; ?>
+      <?php if($pseudoexist == true): ?>
+        <h2 class="erreur" style='color:red'>Pseudo déjà existant</h2>
       <?php endif; ?>
       <div class="connecttext">
         <label class="form_col" for="pseudo"> Identifiant: </label>
@@ -74,32 +98,8 @@
 
       <button type="submit"> S'inscrire </button>
     </form>
-    </div>
-
-
-
-    <div class="connexion" id="connexion">
-
-    <form action="<?php echo e(url('/login')); ?>" method="POST" id="formulaireConnexion">
-      <h2>Connexion</h2>
-      <?php if($error): ?>
-      <h2 class="erreur" style='color:red'>Identifiants invalides.</h2>
-      <?php endif; ?>
-      <?php if($deactive): ?>
-      <h2 class="erreur" style='color:red'>Compte désactivé.</h2>
-      <?php endif; ?>
-      <div class="connecttext">
-        <label class="form_col" for="login"> Identifiant: </label>
-        <input type="text" name="login"/>
-      </div>
-      <div class="connecttext">
-        <label class="form_col" for="password"> Mot de passe: </label>
-        <input type="password" name="password"/>
-      </div>
-      <button id="connect" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
-    </form>
-    </div>
-  </section>
+  </div>
+</section>
 
 <section id="commentaire">
     <div>
