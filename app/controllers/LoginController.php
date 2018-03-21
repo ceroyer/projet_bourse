@@ -85,11 +85,6 @@ class LoginController extends Controller{
         $pseudoexist = true;
       }
     }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4213ef28778c6e79ccacdadd58101ae65ce31010
 
     if ($_SESSION['pseudoexist'] === true) {
       redirect('/#information');
