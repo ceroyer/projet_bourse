@@ -42,7 +42,7 @@
     <a class="view-more1 accueil_pasInscrit" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
-<section id="information">
+<section class="information">
   <div class="information__inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
