@@ -143,12 +143,4 @@ border:2px #20233f solid;
   width:auto;
   height:auto;
 }
-.stats__conteneur a{
-  position: absolute;
-  right:50px;
-  font-size:15px;
-  text-decoration: underline;
-  font-family: "Caviar Dreams";
-  bottom: 60px;
-  color:#20233f;
-}
+

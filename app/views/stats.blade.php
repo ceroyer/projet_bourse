@@ -97,7 +97,7 @@ Accueil
   <div class="fav">
     <h1 class="fav__titre">MES FAVORIS</h1>
     <div class="fav__tableau">
-    <!-- <table>
+    <table>
     <thead class="fav__entete">
       <tr class="fav__ligneTitre">
         <td>Nom</td>
@@ -115,27 +115,20 @@ Accueil
         <tr>
           <td>{{ $action['Name'] }}</td>
           <td>{{ $action['ISIN'] }}</td>
-<<<<<<< HEAD
+
           <td>{{ $action['Market'] }}</td>
           <td>{{ $action['Last'] }}</td>
           <td>{{ $action['Volume'] }}</td>
           <td>{{ $action['ActChange'] }}</td>
           <td>{{ $action['DateTime'] }}</td>
           <td>etoile</td>
-=======
-          <td>{{ $action['ouverture'] }}</td>
-          <td>{{ $action['fermeture'] }}</td>
-          <td>{{ $action['bas'] }}</td>
-          <td>{{ $action['haut'] }}</td>
-          <td>{{ $action['variation'] }}</td>
           <td><i class="fa fa-star" aria-hidden="true"></i></td>
->>>>>>> 385f4e26c1100ac216a5ffa039cb624ab05462f0
+
         </tr>
       </tbody>
       @endforeach
-    </table> -->
+    </table>
   </div>
-  <a href="#" class="fav__modif">Modifier les favoris</a>
   </div>
   </div>
 @endsection
