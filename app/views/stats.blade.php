@@ -20,7 +20,7 @@ Accueil
 
 
 <div class="all">
-  <div class="conteneur">
+  <div class="stats__conteneur">
     <div class="crossbar1">
         <h1 class="crossbar1__titre">SBF 120</h1>
         <div id="search" class="crossbar1__content">
