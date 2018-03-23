@@ -100,7 +100,7 @@ Accueil
       </div>
     </div>
   </div>
-  <div class="fav">
+  <!--<div class="fav">
     <h1 class="fav__titre">MES FAVORIS</h1>
     <div class="fav__tableau">
     <table>
@@ -134,7 +134,7 @@ Accueil
       </tbody>
       @endforeach
     </table>
-  </div>
+  </div><-->
   </div>
   </div>
 
