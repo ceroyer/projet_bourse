@@ -20,7 +20,7 @@ Accueil
 
 
 <div class="all">
-  <div class="conteneur">
+  <div class="stats__conteneur">
     <div class="crossbar1">
         <h1 class="crossbar1__titre">SBF 120</h1>
         <div id="search" class="crossbar1__content">
@@ -115,12 +115,21 @@ Accueil
         <tr>
           <td>{{ $action['Name'] }}</td>
           <td>{{ $action['ISIN'] }}</td>
+<<<<<<< HEAD
           <td>{{ $action['Market'] }}</td>
           <td>{{ $action['Last'] }}</td>
           <td>{{ $action['Volume'] }}</td>
           <td>{{ $action['ActChange'] }}</td>
           <td>{{ $action['DateTime'] }}</td>
           <td>etoile</td>
+=======
+          <td>{{ $action['ouverture'] }}</td>
+          <td>{{ $action['fermeture'] }}</td>
+          <td>{{ $action['bas'] }}</td>
+          <td>{{ $action['haut'] }}</td>
+          <td>{{ $action['variation'] }}</td>
+          <td><i class="fa fa-star" aria-hidden="true"></i></td>
+>>>>>>> 385f4e26c1100ac216a5ffa039cb624ab05462f0
         </tr>
       </tbody>
       @endforeach
