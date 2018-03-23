@@ -41,7 +41,7 @@
     <a class="view-more1 accueil_pasInscrit" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
-<section class="information">
+<section class="information" id="information">
   <div class="information__inscription" id="inscription">
     <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
