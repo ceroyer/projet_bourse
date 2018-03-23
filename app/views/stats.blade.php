@@ -119,7 +119,7 @@ Accueil
           <td>{{ $action['Market'] }}</td>
           <td>{{ $action['lastCourse'] }}</td>
           <td>{{ $action['Volume'] }}</td>
-          <td>{{ $action['ActChange'] }}</td>
+          <td>{{ $action['Variation'] }}</td>
           <td>{{ $action['DateTime'] }}</td>
           <td>etoile</td>
           <td><i class="fa fa-star" aria-hidden="true"></i></td>
