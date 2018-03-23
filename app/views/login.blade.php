@@ -58,7 +58,6 @@
       @if($mailexist == true)
         <h2 class="erreur" style='color:red'>Email déjà existant</h2>
       @endif
-      <div class="connecttext">
         <div class="information__inscriptionConnect">
           <label class="form_col" for="pseudo"> Identifiant: </label>
           <input type="text" name="pseudo"/>
