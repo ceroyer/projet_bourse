@@ -53,18 +53,13 @@ function insert($data){
 
     if(empty($result)){
       // add action line on main table
-<<<<<<< HEAD
       $datas = ['Name'=>$action['Name'],'ISIN'=>$action['ISIN'], 'Market'=>$action['Market'], 'lastCourse'=>$action['Last'], 'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Low'=>$action['Last'], 'stockIndex'=>40];
-=======
-      $datas = ['nom'=>$action['Name'],'ISIN'=>$action['ISIN'], 'cours'=>$action['Last'], 'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'haut'=>$action['Last'], 'bas'=>$action['Last'], 'indice'=>40];
->>>>>>> 21561114810fa35c14a5ae95c6ee8f62cd388558
       Actions::getInstance()->add($datas);
     }
     else{
       // comparison of high/low values on last action value
       $calcul = calculBourse($result['haut'], $result['bas'], $action['Last']);
     	if($calcul == "High"){
-<<<<<<< HEAD
         $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last']];
     	}
     	elseif($calcul == "Low"){
@@ -72,15 +67,6 @@ function insert($data){
     	}
     	else{
     		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume']];
-=======
-        $datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'haut'=>$action['Last']];
-    	}
-    	elseif($calcul == "Low"){
-    		$datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'bas'=>$action['Last']];
-    	}
-    	else{
-    		$datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume']];
->>>>>>> 21561114810fa35c14a5ae95c6ee8f62cd388558
     	}
     	Actions::getInstance()->editAction($action['ISIN'],$datas);
     }
