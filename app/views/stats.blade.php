@@ -2,6 +2,10 @@
 @section('title')
 Accueil
 @endsection
+@section('additional_css')
+<link rel="stylesheet" href="{{ url ('/assets/css/header+footer.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url ('/assets/css/stat.css')}}">
+@endsection
 @section('content')
 <header>
   <!-- <form method="post" action="{{ url('/deco') }}">
@@ -15,203 +19,188 @@ Accueil
 
 
 <div class="all">
-  <div id="conteneur">
-    <div id="crossbar1">
-        <h1>SBF 120</h1>
-        <div id="search">
-          <input style="color:black" class="searchbar1" type="text" value="" placeholder="Recherche"/>
-          <button type="" class="btn_searchbar"><i class="fa fa-search"></i></button>
+  <div class="stats__conteneur">
+    <div class="crossbar1">
+        <h1 class="crossbar1__titre">SBF 120</h1>
+        <div id="search" class="crossbar1__content">
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+          <button type="" class="btn_searchbar crossbar1__button"><i class="fa fa-search"></i></button>
         </div>
     </div>
-    <div id="cac">
-      <div id="cac40">
+    <div class="cac">
+      <div class="cac40">
         <h1>CAC 40</h1>
-
         <table class="fixed_header myTable">
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>ISIN</th>
-          <th>Market</th>
-          <th>Last</th>
-          <th>Volume</th>
-          <th>actChange</th>
-          <th>DateTime</th>
-          <th>TimeZone</th>
-          <th>Suivis</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($myActions as $myAction)
-          <tr id="{{$myAction['Name']}}"  >
-            <td>{{ $myAction['Name'] }}</td>
-            <td>{{ $myAction['ISIN'] }}</td>
-            <td>{{ $myAction['Market'] }}</td>
-            <td>{{ $myAction['Last'] }}</td>
-            <td>{{ $myAction['Volume'] }}</td>
-            <td>{{ $myAction['ActChange'] }}</td>
-            <td>{{ $myAction['DateTime'] }}</td>
-            <td>{{ $myAction['Timezone'] }}</td>
-            <!-- oui le css inline est dégueulasse -->
-            <!-- Rajouter : star-vide:hover{ opacity:1; } -->
-            <!-- Rajouter : star{ cursor:pointer; } -->
-              <?php
-                if (isset($myAction['isin_action'])){
-              ?>
-                  <td title="retirer favoris" class="star star--pleine">
-                    <form action="{{ url('/stats/removefav') }}" method="POST">
+        <thead class="table__header">
+          <tr class="table__titleRow">
+            <th class="table__title">Nom</th>
+            <th class="table__title">ISIN</th>
+            <th class="table__title">Ouverture</th>
+            <th class="table__title">Fermeture</th>
+            <th class="table__title">Min</th>
+            <th class="table__title">Max</th>
+            <th class="table__title">Variation</th>
+            <th class="table__title">Fav</th>
+          </tr>
+          </thead>
+          @foreach ($myActions as $myAction)
+          <tbody class="table__body">
+            <tr class="table__itemRow" id="{{$myAction['Name']}}">
+              <td class="table__item">{{ $myAction['Name'] }}</td>
+              <td class="table__item">{{ $myAction['ISIN'] }}</td>
+              <td class="table__item">{{ $myAction['Market'] }}</td>
+              <td class="table__item">{{ $myAction['Last'] }}</td>
+              <td class="table__item">{{ $myAction['Volume'] }}</td>
+              <td class="table__item">{{ $myAction['ActChange'] }}</td>
+              <td class="table__item">{{ $myAction['DateTime'] }}</td>
+              <td class="table__item">{{ $myAction['Timezone'] }}</td>
+              <!-- oui le css inline est dégueulasse -->
+              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
+              <!-- Rajouter : star{ cursor:pointer; } -->
+                <?php
+                  if (isset($myAction['isin_action'])){
+                ?>
+                    <td class="table__item" title="retirer favoris" class="star star--pleine">
+                      <form action="{{ url('/stats/removefav') }}" method="POST">
+                        <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                        <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                        <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
+                        <button class="btnstar" type="submit">★</button>
+                      </form>
+                    </td>
+                <?php
+                  }else{
+                ?>
+                  <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
+                    <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                      <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
-                      <button class="btnstar" type="submit">★</button>
+                      <button class="btnstar" type="submit">☆</button></td>
                     </form>
                   </td>
-              <?php
-                }else{
-              ?>
-                <td title="ajouter favoris" class="star star--vide" style="opacity:0.5">
-                  <form action="{{ url('/stats/addfav') }}" method="POST">
-                    <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
-                    <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                    <button class="btnstar" type="submit">☆</button></td>
-                  </form>
-              <?php
-                }
-               ?>
-            </td>
-
+                <?php
+                  }
+                 ?>
+            </tr>
+           </tbody>
+          @endforeach
+        </table>
+        <h1>CAC 80</h1>
+        <table class="fixed_header myTable">
+        <thead class="table__header">
+          <tr class="table__titleRow">
+            <th class="table__title">Nom</th>
+            <th class="table__title">ISIN</th>
+            <th class="table__title">Ouverture</th>
+            <th class="table__title">Fermeture</th>
+            <th class="table__title">Min</th>
+            <th class="table__title">Max</th>
+            <th class="table__title">Variation</th>
+            <th class="table__title">Fav</th>
           </tr>
-        @endforeach
-      </tbody>
-    </table>
+          </thead>
+          @foreach ($myActions as $myAction)
+          <tbody class="table__body">
+            <tr class="table__itemRow" id="{{$myAction['Name']}}">
+              <td class="table__item">{{ $myAction['Name'] }}</td>
+              <td class="table__item">{{ $myAction['ISIN'] }}</td>
+              <td class="table__item">{{ $myAction['Market'] }}</td>
+              <td class="table__item">{{ $myAction['Last'] }}</td>
+              <td class="table__item">{{ $myAction['Volume'] }}</td>
+              <td class="table__item">{{ $myAction['ActChange'] }}</td>
+              <td class="table__item">{{ $myAction['DateTime'] }}</td>
+              <td class="table__item">{{ $myAction['Timezone'] }}</td>
+              <!-- oui le css inline est dégueulasse -->
+              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
+              <!-- Rajouter : star{ cursor:pointer; } -->
+                <?php
+                  if (isset($myAction['isin_action'])){
+                ?>
+                    <td class="table__item" title="retirer favoris" class="star star--pleine">
+                      <form action="{{ url('/stats/removefav') }}" method="POST">
+                        <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                        <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                        <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
+                        <button class="btnstar" type="submit">★</button>
+                      </form>
+                    </td>
+                <?php
+                  }else{
+                ?>
+                  <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
+                    <form action="{{ url('/stats/addfav') }}" method="POST">
+                      <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                      <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                      <button class="btnstar" type="submit">☆</button></td>
+                    </form>
+                  </td>
+                <?php
+                  }
+                 ?>
+            </tr>
+           </tbody>
+          @endforeach
+        </table>
+
+        <h1>FAVORIS</h1>
+        <table class="fixed_header myTable">
+        <thead class="table__header">
+          <tr class="table__titleRow">
+            <th class="table__title">Nom</th>
+            <th class="table__title">ISIN</th>
+            <th class="table__title">Ouverture</th>
+            <th class="table__title">Fermeture</th>
+            <th class="table__title">Min</th>
+            <th class="table__title">Max</th>
+            <th class="table__title">Variation</th>
+            <th class="table__title">Fav</th>
+          </tr>
+          </thead>
+          @foreach ($myActions as $myAction)
+          <tbody class="table__body">
+            <tr class="table__itemRow" id="{{$myAction['Name']}}">
+              <td class="table__item">{{ $myAction['Name'] }}</td>
+              <td class="table__item">{{ $myAction['ISIN'] }}</td>
+              <td class="table__item">{{ $myAction['Market'] }}</td>
+              <td class="table__item">{{ $myAction['Last'] }}</td>
+              <td class="table__item">{{ $myAction['Volume'] }}</td>
+              <td class="table__item">{{ $myAction['ActChange'] }}</td>
+              <td class="table__item">{{ $myAction['DateTime'] }}</td>
+              <td class="table__item">{{ $myAction['Timezone'] }}</td>
+              <!-- oui le css inline est dégueulasse -->
+              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
+              <!-- Rajouter : star{ cursor:pointer; } -->
+                <?php
+                  if (isset($myAction['isin_action'])){
+                ?>
+                    <td class="table__item" title="retirer favoris" class="star star--pleine">
+                      <form action="{{ url('/stats/removefav') }}" method="POST">
+                        <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                        <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                        <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
+                        <button class="btnstar" type="submit">★</button>
+                      </form>
+                    </td>
+                <?php
+                  }else{
+                ?>
+                  <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
+                    <form action="{{ url('/stats/addfav') }}" method="POST">
+                      <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                      <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                      <button class="btnstar" type="submit">☆</button></td>
+                    </form>
+                  </td>
+                <?php
+                  }
+                 ?>
+            </tr>
+           </tbody>
+           @endforeach
+        </table>
 
 
-
-    <table class="fixed_header myTable">
-      <thead>
-        <tr>
-          <td>Nom</td>
-          <td>ISIN</td>
-          <td>Ouverture</td>
-          <td>Fermeture</td>
-          <td>Min</td>
-          <td>Max</td>
-          <td>Variation</td>
-          <td>Fav</td>
-        </tr>
-       </thead>
-      @foreach ($myActions as $myAction)
-
-      <tbody>
-        <tr id="{{$myAction['Name']}}"  >
-          <td>{{ $myAction['Name'] }}</td>
-          <td>{{ $myAction['ISIN'] }}</td>
-          <td>{{ $myAction['Market'] }}</td>
-          <td>{{ $myAction['Last'] }}</td>
-          <td>{{ $myAction['Volume'] }}</td>
-          <td>{{ $myAction['ActChange'] }}</td>
-          <td>{{ $myAction['DateTime'] }}</td>
-          <td>{{ $myAction['Timezone'] }}</td>
-          <td>
-            <?php
-              if (isset($myAction['isin_action'])){
-                echo '☆';
-              }else{
-
-              }
-             ?>
-          </td>
-
-        </tr>
-       </tbody>
-      @endforeach
-    </table>
-
-
-  </div>
-
-  <div id="cac80">
-  <h1>CAC 80</h1>
-    <table class="fixed_header myTable">
-    <thead>
-      <tr>
-        <td>Nom</td>
-        <td>ISIN</td>
-        <td>Ouverture</td>
-        <td>Fermeture</td>
-        <td>Min</td>
-        <td>Max</td>
-        <td>Variation</td>
-        <td>Fav</td>
-      </tr>
-      </thead>
-      @foreach ($myActions as $myAction)
-      <tbody>
-        <tr id="{{$myAction['Name']}}"  >
-          <td>{{ $myAction['Name'] }}</td>
-          <td>{{ $myAction['ISIN'] }}</td>
-          <td>{{ $myAction['Market'] }}</td>
-          <td>{{ $myAction['Last'] }}</td>
-          <td>{{ $myAction['Volume'] }}</td>
-          <td>{{ $myAction['ActChange'] }}</td>
-          <td>{{ $myAction['DateTime'] }}</td>
-          <td>{{ $myAction['Timezone'] }}</td>
-          <td>
-            <?php
-              if (isset($myAction['isin_action'])){
-                echo 'bonjour';
-              }
-             ?>
-          </td>
-
-        </tr>
-       </tbody>
-      @endforeach
-    </table>
-  </div>
-  </div>
-  </div>
-  <div id="fav">
-    <h1>MES FAVORIS</h1>
-    <div id="fav1">
-    <table class="fixed_header myTable">
-    <thead>
-      <tr>
-        <td>Nom</td>
-        <td>ISIN</td>
-        <td>Ouverture</td>
-        <td>Fermeture</td>
-        <td>Min</td>
-        <td>Max</td>
-        <td>Variation</td>
-        <td>Fav</td>
-      </tr>
-       </thead>
-      @foreach ($myActions as $myAction)
-      <tbody>
-        <tr id="{{$myAction['Name']}}"  >
-          <td>{{ $myAction['Name'] }}</td>
-          <td>{{ $myAction['ISIN'] }}</td>
-          <td>{{ $myAction['Market'] }}</td>
-          <td>{{ $myAction['Last'] }}</td>
-          <td>{{ $myAction['Volume'] }}</td>
-          <td>{{ $myAction['ActChange'] }}</td>
-          <td>{{ $myAction['DateTime'] }}</td>
-          <td>{{ $myAction['Timezone'] }}</td>
-          <td>
-            <?php
-              if (isset($myAction['isin_action'])){
-                echo 'bonjour';
-              }
-             ?>
-          </td>
-
-        </tr>
-         </tbody>
-      @endforeach
-    </table>
-  </div>
-  <a href="#">Modifier les favoris</a>
+      </div>
     </div>
   </div>
 

@@ -19,8 +19,8 @@ $route->addRoute( 'GET'  , '/stats',    'IndexController@connectedPage' );
 $route->addRoute( 'POST'  , '/stats/removefav',  'IndexController@removeFav' );
 $route->addRoute( 'POST'  , '/stats/addfav',  'IndexController@addFav' );
 
-
-
+$route->addRoute( 'GET'  , '/contact' ,    'IndexController@contactPage' );
+$route->addRoute( 'GET'  , '/mention' ,   'IndexController@mentionsLegales' );
 
 $route->addRoute( 'POST'  , '/deco' ,    'IndexController@deconnectedPage' );
 $route->addRoute( 'GET'  , '/deco' ,    'IndexController@deconnectedPage' );

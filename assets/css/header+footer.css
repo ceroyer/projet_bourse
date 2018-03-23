@@ -8,7 +8,7 @@ a
 }
 
 nav
-{ background-color: #20233F;
+{ background-color: #0f1339;
 }
 
 body
@@ -133,11 +133,13 @@ a>p:first-of-type
   font-family: caviar;
   font-size: 0.65em;
   color: white;
+  margin-top:10px;
 }
 
 #footer li
 { list-style-type: none;
   margin: 5px;
+  color:white;
 }
 
 #footer li:before

@@ -78,7 +78,7 @@ Espace administrateur
 
                           <div class="modal-body">
                               <p>Voulez vous vraiment supprimer <span class="userIDSuppr"></span> </p>
-                               <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                               <p class="text-warning"><small>Cette suppression est définitive</small></p>
                          </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
