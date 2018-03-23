@@ -4,9 +4,7 @@ Accueil
 @endsection
 @section('additional_css')
 <link rel="stylesheet" href="assets/css/header+footer+admin.css">
-@endsection
-@section('additional_css')
- <link rel="stylesheet" type="text/css" href="assets/css/stat.css">
+<link rel="stylesheet" type="text/css" href="assets/css/stat.css">
 @endsection
 @section('content')
 <header>
@@ -46,7 +44,7 @@ Accueil
         </tr>
        </thead>
       @foreach ($actions as $action)
-      
+
       <tbody>
         <tr>
           <td>{{ $action['nom'] }}</td>
@@ -55,7 +53,7 @@ Accueil
           <td>{{ $action['fermeture'] }}</td>
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
-          <td>{{ $action['variation'] }} 
+          <td>{{ $action['variation'] }}
             @if($action['variation']>= 0) <!-- fleche vers le haut -->
               <svg style="fill:green"><polygon points='28,137.333 62.333,171.667 136.333,96.667 136.333,147.333 172,148 172,28.667 52,27.667 52.333,63.667 101.333,63.667'/></svg>
             @else

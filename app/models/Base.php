@@ -107,8 +107,8 @@ class Base {
    * Retourne les informations d'un modèle. L'objet est hydraté.
    * @param  Model  $model objet modèle
    * @return void
-  
-  public function read($id) 
+
+  public function read($id)
   {
     $pkName = $id->getPkName();
     $sql = "SELECT * FROM {$this->tableName} WHERE ".$pkName." = :pk";
@@ -139,6 +139,15 @@ class Base {
   public function deleteAll()
   {
     $sql = "DELETE FROM {$this->tableName}";
+    $sth = $this->pdo->prepare($sql);
+    return $sth->execute();
+  }
+
+  /**
+   * create Table
+   */
+  public function createActionTable($sql)
+  {
     $sth = $this->pdo->prepare($sql);
     return $sth->execute();
   }
