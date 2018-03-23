@@ -134,4 +134,30 @@ Accueil
   <a href="#">Modifier les favoris</a>
     </div>
   </div>
+
+  <div id="test"></div>
+@endsection
+
+@section('additional_js')
+<script type="text/javascript">
+var newURL = window.location.protocol + "//" + window.location.host + "/";
+
+setInterval(function(){
+  $('#test').html("<tr>");
+  //$('#test').load("localhost/projet_bourse/bo");
+  var path = newURL + 'api/getall';
+   var xhr = $.getJSON(path, function(data){
+      for (x in data) {
+        $('#test').append("<td>" + x.nom + "</td>");
+        $('#test').append("<td>" + x.isin + "</td>");
+        $('#test').append("<td>" + x.ouverture + "</td>");
+        $('#test').append("<td>" + x.fermeture + "</td>");
+        $('#test').append("<td>" + x.bas + "</td>");
+        $('#test').append("<td>" + x.haut + "</td>");
+        $('#test').append("<td>" + x.variation + "</td>");
+      }
+    });
+    $('#test').html("</tr>");
+}, 2000);
+</script>
 @endsection
