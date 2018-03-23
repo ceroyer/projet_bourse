@@ -3,11 +3,10 @@
 Accueil
 @endsection
 @section('additional_css')
-<link rel="stylesheet" href="{{url('assets/css/header+footer.css')}}">
+<link rel="stylesheet" href="{{ url ('/assets/css/header+footer.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url ('/assets/css/stat.css')}}">
 @endsection
-@section('additional_css')
- <link rel="stylesheet" type="text/css" href="{{url('assets/css/stat.css')}}">
-@endsection
+
 @section('content')
 <header>
   <!-- <form method="post" action="{{ url('/deco') }}">
