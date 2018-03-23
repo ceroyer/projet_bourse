@@ -31,55 +31,17 @@ Accueil
     <div class="cac">
       <div class="cac40">
         <h1>CAC 40</h1>
-<table class="table myTable">
-  <thead class="table__header">
-    <tr class="table__titleRow">
-      <th class="table__title">Nom</th>
-      <th class="table__title">ISIN</th>
-      <th class="table__title">Market</th>
-      <th class="table__title">Last</th>
-      <th class="table__title">Volume</th>
-      <th class="table__title">actChange</th>
-      <th class="table__title">DateTime</th>
-      <th class="table__title">TimeZone</th>
-    </tr>
-  </thead>
-  <!--    @foreach ($actions as $action)
-
-      <tbody>
-        <tr>
-          <td>{{ $action['nom'] }}</td>
-          <td>{{ $action['ISIN'] }}</td>
-          <td>{{ $action['ouverture'] }}</td>
-          <td>{{ $action['fermeture'] }}</td>
-          <td>{{ $action['bas'] }}</td>
-          <td>{{ $action['haut'] }}</td>
-          <td>{{ $action['variation'] }}
-            @if($action['variation']>= 0)
-              <svg style="fill:green"><polygon points='28,137.333 62.333,171.667 136.333,96.667 136.333,147.333 172,148 172,28.667 52,27.667 52.333,63.667 101.333,63.667'/></svg>
-            @else
-              <svg style="fill:red"><polygon points="101.356,135.319 52.359,135.794 52.372,171.795 172.359,169.634 171.203,50.306 135.544,51.318 136.034,101.981  61.314,27.702 27.315,62.366 "/> </svg>
-            @endif</td>
-          <td><a href="{{ url('/fav/') . $action['id'] }}"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>
-        </tr>
-       </tbody>
-    @endforeach -->
-
-  </div>
-
-      <div class="cac80">
-        <h1>CAC 80</h1>
-        <table class="table myTable second">
+        <table class="table myTable">
           <thead class="table__header">
             <tr class="table__titleRow">
               <th class="table__title">Nom</th>
               <th class="table__title">ISIN</th>
-              <th class="table__title">Market</th>
-              <th class="table__title">Last</th>
+              <th class="table__title">Marché</th>
+              <th class="table__title">Cours</th>
+              <th class="table__title">Variation</th>
               <th class="table__title">Volume</th>
-              <th class="table__title">actChange</th>
-              <th class="table__title">DateTime</th>
-              <th class="table__title">TimeZone</th>
+              <th class="table__title">Date</th>
+              <th class="table__title">Zone</th>
             </tr>
           </thead>
           <tbody class="table__body">
@@ -88,9 +50,41 @@ Accueil
               <td class="table__item">{{$action['Name']}}</td>
               <td class="table__item">{{$action['ISIN']}}</td>
               <td class="table__item">{{$action['Market']}}</td>
-              <td class="table__item">{{$action['Last']}}</td>
+              <td class="table__item">{{$action['lastCourse']}}</td>
+              <td class="table__item">{{$action['Variation']}}</td>
               <td class="table__item">{{$action['Volume']}}</td>
-              <td class="table__item">{{$action['ActChange']}}</td>
+              <td class="table__item">{{$action['DateTime']}}</td>
+              <td class="table__item">{{$action['Timezone']}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cac80">
+        <h1>CAC 80</h1>
+        <table class="table myTable second">
+          <thead class="table__header">
+            <tr class="table__titleRow">
+              <th class="table__title">Nom</th>
+              <th class="table__title">ISIN</th>
+              <th class="table__title">Marché</th>
+              <th class="table__title">Cours</th>
+              <th class="table__title">Variation</th>
+              <th class="table__title">Volume</th>
+              <th class="table__title">Date</th>
+              <th class="table__title">Zone</th>
+            </tr>
+          </thead>
+          <tbody class="table__body">
+            @foreach($actions as $action)
+            <tr class="table__itemRow">
+              <td class="table__item">{{$action['Name']}}</td>
+              <td class="table__item">{{$action['ISIN']}}</td>
+              <td class="table__item">{{$action['Market']}}</td>
+              <td class="table__item">{{$action['lastCourse']}}</td>
+              <td class="table__item">{{$action['Variation']}}</td>
+              <td class="table__item">{{$action['Volume']}}</td>
               <td class="table__item">{{$action['DateTime']}}</td>
               <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
@@ -123,9 +117,9 @@ Accueil
           <td>{{ $action['ISIN'] }}</td>
 
           <td>{{ $action['Market'] }}</td>
-          <td>{{ $action['Last'] }}</td>
+          <td>{{ $action['lastCourse'] }}</td>
           <td>{{ $action['Volume'] }}</td>
-          <td>{{ $action['ActChange'] }}</td>
+          <td>{{ $action['Variation'] }}</td>
           <td>{{ $action['DateTime'] }}</td>
           <td>etoile</td>
           <td><i class="fa fa-star" aria-hidden="true"></i></td>
