@@ -15,7 +15,11 @@ $route->addRoute( 'POST'  , '/bo/reactivaded' , 'IndexController@backofficeReact
 $route->addRoute( 'GET'  , '/profile' ,  'IndexController@editProfile' );
 $route->addRoute( 'POST' , '/profile' ,  'IndexController@saveProfile' );
 $route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
+<<<<<<< HEAD
 $route->addRoute( 'GET'  , '/contact' ,    'IndexController@contactPage' );
+=======
+$route->addRoute( 'GET'  , '/mention' ,   'IndexController@mentionsLegales' );
+>>>>>>> ec9a175680a4318022a0f9be4023b847476b90a3
 
 
 
