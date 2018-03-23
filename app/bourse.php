@@ -17,7 +17,7 @@ getBourse();
      $persistent[$index]['Last']= $array['Last'];
      $persistent[$index]['Volume']= $array['Volume'];
      $persistent[$index]['Change']= $array['Change'];
-     $persistent[$index]['DateTime']= date_timestamp_get(date_create_from_format('d/m/Y H:i:s',$array['Date/Time'])); //dump(date_timestamp_get($persistent[$index]['DateTime']));die();
+     $persistent[$index]['DateTime']= date("Y-m-d H:i:s",date_timestamp_get(date_create_from_format('d/m/Y H:i:s',$array['Date/Time']))); //dump($persistent[$index]['DateTime']);die();
      $persistent[$index]['Timezone']= $array['Time zone'];
      $index++;
    }
