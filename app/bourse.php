@@ -29,11 +29,11 @@ getBourse();
  */
 
  function calculBourse($oldHigh, $oldLow, $newValue){
-   if($oldHigh <= $newHigh){
+   if($oldHigh <= $newValue){
      $high = $newValue;
      return "High";
    }
-   elseif($oldLow >= $newLow){
+   elseif($oldLow >= $newValue){
      $low = $newValue;
      return "Low";
    }
@@ -52,16 +52,23 @@ function insert($data){
     $result = Actions::getInstance()->getAction($action['ISIN']);
 
     if(empty($result)){
-      //Actions::getInstance()->insertSBF120($action['Name'],$action['ISIN'],$action['Last'],$action['Change'],$action['Volume'],40);
-      $datas = ['nom'=>$action['Name'],'ISIN'=>$action['ISIN'], 'cours'=>$action['Last'], 'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'indice'=>40];
+      // add action line on main table
+      $datas = ['nom'=>$action['Name'],'ISIN'=>$action['ISIN'], 'cours'=>$action['Last'], 'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'haut'=>$action['Last'], 'bas'=>$action['Last'], 'indice'=>40];
       Actions::getInstance()->add($datas);
-      
-      //Actions::getInstance()->createTable($action['ISIN']);
     }
     else{
-      //calcul à revoir avec peut-être un update individuel
+      // comparison of high/low values on last action value
       $calcul = calculBourse($result['haut'], $result['bas'], $action['Last']);
-      Actions::getInstance()->updateSBF120($calcul, $action['ISIN'], $action['Last'],$action['Change'],$action['Volume'],$action['Last'],40);
+    	if($calcul == "High"){
+        $datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'haut'=>$action['Last']];
+    	}
+    	elseif($calcul == "Low"){
+    		$datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'bas'=>$action['Last']];
+    	}
+    	else{
+    		$datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume']];
+    	}
+    	Actions::getInstance()->editAction($action['ISIN'],$datas);
     }
   }
 }
@@ -109,6 +116,9 @@ function getBourse() {
   if(isset($time_action) && $time_action = "open"){
 
   }
+  // create corresponding table
+  Actions::getInstance()->createActionTable($action['ISIN']);
+  // insert in corresponding table
   Actions::getInstance()->insertTable($ISIN, $type, $cours, $volume, $haut, $bas, $ouverture, $fermeture);
 
   NE PAS OUBLIER MAJ OUVERTURE & FERMETURE TABLE PRINCIPALE
