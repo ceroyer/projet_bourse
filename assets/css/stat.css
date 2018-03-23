@@ -34,11 +34,7 @@ padding: 0;
    font-family: "Modern King";
    color:#20233f;
 }
-.searchbar1{
-  font-family: "Raspoutine";
-  border-radius: 3px;
-  border:1px #20233f solid;
-}
+
 .btn_searchbar{
     border-radius: 3px;
   border:1px #20233f solid;
@@ -51,66 +47,51 @@ padding: 0;
   color:red;
   transform: rotate(-45deg);
 }
-table button{
-  background-color: white;
-  border-style: none;
+
+.table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
 }
-.cac{
-      display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+.table__body{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 100px;
 }
-.cac40{
-  border-radius: 5px;
-    margin-left: auto;
-  margin-right:auto;
-width: 40%;
-height: 50%;
-background-color: white;
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-border:2px #20233f solid;
+
+.table__titleRow{
+   display: block;
+
 }
-.cac80{
-  border-radius: 5px;
-    margin-left: auto;
-  margin-right:auto;
-width: 40%;
-height: 50%;
-background-color: white;
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-border:2px #20233f solid;
+
+.table__header {
+  background: black;
+  color:#fff;
 }
-.cac h1{
-  font-family: "Caviar Dreams";
-  text-align: center;
-  color:#20233f;
+
+.table__title, .table__item {
+  padding: 5px;
+  text-align: left;
+  width: 200px;
 }
-.cac table{
-  text-align: center;
-  margin-bottom: 20px;
-  border:1px black solid;
-  font-family: "Caviar Dreams";
-  color:#20233f;
+
+.second{
+  margin-top:60px;
 }
-.cac th{
-  padding:5px;
-  width:auto;
-  height:auto;
-  border-bottom:1px black solid;
-  background-color: #7e8089;
-  color:white;
+
+.table__itemRow{
+  font-size: 12px;
 }
-.cac td{
-  padding:5px;
-  width:auto;
-  height:auto;
-}
+
+
+
+
+
+
+
+
 .fav{
   margin-top: 10px;
   background-color: #c3c6d1;
