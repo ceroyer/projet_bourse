@@ -101,11 +101,11 @@ Accueil
     </div>
   </div>
   <div class="fav">
-    <h1>MES FAVORIS</h1>
-    <div class="fav1">
+    <h1 class="fav__titre">MES FAVORIS</h1>
+    <div class="fav__tableau">
     <table>
-    <thead>
-      <tr>
+    <thead class="fav__entete">
+      <tr class="fav__ligneTitre">
         <td>Nom</td>
         <td>ISIN</td>
         <td>Ouverture</td>
@@ -115,9 +115,9 @@ Accueil
         <td>Variation</td>
         <td>Fav</td>
       </tr>
-       </thead>
+    </thead>
       @foreach ($actions as $action)
-      <tbody>
+      <tbody class="fav__body">
         <tr>
           <td>{{ $action['nom'] }}</td>
           <td>{{ $action['ISIN'] }}</td>
@@ -126,12 +126,13 @@ Accueil
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
+          <td>etoile</td>
         </tr>
-         </tbody>
+      </tbody>
       @endforeach
     </table>
   </div>
-  <a href="#">Modifier les favoris</a>
-    </div>
+  <a href="#" class="fav__modif">Modifier les favoris</a>
+  </div>
   </div>
 @endsection
