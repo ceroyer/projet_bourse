@@ -17,7 +17,7 @@ getBourse();
      $persistent[$index]['Last']= $array['Last'];
      $persistent[$index]['Volume']= $array['Volume'];
      $persistent[$index]['Change']= $array['Change'];
-     $persistent[$index]['Date/Time']= $array['Date/Time'];
+     $persistent[$index]['DateTime']= $array['Date/Time'];
      $persistent[$index]['Timezone']= $array['Time zone'];
      $index++;
    }
@@ -53,7 +53,7 @@ function insert($data){
 
     if(empty($result)){
       // add action line on main table
-      $datas = ['Name'=>$action['Name'],'ISIN'=>$action['ISIN'], 'Market'=>$action['Market'], 'lastCourse'=>$action['Last'], 'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Low'=>$action['Last'], 'Date/Time'=>$action['Date/Time'], 'Timezone'=>$action['Timezone'], 'stockIndex'=>40];
+      $datas = ['Name'=>$action['Name'],'ISIN'=>$action['ISIN'], 'Market'=>$action['Market'], 'lastCourse'=>$action['Last'], 'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'], 'stockIndex'=>40];
       Actions::getInstance()->add($datas);
     }
     else{
