@@ -41,7 +41,6 @@ Accueil
               <th class="table__title">Variation</th>
               <th class="table__title">Volume</th>
               <th class="table__title">Date</th>
-              <th class="table__title">Zone</th>
             </tr>
           </thead>
           <tbody class="table__body">
@@ -54,7 +53,6 @@ Accueil
               <td class="table__item">{{$action['Variation']}}</td>
               <td class="table__item">{{$action['Volume']}}</td>
               <td class="table__item">{{$action['DateTime']}}</td>
-              <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
             @endforeach
           </tbody>
@@ -73,7 +71,6 @@ Accueil
               <th class="table__title">Variation</th>
               <th class="table__title">Volume</th>
               <th class="table__title">Date</th>
-              <th class="table__title">Zone</th>
             </tr>
           </thead>
           <tbody class="table__body">
@@ -86,7 +83,6 @@ Accueil
               <td class="table__item">{{$action['Variation']}}</td>
               <td class="table__item">{{$action['Volume']}}</td>
               <td class="table__item">{{$action['DateTime']}}</td>
-              <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
             @endforeach
           </tbody>
