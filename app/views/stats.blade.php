@@ -3,11 +3,10 @@
 Accueil
 @endsection
 @section('additional_css')
-<link rel="stylesheet" href="{{url('assets/css/header+footer.css')}}">
+<link rel="stylesheet" href="{{ url ('/assets/css/header+footer.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url ('/assets/css/stat.css')}}">
 @endsection
-@section('additional_css')
- <link rel="stylesheet" type="text/css" href="{{url('assets/css/stat.css')}}">
-@endsection
+
 @section('content')
 <header>
   <!-- <form method="post" action="{{ url('/deco') }}">
@@ -21,7 +20,7 @@ Accueil
 
 
 <div class="all">
-  <div class="conteneur">
+  <div class="stats__conteneur">
     <div class="crossbar1">
         <h1 class="crossbar1__titre">SBF 120</h1>
         <div id="search" class="crossbar1__content">
