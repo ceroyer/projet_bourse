@@ -22,7 +22,7 @@
             @if($error)
               <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
             @endif
-            @if($deactive === true)
+            @if($deactive)
                <h2 class="erreur" style='color:red'>Compte désactivé</h2>
             @endif
         <div id="entrees" class="connexion__entrees">
@@ -46,8 +46,17 @@
   <div class="information__inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
-      @if($err == true)
-      <h2 class="groupe__inscriptionErreur" style='color:red'>Email ou identifiant incorrect.</h2>
+      @if($errorVide)
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Veuillez remplir tous les champs</h2>
+      @endif
+      @if($errorEmail)
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Email Invalide</h2>
+      @endif
+      @if($pseudoInvalide)
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Veuillez rentrer un pseudo sans caractères spéciaux</h2>
+      @endif
+      @if($pseudoCourt)
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Veuillez rentrer un pseudo d'au moins 5 caractères</h2>
       @endif
       @if($errorAge)
         <h2 class="groupe__inscriptionErreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>

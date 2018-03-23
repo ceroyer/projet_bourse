@@ -21,7 +21,7 @@
             <?php if($error): ?>
               <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
             <?php endif; ?>
-            <?php if($deactive === true): ?>
+            <?php if($deactive): ?>
                <h2 class="erreur" style='color:red'>Compte désactivé</h2>
             <?php endif; ?>
         <div id="entrees" class="connexion__entrees">
@@ -45,8 +45,17 @@
   <div class="information__inscription" id="inscription">
     <form action="<?php echo e(url('/signup')); ?>" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
-      <?php if($err == true): ?>
-      <h2 class="groupe__inscriptionErreur" style='color:red'>Email ou identifiant incorrect.</h2>
+      <?php if($errorVide): ?>
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Veuillez remplir tous les champs</h2>
+      <?php endif; ?>
+      <?php if($errorEmail): ?>
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Email Invalide</h2>
+      <?php endif; ?>
+      <?php if($pseudoInvalide): ?>
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Veuillez rentrer un pseudo sans caractères spéciaux</h2>
+      <?php endif; ?>
+      <?php if($pseudoCourt): ?>
+      <h2 class="groupe__inscriptionErreur" style='color:red'>Veuillez rentrer un pseudo d'au moins 5 caractères</h2>
       <?php endif; ?>
       <?php if($errorAge): ?>
         <h2 class="groupe__inscriptionErreur" style='color:red'>Vous n'avez pas l'âge légal pour accéder à cette application.</h2>
@@ -57,7 +66,6 @@
       <?php if($mailexist == true): ?>
         <h2 class="erreur" style='color:red'>Email déjà existant</h2>
       <?php endif; ?>
-      <div class="connecttext">
         <div class="information__inscriptionConnect">
           <label class="form_col" for="pseudo"> Identifiant: </label>
           <input type="text" name="pseudo"/>
