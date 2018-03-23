@@ -3,10 +3,10 @@
 Accueil
 @endsection
 @section('additional_css')
-<link rel="stylesheet" href="assets/css/header+footer.css">
+<link rel="stylesheet" href="{{url('assets/css/header+footer.css')}}">
 @endsection
 @section('additional_css')
- <link rel="stylesheet" type="text/css" href="assets/css/stat.css">
+ <link rel="stylesheet" type="text/css" href="{{url('assets/css/stat.css')}}">
 @endsection
 @section('content')
 <header>
