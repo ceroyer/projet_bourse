@@ -13,18 +13,21 @@ class Actions extends Base{
   }
 
 
+/*
 	public static function searchSBF120($ISIN){ //avec récup des différents champs de la table (haut, bas, ouverture, fermeture)
 		$sql = "SELECT ISIN, haut, bas, ouverture, fermeture AS action FROM ".$this->tableName." WHERE ISIN = ".$ISIN;
 		$search = $this->pdo->row($sql);
     return $search;
 	}
-
+*/
 /*
 	public static function insertSBF120($nom,$ISIN,$cours,$variation,$volume,$indice){
 		$sql = "INSERT INTO ".$this->tableName."(nom, ISIN,	cours,	variation, volume,	indice) VALUES('".$nom."','".$ISIN."','".$cours."','".$variation."','".$volume."','".$indice."')";
 		$data = $this->pdo->insert($sql);
 	}
 */
+
+/*
 	public static function updateSBF120($calcul, $ISIN, $cours, $variation, $volume, $crete, $indice){
 		if($calcul == "High"){
 			$sql  = "UPDATE ".$this->tableName." SET cours='".$cours."' , variation='".$variation."' , volume='".$volume."' , haut='".$crete."' WHERE ISIN= '".$ISIN."'";
@@ -37,12 +40,13 @@ class Actions extends Base{
 		}
 		$list = $this->pdo->insert($sql);
 	}
-
+*/
+/*
 	public static function createTable($ISIN){
 		$create = $dbh->prepare("CREATE TABLE `action_".$ISIN."` `Last` decimal(60,0) NOT NULL, `Volume` decimal(60,0) NOT NULL, `TChange` decimal(60,0) NOT NULL, `Date` date NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1");
 		$data = $this->pdo->createActionTable($sql);
 	}
-
+*/
 	public static function insertTable($ISIN, $type, $cours, $volume, $haut, $bas, $ouverture, $fermeture){
 		$sql = "INSERT INTO action_".$ISIN."(type, cours,	volume,	haut, bas, ouverture, fermeture, date) VALUES('".$type."','".$cours."','".$volume."','".$haut."','".$bas."','".$ouverture."','".$fermeture."', NOW() )";
 		$data = $this->pdo->insert($sql);

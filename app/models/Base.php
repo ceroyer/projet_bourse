@@ -143,10 +143,16 @@ class Base {
     return $sth->execute();
   }
 
-  /**
-  * Search actions
-  */
 
+/* ------------------------------------
+
+    PERSONNALISATION DES REQUETES
+
+------------------------------------*/
+
+  /**
+  * Search Actions
+  */
 
   public function getAction($ISIN = null)
   {
@@ -158,12 +164,35 @@ class Base {
   }
 
   /**
-   * create Table
-   */
-  public function createActionTable($sql)
+  * Edit Actions
+  */
+
+  public function editAction($ISIN, $datas)
   {
+    $sql = "UPDATE ".$this -> tableName." SET ";
+    foreach( array_keys( $datas ) as $k ) {
+      $sql .= " {$k} = :{$k} ,";
+    }
+    $sql = substr($sql, 0, strlen($sql)-1);
+    $sql .= " WHERE ISIN =:ISIN";
     $sth = $this->pdo->prepare($sql);
+    foreach( array_keys( $datas ) as $k ) {
+      $sth->bindValue(':'.$k, $datas[ $k ]);
+    }
+    $sth->bindValue(':ISIN', $ISIN );
     return $sth->execute();
   }
 
+  /**
+   * Create Table
+   */
+/*
+  public function createActionTable($ISIN)
+  {
+    $create = "CREATE TABLE `action_:ISIN` `cours` decimal(30,3) NOT NULL, `Volume` decimal(30,3) NOT NULL, `type` varchar(60) NOT NULL, `Date` date NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1";
+    $sth = $this->pdo->prepare( $create );
+    $sth->bindValue(':ISIN', $ISIN );
+    $sth->execute();
+  }
+*/
 }
