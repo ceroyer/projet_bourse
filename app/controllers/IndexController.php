@@ -147,4 +147,19 @@ function envoieMail(){
   mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe a bien été modifié.', $header);
 }
 
+function contactPage(){
+  global $blade;
+  $actions=Actions::getInstance()->getAll();
+  if ($user = Users::getConnectedUser()){
+    echo $blade->render(
+          'contact',
+          ['actions'=>$actions, 'user' => $user]
+        );
+  }else{
+    redirect('/');
+  }
 }
+
+}
+
+
