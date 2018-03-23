@@ -20,7 +20,7 @@ Accueil
 
 
 <div class="all">
-  <div class="conteneur">
+  <div class="stats__conteneur">
     <div class="crossbar1">
         <h1 class="crossbar1__titre">SBF 120</h1>
         <div id="search" class="crossbar1__content">
@@ -125,7 +125,7 @@ Accueil
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
-          <td>etoile</td>
+          <td><i class="fa fa-star" aria-hidden="true"></i></td>
         </tr>
       </tbody>
       @endforeach
