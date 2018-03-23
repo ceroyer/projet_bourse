@@ -62,6 +62,22 @@ function backofficeIndex(){
       }
 }
 
+function mentionsLegales(){
+  global $blade;
+
+    $listUsers = Users::getInstance()->getAll();
+      if ($user = Users::getConnectedUser()){
+        echo $blade->render(
+           'mention',
+           ['users'=>$listUsers, 'user' => $user]
+         );
+      }else{
+        echo $blade->render(
+           '405'
+         );
+      }
+}
+
 
 function connectedPage(){
   global $blade;
@@ -83,8 +99,8 @@ function connectedPage(){
   }else{
     redirect('/');
   }
-
 }
+
 
 function deconnectedPage(){
   $_SESSION['login']='';
@@ -147,4 +163,19 @@ function envoieMail(){
   mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe a bien été modifié.', $header);
 }
 
+function contactPage(){
+  global $blade;
+  $actions=Actions::getInstance()->getAll();
+  if ($user = Users::getConnectedUser()){
+    echo $blade->render(
+          'contact',
+          ['actions'=>$actions, 'user' => $user]
+        );
+  }else{
+    redirect('/');
+  }
 }
+
+}
+
+

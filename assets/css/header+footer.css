@@ -133,11 +133,13 @@ a>p:first-of-type
   font-family: caviar;
   font-size: 0.65em;
   color: white;
+  margin-top:10px;
 }
 
 #footer li
 { list-style-type: none;
   margin: 5px;
+  color:white;
 }
 
 #footer li:before
