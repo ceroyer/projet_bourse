@@ -58,7 +58,7 @@ function insert($data){
     }
     else{
       // comparison of high/low values on last action value
-      $calcul = calculBourse($result['haut'], $result['bas'], $action['Last']);
+      $calcul = calculBourse($result['High'], $result['Low'], $action['Last']);
     	if($calcul == "High"){
         $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Date/Time'=>$array['Date/Time'], 'Timezone'=>$array['Timezone']];
     	}
