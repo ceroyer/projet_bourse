@@ -3,10 +3,10 @@
 Accueil
 @endsection
 @section('additional_css')
-<link rel="stylesheet" href="assets/css/header+footer.css">
+<link rel="stylesheet" href="{{url('assets/css/header+footer.css')}}">
 @endsection
 @section('additional_css')
- <link rel="stylesheet" type="text/css" href="assets/css/stat.css">
+ <link rel="stylesheet" type="text/css" href="{{url('assets/css/stat.css')}}">
 @endsection
 @section('content')
 <header>
@@ -23,17 +23,17 @@ Accueil
 <div class="all">
   <div class="conteneur">
     <div class="crossbar1">
-        <h1>SBF 120</h1>
-        <div id="search">
-          <input style="color:black" class="searchbar1" type="text" value="" placeholder="Recherche"/>
-          <button type="" class="btn_searchbar"><i class="fa fa-search"></i></button>
+        <h1 class="crossbar1__titre">SBF 120</h1>
+        <div id="search" class="crossbar1__content">
+          <input style="color:black" class="searchbar1 crossbar1__input" type="text" value="" placeholder="Recherche"/>
+          <button type="" class="btn_searchbar crossbar1__button"><i class="fa fa-search"></i></button>
         </div>
     </div>
     <div class="cac">
       <div class="cac40">
         <h1>CAC 40</h1>
-    <table id="updateCac40">
-      <thead>
+    <table class="cac40__table">
+      <thead class="cac40__tableHead">
         <tr>
           <td>Nom</td>
           <td>ISIN</td>
@@ -69,44 +69,44 @@ Accueil
 
   </div>
 
-  <div class="cac80">
-  <h1>CAC 80</h1>
-    <table>
-    <thead>
-      <tr>
-        <td>Nom</td>
-        <td>ISIN</td>
-        <td>Ouverture</td>
-        <td>Fermeture</td>
-        <td>Min</td>
-        <td>Max</td>
-        <td>Variation</td>
-        <td>Fav</td>
-      </tr>
-      </thead>
-      @foreach ($actions as $action)
-      <tbody>
-        <tr>
-          <td>{{ $action['nom'] }}</td>
-          <td>{{ $action['ISIN'] }}</td>
-          <td>{{ $action['ouverture'] }}</td>
-          <td>{{ $action['fermeture'] }}</td>
-          <td>{{ $action['bas'] }}</td>
-          <td>{{ $action['haut'] }}</td>
-          <td>{{ $action['variation'] }}</td>
-        </tr>
-       </tbody>
-      @endforeach
-    </table>
-  </div>
-  </div>
+      <div class="cac80">
+        <h1>CAC 80</h1>
+        <table class="cac80__table">
+          <thead class="cac80__tableHead">
+            <tr>
+              <td>Nom</td>
+              <td>ISIN</td>
+              <td>Ouverture</td>
+              <td>Fermeture</td>
+              <td>Min</td>
+              <td>Max</td>
+              <td>Variation</td>
+              <td>Fav</td>
+            </tr>
+          </thead>
+          @foreach ($actions as $action)
+          <tbody class="cac80__tableBody">
+            <tr>
+              <td>{{ $action['nom'] }}</td>
+              <td>{{ $action['ISIN'] }}</td>
+              <td>{{ $action['ouverture'] }}</td>
+              <td>{{ $action['fermeture'] }}</td>
+              <td>{{ $action['bas'] }}</td>
+              <td>{{ $action['haut'] }}</td>
+              <td>{{ $action['variation'] }}</td>
+            </tr>
+           </tbody>
+          @endforeach
+        </table>
+      </div>
+    </div>
   </div>
   <div class="fav">
-    <h1>MES FAVORIS</h1>
-    <div class="fav1">
+    <h1 class="fav__titre">MES FAVORIS</h1>
+    <div class="fav__tableau">
     <table>
-    <thead>
-      <tr>
+    <thead class="fav__entete">
+      <tr class="fav__ligneTitre">
         <td>Nom</td>
         <td>ISIN</td>
         <td>Ouverture</td>
@@ -116,9 +116,9 @@ Accueil
         <td>Variation</td>
         <td>Fav</td>
       </tr>
-       </thead>
+    </thead>
       @foreach ($actions as $action)
-      <tbody>
+      <tbody class="fav__body">
         <tr>
           <td>{{ $action['nom'] }}</td>
           <td>{{ $action['ISIN'] }}</td>
@@ -127,13 +127,14 @@ Accueil
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
+          <td>etoile</td>
         </tr>
-         </tbody>
+      </tbody>
       @endforeach
     </table>
   </div>
-  <a href="#">Modifier les favoris</a>
-    </div>
+  <a href="#" class="fav__modif">Modifier les favoris</a>
+  </div>
   </div>
 
   <div id="test"></div>
@@ -142,7 +143,7 @@ Accueil
 @section('additional_js')
 <script type="text/javascript">
 var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
-var cac40 = $('#updateCac40');
+var cac40 = $('.cac40__table');
 var base = cac40.html();
 var path = newURL + 'api/getall';
 getData();
@@ -156,7 +157,7 @@ function getData(){
   var xhr = $.getJSON(path, function(data){
   cac40.html(base);
    for (x in data) {
-     cac40.append("<tbody><tr><td>" + data[x].nom + "</td>"+
+     cac40.append("<tbody class='cac40__tableBody'><tr><td>" + data[x].nom + "</td>"+
    "<td>" + data[x].isin + "</td>"+
    "<td>" + data[x].ouverture + "</td>"+
    "<td>" + data[x].fermeture + "</td>"+
