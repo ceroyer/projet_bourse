@@ -1,11 +1,11 @@
 <?php
 use  Models\Actions;
 
-//appel fonction pour récupérer la bourse
+// Calling function to fetch Market datas
 getBourse();
 
 /*
-* créé un tableau de données persistant
+* Create persistant datas in array
 */
 
  function persistentArray($array){
@@ -25,7 +25,7 @@ getBourse();
  }
 
  /*
- * Fait les calculs d'une action
+ * High/Low comparison
  */
 
  function calculBourse($oldHigh, $oldLow, $newValue){
@@ -40,7 +40,7 @@ getBourse();
  }
 
 /*
-* Insère / met à jour les données
+* Insert / update datas
 */
 
 function insert($data){
@@ -60,13 +60,13 @@ function insert($data){
       // comparison of high/low values on last action value
       $calcul = calculBourse($result['haut'], $result['bas'], $action['Last']);
     	if($calcul == "High"){
-        $datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'haut'=>$action['Last']];
+        $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last']];
     	}
     	elseif($calcul == "Low"){
-    		$datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'bas'=>$action['Last']];
+    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'Low'=>$action['Last']];
     	}
     	else{
-    		$datas = ['cours'=>$action['Last'],'variation'=>$action['Change'], 'volume'=>$action['Volume']];
+    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume']];
     	}
     	Actions::getInstance()->editAction($action['ISIN'],$datas);
     }
@@ -74,15 +74,15 @@ function insert($data){
 }
 
 /*
-* Récupère le flux boursier
+* Fetch Market flow
 */
 
 function getBourse() {
-  // Random pour éviter le même nombre aléatoire.
+  // Random to avoid same number and refresh CSV datas
   $random = rand(0,3);
   $url = 'https://connect.euronext.com/nyx_eu_listings/performer/download?typefile=csv&layout=vertical&typedate=dmy&separator=point&mic=XPAR&isin=FR0003502079&since=Yesterday&market=Paris&capitalization=&belongs_to=FR0003999481%2CXPAR%2C&eligibility=all&icb_sector=&filename='.$random.'';
 
-  // Définition du fichier csv (adresse)
+  // Define CSV file (adress)
   $fichier = './data.csv';
 
   // Si la copie du fichier vers le serveur ne peut être effectuée
@@ -98,7 +98,7 @@ function getBourse() {
     }
   ------------------------------------- */
 
-  // On transforme le fichier csv copié en tableau de valeurs
+  // Turn copied CSV file into data Array
   $csv = array_map('str_getcsv', file($fichier));
   array_shift($csv);
   array_walk($csv, function(&$a) use ($csv) {
@@ -107,7 +107,7 @@ function getBourse() {
   array_shift($csv);
 
   //dump($csv);die();
-  // Insère les valeurs / met à jour (dans la journée)
+  // Insert values / update (daytime)
   insert($csv);
 
   /*
