@@ -138,6 +138,7 @@ a>p:first-of-type
 #footer li
 { list-style-type: none;
   margin: 5px;
+  color:white;
 }
 
 #footer li:before
