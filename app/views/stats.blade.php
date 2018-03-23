@@ -126,7 +126,7 @@ Accueil
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}</td>
-          <td>etoile</td>
+          <td><i class="fa fa-star" aria-hidden="true"></i></td>
         </tr>
       </tbody>
       @endforeach
