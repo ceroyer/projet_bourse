@@ -8,8 +8,6 @@ Votre compte
 
 @section('content')
 <div class="mention">
-  <p style="text-align:center"><span style="color:#FF0000"><span style="background-color:#D3D3D3">Si vous utilisez nos Mentions Légales, vous vous engagez à laisser les liens </span><strong><span style="background-color:#D3D3D3">Crédit sans en modifier ni les liens ni les ancres.</span></strong><span style="background-color:#D3D3D3"> </span></span><br />
-<span style="color:#FF0000"><span style="background-color:#D3D3D3">Par avance merci pour votre compréhension et le respect du travail effectué par toute l'équipe</span></span></p>
 
 <p style="text-align:center">MENTIONS LEGALES :</p>
 
