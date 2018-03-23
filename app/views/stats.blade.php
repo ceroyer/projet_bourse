@@ -32,7 +32,7 @@ Accueil
     <div class="cac">
       <div class="cac40">
         <h1>CAC 40</h1>
-    <table>
+    <table id="updateCac40">
       <thead>
         <tr>
           <td>Nom</td>
@@ -45,7 +45,8 @@ Accueil
           <td>Fav</td>
         </tr>
        </thead>
-      @foreach ($actions as $action)
+       </table>
+  <!--    @foreach ($actions as $action)
 
       <tbody>
         <tr>
@@ -56,7 +57,7 @@ Accueil
           <td>{{ $action['bas'] }}</td>
           <td>{{ $action['haut'] }}</td>
           <td>{{ $action['variation'] }}
-            @if($action['variation']>= 0) <!-- fleche vers le haut -->
+            @if($action['variation']>= 0)
               <svg style="fill:green"><polygon points='28,137.333 62.333,171.667 136.333,96.667 136.333,147.333 172,148 172,28.667 52,27.667 52.333,63.667 101.333,63.667'/></svg>
             @else
               <svg style="fill:red"><polygon points="101.356,135.319 52.359,135.794 52.372,171.795 172.359,169.634 171.203,50.306 135.544,51.318 136.034,101.981  61.314,27.702 27.315,62.366 "/> </svg>
@@ -64,8 +65,8 @@ Accueil
           <td><a href="{{ url('/fav/') . $action['id'] }}"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>
         </tr>
        </tbody>
-      @endforeach
-    </table>
+    @endforeach -->
+
   </div>
 
   <div class="cac80">
@@ -140,24 +141,32 @@ Accueil
 
 @section('additional_js')
 <script type="text/javascript">
-var newURL = window.location.protocol + "//" + window.location.host + "/";
-
+var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
+var cac40 = $('#updateCac40');
+var base = cac40.html();
+var path = newURL + 'api/getall';
+getData();
+console.log(base);
 setInterval(function(){
-  $('#test').html("<tr>");
-  //$('#test').load("localhost/projet_bourse/bo");
-  var path = newURL + 'api/getall';
-   var xhr = $.getJSON(path, function(data){
-      for (x in data) {
-        $('#test').append("<td>" + x.nom + "</td>");
-        $('#test').append("<td>" + x.isin + "</td>");
-        $('#test').append("<td>" + x.ouverture + "</td>");
-        $('#test').append("<td>" + x.fermeture + "</td>");
-        $('#test').append("<td>" + x.bas + "</td>");
-        $('#test').append("<td>" + x.haut + "</td>");
-        $('#test').append("<td>" + x.variation + "</td>");
-      }
-    });
-    $('#test').html("</tr>");
-}, 2000);
+   getData();
+}, 5000);
+
+
+function getData(){
+  var xhr = $.getJSON(path, function(data){
+  cac40.html(base);
+   for (x in data) {
+     cac40.append("<tbody><tr><td>" + data[x].nom + "</td>"+
+   "<td>" + data[x].isin + "</td>"+
+   "<td>" + data[x].ouverture + "</td>"+
+   "<td>" + data[x].fermeture + "</td>"+
+   "<td>" + data[x].bas + "</td>"+
+   "<td>" + data[x].haut + "</td>"+
+   "<td>" + data[x].variation + "</td>"+
+   '<td><a href="' + newURL + '"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>'+
+   "</tr></tbody>");
+   }
+   });
+ }
 </script>
 @endsection

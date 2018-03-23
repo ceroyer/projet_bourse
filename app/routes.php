@@ -27,6 +27,6 @@ $route->addRoute( 'GET'  , '/deco' ,    'IndexController@deconnectedPage' );
 $route->addRoute( 'POST' , '/login' , 'LoginController@login' );
 $route->addRoute( 'POST' , '/signup', 'LoginController@signup' );
 
-$route->addRoute('GET','/api/test','Bourse@getall');
+$route->addRoute('GET','/api/getall','Bourse@getAll');
 
 ?>
