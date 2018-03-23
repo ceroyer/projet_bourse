@@ -8,73 +8,68 @@ Votre compte
 
 @section('content')
 
-<div id="titre">
-	<h1>Modifier vos informations</h1>
+<div class="titre">
+	<h1 class="titre__text">Modifier vos informations</h1>
 </div>
 
-<div id="infos">
+<div class="infos">
 	<form action="{{ url('/profile') }}" method="POST">
-		<div id="mail">
-			<h4><label>Changer l'email</label></h4>
-			<input type="text" name="email" value="{{$user['email']}}">
+		<div class="infos__mail">
+			<h4 class="infos__h4Common"><label class="infos__labelCommon infos__label">Changer l'email</label></h4>
+			<input class="infos__inputCommon infos__mailInput "type="text" name="email" value="{{$user['email']}}">
 		</div>
-		<div id="mdp">
-			<h4>Changer votre mot de passe</h4>
-			<div>
-				<label>Tapez votre ancien mot de passe :</label>
-				<input type="password" name="password_old">
-				<label>Votre nouveau mot de passe :</label>
-				<input type="password" name="password_new">
-				<label>Confirmer le mot de passe :</label>
-				<input type="password" name="password_verif">
-				<input type="hidden" name="id" value="{{$user['id']}}" />
-				<button type="submit">Enregistrer</button>
+		<div class="infos__mdp">
+			<h4 class="infos__h4Common infos__mdpTitre ">Changer votre mot de passe</h4>
+			<div class="infos__mdpDiv">
+				<label class="infos__labelCommon" >Tapez votre ancien mot de passe :</label>
+				<input class="infos__inputCommon infos__mdpInput " type="password" name="password_old">
+				<label class="infos__labelCommon">Votre nouveau mot de passe :</label>
+				<input class="infos__inputCommon infos__mdpInput " type="password" name="password_new">
+				<label class="infos__labelCommon" >Confirmer le mot de passe :</label>
+				<input class="infos__inputCommon infos__mdpInput " type="password" name="password_verif">
+				<input class="infos__inputCommon infos__mdpInput " type="hidden" name="id" value="{{$user['id']}}" />
+				<button class="infos__buttonCommon infos__button--mdp " type="submit">Enregistrer</button>
 			</div>
 		</div>
 	</form>
-<div id="desac">
-<form action="{{url('/deactivaded')}}" method="POST">
-	<h4><label>Partir en vacances et desactiver mon compte</label></h4>
-    <input type="text" name="id" value="{{ $user['id'] }}" hidden>
-    <td><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger"><i class="fa fa-plane"></i>
-    </button></td>
-    <div id="myModal" class="modal fade">
-	    <div class="modal-dialog">
-	      <div class="modal-content">
-	          <div class="modal-header">
-	              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	              <h4 class="modal-title">Confirmation</h4>
-	          </div>
-	          <div class="modal-body">
-	              <p>Voulez-vous vraiment désactiver votre compte de manière definitive ?</p>
-	               <p class="text-warning"><small>Pour le réactiver, contactez l'administrateur du site par mail !</small></p>
-	         </div>
-	          <div class="modal-footer">
-	              <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-	              <button type="submit" class="btn btn-primary">Je désactive mon compte</button>
-	          </div>
-	      </div>
-	  </div>
-	  </div>
-</form>
-</div>
+	<div class="infos__desac">
+		<form action="{{url('/deactivaded')}}" method="POST">
+			<h4 class="infos__h4Common"><label class=" infos__labelCommon infos__label">Partir en vacances et desactiver mon compte</label></h4>
+    	<input  class="infos__inputCommon" type="text" name="id" value="{{ $user['id'] }}" hidden>
+    	<td><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger infos__buttonCommon infos__button "><i class="fa fa-plane"></i>
+   		</button></td>
+    	<div id="myModal" class="modal fade">
+	    	<div class="modal-dialog">
+	      	<div class="modal-content">
+	         	 <div class="modal-header">
+	             	 <button type="button" class="close infos__button infos__buttonCommon" data-dismiss="modal" aria-hidden="true">&times;</button>
+	             	 <h4 class="modal-title infos__h4Common">Confirmation</h4>
+	          	</div>
+	          	<div class="modal-body">
+	             	 <p class="infos__pCommon">Voulez-vous vraiment désactiver votre compte de manière definitive ?</p>
+	               <p class="text-warning infos__pCommon"><small>Pour le réactiver, contactez l'administrateur du site par mail !</small></p>
+	         		</div>
+	          	<div class="modal-footer">
+	              <button type="button" class="btn btn-default infos__buttonCommon infos__button " data-dismiss="modal">Annuler</button>
+	              <button type="submit" class="btn btn-primary infos__buttonCommon infos__button ">Je désactive mon compte</button>
+	          	</div>
+	      	</div>
+	 	 		</div>
+	  	</div>
+		</form>
+	</div>
 
-@if($user['role'] == 'admin' )
-
-<a href="{{ url('/bo') }}" class="admin"><h4>Accéder à l'espace admin</h4></a>
-
-
-@endif
+	@if($user['role'] == 'admin' )
+	<a href="{{ url('/bo') }}" class="infos__admin"><h4 class="infos__h4Common infos__adminTitre ">Accéder à l'espace admin</h4></a>
+	@endif
 </div>
 @endsection
 
 @section('additional_js')
-
 <script type="text/javascript">
-$('#myModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget);
-});
-
+	$('#myModal').on('show.bs.modal', function (event) {
+  	var button = $(event.relatedTarget);
+	});
 </script>
 
 @endsection

@@ -42,7 +42,7 @@
     <a class="view-more1 accueil_pasInscrit" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
-<section class="information">
+<section class="information" id="information">
   <div class="information__inscription" id="inscription">
     <form action="{{ url('/signup') }}" method="POST" id="formulaireInscription">
       <h2>Inscription</h2>
@@ -55,10 +55,13 @@
       @if($pseudoexist == true)
         <h2 class="groupe__inscriptionErreur" style='color:red'>Pseudo déjà existant</h2>
       @endif
-      <div class="information__inscriptionConnect">
-        <label class="form_col" for="pseudo"> Identifiant: </label>
-        <input type="text" name="pseudo"/>
-      </div>
+      @if($mailexist == true)
+        <h2 class="erreur" style='color:red'>Email déjà existant</h2>
+      @endif
+        <div class="information__inscriptionConnect">
+          <label class="form_col" for="pseudo"> Identifiant: </label>
+          <input type="text" name="pseudo"/>
+        </div>
       <div class="information__inscriptionConnect">
         <label class="form_col" for="email"> Adresse mail: </label>
         <input type="email" name="email"/>
