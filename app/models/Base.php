@@ -144,6 +144,20 @@ class Base {
   }
 
   /**
+  * Search actions
+  */
+
+
+  public function getAction($ISIN = null)
+  {
+    $sql = "SELECT * FROM {$this->tableName} WHERE ISIN = :ISIN";
+    $sth = $this->pdo->prepare( $sql );
+    $sth->bindValue(':ISIN', $ISIN );
+    $sth->execute();
+    return $sth->fetch( \PDO::FETCH_ASSOC);
+  }
+
+  /**
    * create Table
    */
   public function createActionTable($sql)

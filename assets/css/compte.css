@@ -1,8 +1,3 @@
-*
-{ box-sizing:border-box;
-}
-
-
 .container-fluid{
   display: flex;
   align-items: center;
@@ -11,7 +6,21 @@
 
 }
 
-#infos{
+.infos__inputCommon, .infos__buttonCommon{
+  border-radius: 5px;
+}
+
+.infos__pCommon, .infos__h4Common, .infos__labelCommon{
+  font-family: caviar;
+}
+
+.infos__h4Common{
+  margin-bottom:15px;
+}
+
+/* Bloc infos*/
+
+.infos{
 background-color: #C3C6D1;
 padding:20px;
 width:450px;
@@ -19,6 +28,29 @@ margin:20px;
 
 }
 
+.infos__button:hover{
+  cursor: pointer;
+}
+
+.infos__labelCommon, .infos__mdpTitre
+{ color: #0f1339 !important;
+}
+
+.infos__label{
+  text-decoration: underline;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/*Bloc titre*/
+.titre__text{
+  font-family: bluefish;
+  font-size:2.2rem;
+  margin-top:30px;
+}
+
+
+/*Bloc pop-up*/
 .modal-content{
   background-color: #C3C6D1;
 }
@@ -30,78 +62,66 @@ margin:20px;
   background-color:#4c4c4c;
 }
 
-#titre h1{
-  font-family: bluefish;
-  font-size:2.2rem;
-}
-
-
-#mail{
-  padding:30px;
-  text-align: center;
-}
-
-#mail input{
-  text-align: center;
-  color:black;
-  width:100%;
-}
-
-#mdp div{
-  padding-left: 70px;
-  padding-bottom: 10px;
-}
-
-#mdp button,input{
-  color:black;
-}
-
-#mdp h4{
-  text-align: center;
-  color:white !important;
-  text-decoration: underline;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-p, h4,label{
-  font-family: caviar;
-}
-
-#titre h1{
-  margin-top:30px;
-}
-
-#desac{
-  text-align: center;
-  padding:20px;
-}
-
-
-h4>label{
-  text-decoration: underline;
-  font-size: 1.1rem;
-  font-weight: bold;}
-
-
-h4{
-  margin-bottom:15px;
-}
-
-.admin h4{
-  text-decoration: underline;
-  color:white;
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 10px;
-}
-
 .text-warning{
   color:red !important;
   font-family: caviarBold;
 }
 
-input, button{
-  border-radius: 5px;
+
+/*Bloc infos mail*/
+.infos__mail{
+  padding:30px;
+  text-align: center;
+}
+
+.infos_mailInput{
+  text-align: center;
+  color:black;
+  width:100%;
+}
+
+
+
+/*Bloc mot de passe*/
+.infos__mdpDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+
+.infos__button--mdp{
+  margin-top: 10px;
+  color:black;
+}
+
+
+.infos__mdpInput{
+  color:black;
+}
+
+.infos__mdpTitre{
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/*Bloc désactiver compte*/
+.infos__desac{
+  text-align: center;
+  padding:20px;
+}
+
+
+/*Bloc quand admin*/
+.infos__adminTitre{
+  text-decoration: underline;
+  color:#0f1339 !important;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px;
 }

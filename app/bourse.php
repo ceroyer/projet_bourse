@@ -49,11 +49,14 @@ function insert($data){
   $records = persistentArray($data);
 
   foreach ($records as $action) {
-    $result = Actions::getInstance()->searchSBF120($action['ISIN']);
+    $result = Actions::getInstance()->getAction($action['ISIN']);
 
     if(empty($result)){
-      Actions::getInstance()->insertSBF120($action['Name'],$action['ISIN'],$action['Last'],$action['Change'],$action['Volume'],40);
-      Actions::getInstance()->createTable($action['ISIN']);
+      //Actions::getInstance()->insertSBF120($action['Name'],$action['ISIN'],$action['Last'],$action['Change'],$action['Volume'],40);
+      $datas = ['nom'=>$action['Name'],'ISIN'=>$action['ISIN'], 'cours'=>$action['Last'], 'variation'=>$action['Change'], 'volume'=>$action['Volume'], 'indice'=>40];
+      Actions::getInstance()->add($datas);
+      
+      //Actions::getInstance()->createTable($action['ISIN']);
     }
     else{
       //calcul à revoir avec peut-être un update individuel

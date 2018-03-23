@@ -45,9 +45,9 @@
   <nav id="footer">
     <ul>
       <li>@Copyright 2018</li>
-      <li><a href="#">Mentions légales</a></li>
+      <li><a href="{{ url('/mention') }}">Mentions légales</a></li>
       <li><a href="#">Conditions d'utilisation</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="{{ url('/contact') }}">Contact</a></li>
     </ul>
   </nav>
 

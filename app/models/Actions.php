@@ -12,17 +12,19 @@ class Actions extends Base{
   	return self::$instance;
   }
 
+
 	public static function searchSBF120($ISIN){ //avec récup des différents champs de la table (haut, bas, ouverture, fermeture)
 		$sql = "SELECT ISIN, haut, bas, ouverture, fermeture AS action FROM ".$this->tableName." WHERE ISIN = ".$ISIN;
 		$search = $this->pdo->row($sql);
     return $search;
 	}
 
+/*
 	public static function insertSBF120($nom,$ISIN,$cours,$variation,$volume,$indice){
 		$sql = "INSERT INTO ".$this->tableName."(nom, ISIN,	cours,	variation, volume,	indice) VALUES('".$nom."','".$ISIN."','".$cours."','".$variation."','".$volume."','".$indice."')";
 		$data = $this->pdo->insert($sql);
 	}
-
+*/
 	public static function updateSBF120($calcul, $ISIN, $cours, $variation, $volume, $crete, $indice){
 		if($calcul == "High"){
 			$sql  = "UPDATE ".$this->tableName." SET cours='".$cours."' , variation='".$variation."' , volume='".$volume."' , haut='".$crete."' WHERE ISIN= '".$ISIN."'";
