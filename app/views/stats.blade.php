@@ -23,10 +23,10 @@ Accueil
 <div class="all">
   <div class="conteneur">
     <div class="crossbar1">
-        <h1>SBF 120</h1>
-        <div id="search">
-          <input style="color:black" class="searchbar1" type="text" value="" placeholder="Recherche"/>
-          <button type="" class="btn_searchbar"><i class="fa fa-search"></i></button>
+        <h1 class="crossbar1__titre">SBF 120</h1>
+        <div id="search" class="crossbar1__content">
+          <input style="color:black" class="searchbar1 crossbar1__input" type="text" value="" placeholder="Recherche"/>
+          <button type="" class="btn_searchbar crossbar1__button"><i class="fa fa-search"></i></button>
         </div>
     </div>
     <div class="cac">
