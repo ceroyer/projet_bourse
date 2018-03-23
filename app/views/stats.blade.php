@@ -36,12 +36,12 @@ Accueil
             <tr class="table__titleRow">
               <th class="table__title">Nom</th>
               <th class="table__title">ISIN</th>
-              <th class="table__title">Market</th>
-              <th class="table__title">Last</th>
+              <th class="table__title">Marché</th>
+              <th class="table__title">Cours</th>
+              <th class="table__title">Variation</th>
               <th class="table__title">Volume</th>
-              <th class="table__title">actChange</th>
-              <th class="table__title">DateTime</th>
-              <th class="table__title">TimeZone</th>
+              <th class="table__title">Date</th>
+              <th class="table__title">Zone</th>
             </tr>
           </thead>
           <tbody class="table__body">
@@ -50,9 +50,9 @@ Accueil
               <td class="table__item">{{$action['Name']}}</td>
               <td class="table__item">{{$action['ISIN']}}</td>
               <td class="table__item">{{$action['Market']}}</td>
-              <td class="table__item">{{$action['Last']}}</td>
+              <td class="table__item">{{$action['lastCourse']}}</td>
+              <td class="table__item">{{$action['Variation']}}</td>
               <td class="table__item">{{$action['Volume']}}</td>
-              <td class="table__item">{{$action['ActChange']}}</td>
               <td class="table__item">{{$action['DateTime']}}</td>
               <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
@@ -68,12 +68,12 @@ Accueil
             <tr class="table__titleRow">
               <th class="table__title">Nom</th>
               <th class="table__title">ISIN</th>
-              <th class="table__title">Market</th>
-              <th class="table__title">Last</th>
+              <th class="table__title">Marché</th>
+              <th class="table__title">Cours</th>
+              <th class="table__title">Variation</th>
               <th class="table__title">Volume</th>
-              <th class="table__title">actChange</th>
-              <th class="table__title">DateTime</th>
-              <th class="table__title">TimeZone</th>
+              <th class="table__title">Date</th>
+              <th class="table__title">Zone</th>
             </tr>
           </thead>
           <tbody class="table__body">
@@ -82,9 +82,9 @@ Accueil
               <td class="table__item">{{$action['Name']}}</td>
               <td class="table__item">{{$action['ISIN']}}</td>
               <td class="table__item">{{$action['Market']}}</td>
-              <td class="table__item">{{$action['Last']}}</td>
+              <td class="table__item">{{$action['lastCourse']}}</td>
+              <td class="table__item">{{$action['Variation']}}</td>
               <td class="table__item">{{$action['Volume']}}</td>
-              <td class="table__item">{{$action['ActChange']}}</td>
               <td class="table__item">{{$action['DateTime']}}</td>
               <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
@@ -117,7 +117,7 @@ Accueil
           <td>{{ $action['ISIN'] }}</td>
 
           <td>{{ $action['Market'] }}</td>
-          <td>{{ $action['Last'] }}</td>
+          <td>{{ $action['lastCourse'] }}</td>
           <td>{{ $action['Volume'] }}</td>
           <td>{{ $action['ActChange'] }}</td>
           <td>{{ $action['DateTime'] }}</td>

@@ -72,12 +72,12 @@ public function login(){
           $tempOk = true;  // mdp & pseudo ok + compte activé
         }
       }
+      break;
   }
   if ($tempOk == true) {
     $_SESSION['login']=$login['pseudo'];
     $_SESSION['id']=$login['id'];
     redirect('/stats');
-    break;
   }
   else{
     
