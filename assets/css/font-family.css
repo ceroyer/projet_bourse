@@ -5,13 +5,13 @@
 }
 
 @font-face
-{ font-family: "caviar";
+{ font-family: "caviarBold";
   font-weight: bold;
   src: url("./../font/CaviarDreams/CaviarDreams_Bold.ttf");
 }
 
 @font-face
-{ font-family: "caviar";
+{ font-family: "caviarIta";
   font-style: italic;
   src: url("./../font/CaviarDreams/CaviarDreams_Italic.ttf");
 }
@@ -29,4 +29,19 @@
 @font-face
 { font-family: "signature";
   src: url("./../font/SignatureOfTheAncient/Signature.ttf");
+}
+
+@font-face
+{ font-family: "dream";
+  src: url("./../font/DreamOrphans/dream_orphans_bd.ttf");
+}
+
+@font-face
+{ font-family: "coolvetica";
+  src: url("./../font/Coolvetica/coolvetica.ttf");
+}
+
+@font-face
+{ font-family: "bluefish";
+  src: url("./../font/Bluefish/Bluefish_Regular.otf");
 }

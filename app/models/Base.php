@@ -37,6 +37,8 @@ class Base {
    */
   public function add( $datas )
   {
+    //je crois de la forme d'un tableau associatif avec les champs==les clefs
+
     $sql = "INSERT INTO ".$this -> tableName." ( ";
     foreach( array_keys( $datas ) as $k ) {
       $sql .= " {$k} ,";
@@ -107,8 +109,8 @@ class Base {
    * Retourne les informations d'un modèle. L'objet est hydraté.
    * @param  Model  $model objet modèle
    * @return void
-  
-  public function read($id) 
+
+  public function read($id)
   {
     $pkName = $id->getPkName();
     $sql = "SELECT * FROM {$this->tableName} WHERE ".$pkName." = :pk";

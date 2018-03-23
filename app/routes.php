@@ -12,9 +12,14 @@ $route->addRoute( 'POST'  , '/bo/reactivaded' , 'IndexController@backofficeReact
 
 
 
-$route->addRoute( 'GET'  , '/profile' ,  'IndexController@editProfile' );
-$route->addRoute( 'POST' , '/profile' ,  'IndexController@saveProfile' );
-$route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
+$route->addRoute( 'GET'  , '/profile',  'IndexController@editProfile' );
+$route->addRoute( 'POST' , '/profile',  'IndexController@saveProfile' );
+$route->addRoute( 'GET'  , '/stats',    'IndexController@connectedPage' );
+
+$route->addRoute( 'POST'  , '/stats/removefav',  'IndexController@removeFav' );
+$route->addRoute( 'POST'  , '/stats/addfav',  'IndexController@addFav' );
+
+
 
 
 $route->addRoute( 'POST'  , '/deco' ,    'IndexController@deconnectedPage' );

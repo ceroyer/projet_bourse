@@ -49,18 +49,38 @@ function backofficeIndex(){
 function connectedPage(){
   global $blade;
   $actions=Actions::getInstance()->getAll();
-  $_SESSION['id'] = "11";
+  // flemme présente ici
+  $_SESSION['id'] = "3";
   if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
+    $myActions = Favoris::getInstance()->getMyActions($id);
     $user = Users::getInstance()->get($id);
-    $favoris=Favoris::getInstance()->getFavorisOfUser($id);
+    // dump($myActions);die;
+    // $myFavs=Favoris::getInstance()->getFavorisOfUser($id);
 
     echo $blade->render(
         'stats',
-        ['actions'=>$actions, 'user' => $user, 'favoris' => $favoris]
-      );
+        ['myActions'=>$myActions,
+        'user'=>$user]
+    );
   }
+}
 
+function addFav(){
+  $idUser = $_POST['iduser'];
+  $isinAction = $_POST['isinaction'];
+  $datas = [
+    "id_user"=>$idUser,
+    "isin_action"=>$isinAction
+  ];
+  Favoris::getInstance()->add($datas);
+  redirect('/stats');
+}
+
+function removeFav(){
+  $favid = $_POST['favid'];
+  Favoris::getInstance()->delete($favid);
+  redirect('/stats');
 }
 
 function deconnectedPage(){

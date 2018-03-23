@@ -1,5 +1,5 @@
 h2
-{ font-family: king;
+{ font-family: bluefish;
   font-size: 2.2rem;
   color: white;
 }
@@ -29,8 +29,9 @@ button:hover
 
 #recherche input
 { width: 40%;
-  border-radius: 5px;
   padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 #recherche button
@@ -38,7 +39,8 @@ button:hover
   color: white;
   font-family: caviar;
   padding: 10px;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 #recherche button:hover
@@ -54,3 +56,38 @@ table
   padding: 20px;
   font-family: caviar;
 }
+
+table td
+{ vertical-align: baseline !important;
+}
+
+
+tbody
+{ overflow-y: scroll;
+  height: 5em;
+}
+
+tr
+{ width: 100%;
+}
+
+/* Thead fixe et tableau déroulant
+
+.table-fixed
+{ height: 100%;
+}
+
+.table-fixed thead {
+  width: 97%;
+}
+.table-fixed tbody {
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}*/
