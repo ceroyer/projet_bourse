@@ -4,15 +4,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align:justify;
   width: 100%;
 }
-.mention div{
+
+.mention__titre {
+  margin-bottom: 30px;
+  text-align:center;
+  font-family:bluefish;
+  font-size:2.2rem;
+}
+
+.mention__content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
+  background-color:#C3C6D1;
+  padding:40px;
+  font-family: caviar;
+  color:#0f1339;
+  margin-bottom:50px;
 }
-.mention h1 {
-  margin-bottom: 30px;
-}
+
+
