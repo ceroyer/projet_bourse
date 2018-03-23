@@ -17,7 +17,7 @@ getBourse();
      $persistent[$index]['Last']= $array['Last'];
      $persistent[$index]['Volume']= $array['Volume'];
      $persistent[$index]['Change']= $array['Change'];
-     $persistent[$index]['DateTime']= $array['Date/Time'];
+     $persistent[$index]['DateTime']= date_timestamp_get(date_create_from_format('d/m/Y H:i:s',$array['Date/Time'])); //dump(date_timestamp_get($persistent[$index]['DateTime']));die();
      $persistent[$index]['Timezone']= $array['Time zone'];
      $index++;
    }
@@ -60,13 +60,13 @@ function insert($data){
       // comparison of high/low values on last action value
       $calcul = calculBourse($result['High'], $result['Low'], $action['Last']);
     	if($calcul == "High"){
-        $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Date/Time'=>$action['Date/Time'], 'Timezone'=>$action['Timezone']];
+        $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone']];
     	}
     	elseif($calcul == "Low"){
-    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'Low'=>$action['Last'], $action['Date/Time'], 'Timezone'=>$action['Timezone']];
+    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone']];
     	}
     	else{
-    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], $action['Date/Time'], 'Timezone'=>$action['Timezone']];
+    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone']];
     	}
     	Actions::getInstance()->editAction($action['ISIN'],$datas);
     }
