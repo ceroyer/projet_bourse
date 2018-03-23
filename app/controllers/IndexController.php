@@ -83,8 +83,8 @@ function connectedPage(){
   }else{
     redirect('/');
   }
-
 }
+
 
 function deconnectedPage(){
   $_SESSION['login']='';

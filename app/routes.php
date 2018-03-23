@@ -17,6 +17,7 @@ $route->addRoute( 'POST' , '/profile' ,  'IndexController@saveProfile' );
 $route->addRoute( 'GET'  , '/stats' ,    'IndexController@connectedPage' );
 
 
+
 $route->addRoute( 'POST'  , '/deco' ,    'IndexController@deconnectedPage' );
 $route->addRoute( 'GET'  , '/deco' ,    'IndexController@deconnectedPage' );
 // $route->addRoute( 'POST' , '/deco' ,    'IndexController@deconnectedPage' );
