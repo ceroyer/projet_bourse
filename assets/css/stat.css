@@ -1,5 +1,5 @@
 .all{
-  height:100vh;
+  height:120vh;
  }
 .conteneur{
   background-color: #c3c6d1;
@@ -33,7 +33,8 @@
 }
 
 .table{
-    width: 100%;
+    width: 80%;
+    height: 40vh;
     table-layout: fixed;
     border-collapse: collapse;
 }
@@ -41,8 +42,8 @@
 .table__body{
   display:block;
   width: 100%;
+  height: 100%;
   overflow: auto;
-  height: 100px;
 }
 
 .table__titleRow{
@@ -69,7 +70,12 @@
   font-size: 12px;
 }
 
-
+.cac40 , .cac80 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
