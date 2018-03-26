@@ -196,3 +196,4 @@ function contactPage(){
     redirect('/');
   }
 }
+}
