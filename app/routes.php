@@ -29,4 +29,5 @@ $route->addRoute( 'GET'  , '/deco' ,    'IndexController@deconnectedPage' );
 // Route appelée quand on valide l'un des deux formulaires
 $route->addRoute( 'POST' , '/login' , 'LoginController@login' );
 $route->addRoute( 'POST' , '/signup', 'LoginController@signup' );
+
 ?>
