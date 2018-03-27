@@ -44,6 +44,7 @@ Accueil
           </tr>
           </thead>
           @foreach ($myActions as $myAction)
+            @if($myAction['stockIndex'] == "40")
           <tbody class="table__body">
             <tr class="table__itemRow" id="{{$myAction['Name']}}">
               <td class="table__item">{{ $myAction['Name'] }}</td>
@@ -80,6 +81,7 @@ Accueil
                  ?>
             </tr>
            </tbody>
+            @endif
           @endforeach
         </table>
       </div>
@@ -99,6 +101,7 @@ Accueil
           </tr>
           </thead>
           @foreach ($myActions as $myAction)
+             @if($myAction['stockIndex'] == "80")
           <tbody class="table__body">
             <tr class="table__itemRow" id="{{$myAction['Name']}}">
               <td class="table__item">{{ $myAction['Name'] }}</td>
@@ -138,6 +141,7 @@ Accueil
                  ?>
             </tr>
            </tbody>
+           @endif
           @endforeach
         </table>
         </div>
