@@ -10,17 +10,10 @@ class IndexController extends Controller{
 
 function editProfile(){
   global $blade;
-  //if (isset($_SESSION['id'])) {
-  //  $id = $_SESSION['id'];
-  //  $user = Users::getInstance()->get($id);
-  //  echo $blade->render('profile' , ['user' => $user]);
-  //}else{
-  //  redirect('/');
-  //}
 
-  //Users::getConnectedUser() pour acquérir la personne logué (false si pas loggé)
   if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
+    $user = Users::getInstance()->get($id);
     echo $blade->render('profile' , ['user' => $user]);
   }else{
     redirect('/');
@@ -46,7 +39,6 @@ function backofficeIndex(){
     global $blade;
 
     $listUsers = Users::getInstance()->getAll();
-
      //echo $blade->render(
       //  'bo',
       //  ['users'=>$listUsers]
@@ -54,6 +46,7 @@ function backofficeIndex(){
 
       if (isset($_SESSION['id'])) {
         $id = $_SESSION['id'];
+        $user = Users::getInstance()->get($id);
         echo $blade->render(
            'bo',
            ['users'=>$listUsers, 'user' => $user]

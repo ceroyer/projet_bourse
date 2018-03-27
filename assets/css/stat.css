@@ -37,6 +37,7 @@
     height: 40vh;
     table-layout: fixed;
     border-collapse: collapse;
+    color: white;
 }
 
 .table__body{
@@ -51,7 +52,7 @@
 
 }
 
-.table__header {
+.table__titleRow {
   background: black;
   color:#fff;
 }
@@ -132,4 +133,12 @@ border:2px #20233f solid;
   padding:5px;
   width:auto;
   height:auto;
+}
+
+.star--vide:hover
+{ opacity:1;
+}
+
+.star:hover
+{ cursor: pointer;
 }
