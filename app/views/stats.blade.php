@@ -82,6 +82,8 @@ Accueil
            </tbody>
           @endforeach
         </table>
+      </div>
+      <div class="cac80">
         <h1>CAC 80</h1>
         <table class="fixed_header myTable">
         <thead class="table__header">
@@ -138,7 +140,7 @@ Accueil
            </tbody>
           @endforeach
         </table>
-
+        </div>
         <h1>FAVORIS</h1>
         <table class="fixed_header myTable">
         <thead class="table__header">
