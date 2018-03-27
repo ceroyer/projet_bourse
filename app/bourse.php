@@ -55,8 +55,8 @@ function insert($data){
   foreach ($records as $action) {
     $result = Actions::getInstance()->getAction($action['ISIN']);
 
-    $action['stockIndex']= $dictionnary->{$action['ISIN']};
-
+    $action['stockIndex']= $dictionnary->$action['ISIN'];
+	
     if(empty($result)){
       // add action line on main table
       $datas = ['Name'=>$action['Name'],'ISIN'=>$action['ISIN'], 'Market'=>$action['Market'], 'lastCourse'=>$action['Last'], 'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'], 'stockIndex'=> $action['stockIndex']];
