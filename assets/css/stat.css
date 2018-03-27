@@ -1,3 +1,7 @@
+.stats__conteneur
+{ color: black;
+}
+
 
 .crossbar1{
     display: flex;
@@ -51,6 +55,10 @@
   padding: 5px;
   text-align: left;
   width: 200px;
+}
+
+.table__item
+{ background-color: white;
 }
 
 .second{
