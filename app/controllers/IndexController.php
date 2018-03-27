@@ -3,6 +3,7 @@
 namespace Controllers;
 use Models\Users;
 use Models\Actions;
+use Models\Favoris;
 
 
 class IndexController extends Controller{
@@ -18,7 +19,8 @@ function editProfile(){
   //}
 
   //Users::getConnectedUser() pour acquérir la personne logué (false si pas loggé)
-  if ($user = Users::getConnectedUser()){
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
     echo $blade->render('profile' , ['user' => $user]);
   }else{
     redirect('/');
@@ -50,7 +52,8 @@ function backofficeIndex(){
       //  ['users'=>$listUsers]
       //);
 
-      if ($user = Users::getConnectedUser()){
+      if (isset($_SESSION['id'])) {
+        $id = $_SESSION['id'];
         echo $blade->render(
            'bo',
            ['users'=>$listUsers, 'user' => $user]
@@ -66,7 +69,8 @@ function mentionsLegales(){
   global $blade;
 
     $listUsers = Users::getInstance()->getAll();
-      if ($user = Users::getConnectedUser()){
+      if (isset($_SESSION['id'])) {
+        $id = $_SESSION['id'];
         echo $blade->render(
            'mention',
            ['users'=>$listUsers, 'user' => $user]
@@ -82,23 +86,39 @@ function mentionsLegales(){
 function connectedPage(){
   global $blade;
   $actions=Actions::getInstance()->getAll();
-  //if (isset($_SESSION['id'])) {
-  //  $id = $_SESSION['id'];
-  //  $user = Users::getInstance()->get($id);
-  //  echo $blade->render(
-  //      'stats',
-  //      ['actions'=>$actions, 'user' => $user]
-  //    );
-  //}
+  // flemme présente ici
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $myActions = Favoris::getInstance()->getMyActions($id);
+    $user = Users::getInstance()->get($id);
+    // dump($myActions);die;
+    // $myFavs=Favoris::getInstance()->getFavorisOfUser($id);
 
-  if ($user = Users::getConnectedUser()){
     echo $blade->render(
-          'stats',
-          ['actions'=>$actions, 'user' => $user]
-        );
+        'stats',
+        ['myActions'=>$myActions,
+        'user'=>$user]
+    );
   }else{
     redirect('/');
   }
+}
+
+function addFav(){
+  $idUser = $_POST['iduser'];
+  $isinAction = $_POST['isinaction'];
+  $datas = [
+    "id_user"=>$idUser,
+    "isin_action"=>$isinAction
+  ];
+  Favoris::getInstance()->add($datas);
+  redirect('/stats');
+}
+
+function removeFav(){
+  $favid = $_POST['favid'];
+  Favoris::getInstance()->delete($favid);
+  redirect('/stats');
 }
 
 
@@ -166,7 +186,8 @@ function envoieMail(){
 function contactPage(){
   global $blade;
   $actions=Actions::getInstance()->getAll();
-  if ($user = Users::getConnectedUser()){
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
     echo $blade->render(
           'contact',
           ['actions'=>$actions, 'user' => $user]
@@ -175,7 +196,4 @@ function contactPage(){
     redirect('/');
   }
 }
-
 }
-
-
