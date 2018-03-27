@@ -15,11 +15,11 @@ class Favoris extends Base{
   }
 
   public function getMyActions($id){
-    $sql = "SELECT Name, ISIN, Market, lastCourse, Volume, Variation, DateTime, Timezone, isin_action, `favoris`.id AS favid
+    $sql = "SELECT Name, ISIN, Market, lastCourse, Volume, Variation, DateTime, Timezone, isin_action, stockIndex, `favoris`.id AS favid
     FROM actions
     LEFT OUTER JOIN favoris ON `favoris`.isin_action = `actions`.ISIN
     UNION
-    SELECT Name, ISIN, Market, lastCourse, Volume, Variation, DateTime, Timezone, isin_action, `favoris`.id AS favid
+    SELECT Name, ISIN, Market, lastCourse, Volume, Variation, DateTime, Timezone, isin_action, stockIndex, `favoris`.id AS favid
     FROM actions
     RIGHT OUTER JOIN favoris ON `favoris`.isin_action = `actions`.ISIN
     WHERE `favoris`.id_user = :id";
