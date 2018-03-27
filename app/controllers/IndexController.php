@@ -58,9 +58,9 @@ function backofficeIndex(){
       }
 }
 
-function JSONGet($id){
-  $action = Actions::getInstance()->get($id);
-  $data = json_encode($action);
+function JSONGetAll(){
+  $actions = Actions::getInstance()->getAll();
+  $data = json_encode($actions);
   echo $data;
 }
 

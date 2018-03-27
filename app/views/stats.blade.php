@@ -210,46 +210,38 @@ Accueil
 //AJAX REQUEST CAC40
 
 var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
-var base = $('.myTable:first-of-type .table__body').toArray();
+var base = $('.myTable:first-of-type .table__body');
 console.log(base);
-for(x in base){
-  console.log(x);
-  json = getData(x+1);
-  console.log(json);
-}
+
 
 //var base = cac40.html();
 
-//getData();
+getData();
 setInterval(function(){
-   //getData();
+   getData();
 }, 5000);
 
 
-function getData(id){
+function getData(){
   var final;
-  var path = newURL + 'api/get/' + id;
-  console.log(path);
+  var path = newURL + 'api/getall';
   var xhr = $.getJSON(path, function(data){
-    final = data;
+    //final = data;
+    //console.log(data);
   //cac40.html(base);
-   //for (x in data) {
-     //console.log(data[x].Name);
-  //   var newtab = ("<tbody class='table__body'><tr class='table__itemRow'>"+
-  //   "<td class='table__item'>" + data[x].Name + "</td>"+
-  // "<td class='table__item'>" + data[x].ISIN + "</td>"+
-  // "<td class='table__item'>" + data[x].Opening + "</td>"+
-  // "<td class='table__item'>" + data[x].Closing + "</td>"+
-   //"<td class='table__item'>" + data[x].Low + "</td>"+
-  // "<td class='table__item'>" + data[x].High + "</td>"+
-  // "<td class='table__item'>" + data[x].Variation + "</td>"+
-  // '<td class="table__item"><a href="' + newURL + '"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>'+
-  // "</tr></tbody>");
-  // console.log(newtab);
-  // cac40.append(newtab);
-   //}
+  console.log("mise à jour à "  + new Date().getUTCMinutes() + "." + new Date().getUTCSeconds());
+   for (x in data) {
+     //var thistr = base.eq(0).html(data[x].Name);
+     var thistd = base.eq(x).find( "td" );
+     //thistd.eq(2).html(data[x].Opening);
+     //thistd.eq(3).html(data[x].Closing);
+     thistd.eq(4).html(data[x].Low);
+     thistd.eq(5).html(data[x].High);
+     thistd.eq(6).html(data[x].Variation);
+
+
+   }
    });
-   return final;
  }
 </script>
 

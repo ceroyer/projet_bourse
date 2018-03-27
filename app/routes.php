@@ -30,6 +30,6 @@ $route->addRoute( 'GET'  , '/deco' ,    'IndexController@deconnectedPage' );
 $route->addRoute( 'POST' , '/login' , 'LoginController@login' );
 $route->addRoute( 'POST' , '/signup', 'LoginController@signup' );
 
-$route->addRoute('GET','/api/get/{id:[0-9]+}','IndexController@JSONGet');
+$route->addRoute('GET','/api/getall','IndexController@JSONGetAll');
 
 ?>
