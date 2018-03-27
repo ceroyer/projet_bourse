@@ -208,33 +208,49 @@ Accueil
 @endsection
 @section('additional_js')
 <script type="text/javascript">
+//AJAX REQUEST CAC40
+
 var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
-var cac40 = $('.myTable');
-var base = cac40.html();
-var path = newURL + 'api/getall';
-getData();
+var base = $('.myTable:first-of-type .table__body').toArray();
 console.log(base);
+for(x in base){
+  console.log(x);
+  json = getData(x+1);
+  console.log(json);
+}
+
+//var base = cac40.html();
+
+//getData();
 setInterval(function(){
-   getData();
+   //getData();
 }, 5000);
 
 
-function getData(){
+function getData(id){
+  var final;
+  var path = newURL + 'api/get/' + id;
+  console.log(path);
   var xhr = $.getJSON(path, function(data){
-  cac40.html(base);
-   for (x in data) {
-     cac40.append("<tbody class='table__body'><tr class='table__itemRow'>"+
-     "<td class='table__item'>" + data[x].nom + "</td>"+
-   "<td class='table__item'>" + data[x].isin + "</td>"+
-   "<td class='table__item'>" + data[x].ouverture + "</td>"+
-   "<td class='table__item'>" + data[x].fermeture + "</td>"+
-   "<td class='table__item'>" + data[x].bas + "</td>"+
-   "<td class='table__item'>" + data[x].haut + "</td>"+
-   "<td class='table__item'>" + data[x].variation + "</td>"+
-   '<td class="table__item"><a href="' + newURL + '"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>'+
-   "</tr></tbody>");
-   }
+    final = data;
+  //cac40.html(base);
+   //for (x in data) {
+     //console.log(data[x].Name);
+  //   var newtab = ("<tbody class='table__body'><tr class='table__itemRow'>"+
+  //   "<td class='table__item'>" + data[x].Name + "</td>"+
+  // "<td class='table__item'>" + data[x].ISIN + "</td>"+
+  // "<td class='table__item'>" + data[x].Opening + "</td>"+
+  // "<td class='table__item'>" + data[x].Closing + "</td>"+
+   //"<td class='table__item'>" + data[x].Low + "</td>"+
+  // "<td class='table__item'>" + data[x].High + "</td>"+
+  // "<td class='table__item'>" + data[x].Variation + "</td>"+
+  // '<td class="table__item"><a href="' + newURL + '"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>'+
+  // "</tr></tbody>");
+  // console.log(newtab);
+  // cac40.append(newtab);
+   //}
    });
+   return final;
  }
 </script>
 
