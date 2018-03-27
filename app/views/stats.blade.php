@@ -50,7 +50,7 @@ Accueil
               <td class="table__item">{{ $myAction['Name'] }}</td>
               <td class="table__item">{{ $myAction['ISIN'] }}</td>
               <td class="table__item">{{ $myAction['Market'] }}</td>
-              <td class="table__item">{{ $myAction['lastCourse'] }}</td
+              <td class="table__item">{{ $myAction['lastCourse'] }}</td>
               <td class="table__item">{{ $myAction['Volume'] }}</td>
               <td class="table__item">{{ $myAction['Variation'] }}</td>
               <td class="table__item">{{ $myAction['DateTime'] }}</td>
@@ -73,7 +73,7 @@ Accueil
                     <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                      <button class="btnstar" type="submit">☆</button></td>
+                      <button class="btnstar" type="submit">☆</button>
                     </form>
                   </td>
                 <?php
@@ -112,9 +112,6 @@ Accueil
               <td class="table__item">{{ $myAction['Variation'] }}</td>
               <td class="table__item">{{ $myAction['DateTime'] }}</td>
               <td class="table__item">{{ $myAction['Timezone'] }}</td>
-              <!-- oui le css inline est dégueulasse -->
-              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
-              <!-- Rajouter : star{ cursor:pointer; } -->
                 <?php
                   if (isset($myAction['isin_action'])){
                 ?>
@@ -126,14 +123,14 @@ Accueil
                         <button class="btnstar" type="submit">★</button>
                       </form>
                     </td>
-                <?php
-                  }else{
-                ?>
+                    <?php
+                      }else{
+                    ?>
                   <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
                     <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                      <button class="btnstar" type="submit">☆</button></td>
+                      <button class="btnstar" type="submit">☆</button>
                     </form>
                   </td>
                 <?php
@@ -145,6 +142,7 @@ Accueil
           @endforeach
         </table>
         </div>
+
         <h1>FAVORIS</h1>
         <table class="fixed_header myTable">
         <thead class="table__header">
@@ -170,9 +168,6 @@ Accueil
               <td class="table__item">{{ $myAction['Variation'] }}</td>
               <td class="table__item">{{ $myAction['DateTime'] }}</td>
               <td class="table__item">{{ $myAction['Timezone'] }}</td>
-              <!-- oui le css inline est dégueulasse -->
-              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
-              <!-- Rajouter : star{ cursor:pointer; } -->
                 <?php
                   if (isset($myAction['isin_action'])){
                 ?>
@@ -191,7 +186,7 @@ Accueil
                     <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                      <button class="btnstar" type="submit">☆</button></td>
+                      <button class="btnstar" type="submit">☆</button>
                     </form>
                   </td>
                 <?php
@@ -201,8 +196,6 @@ Accueil
            </tbody>
            @endforeach
         </table>
-
-
       </div>
     </div>
   </div>
