@@ -58,6 +58,12 @@ function backofficeIndex(){
       }
 }
 
+function JSONGetAll(){
+  $actions = Actions::getInstance()->getAll();
+  $data = json_encode($actions);
+  echo $data;
+}
+
 function mentionsLegales(){
   global $blade;
 

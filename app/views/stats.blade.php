@@ -210,18 +210,56 @@ Accueil
 
 @endsection
 @section('additional_js')
+<script type="text/javascript">
+//AJAX REQUEST CAC40
 
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, name, isin, i;
-  input = document.getElementsByClassName("searchbar1")[0];
-  filter = input.value.toUpperCase();
-  table = document.getElementsByClassName("myTable");
-  tr = document.getElementsByTagName("tr");
+var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
+var base = $('.myTable:first-of-type .table__body');
+console.log(base);
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
+
+//var base = cac40.html();
+
+getData();
+setInterval(function(){
+   getData();
+}, 5000);
+
+
+function getData(){
+  var final;
+  var path = newURL + 'api/getall';
+  var xhr = $.getJSON(path, function(data){
+    //final = data;
+    //console.log(data);
+  //cac40.html(base);
+  var date = new Date();
+  console.log("mise à jour à " + date.getUTCHours() + "H" + date.getUTCMinutes() + ":" + date.getUTCSeconds());
+   for (x in data) {
+     //var thistr = base.eq(0).html(data[x].Name);
+     var thistd = base.eq(x).find( "td" );
+     //thistd.eq(2).html(data[x].Opening);
+     //thistd.eq(3).html(data[x].Closing);
+     thistd.eq(4).html(data[x].Low);
+     thistd.eq(5).html(data[x].High);
+     thistd.eq(6).html(data[x].Variation);
+
+
+   }
+   });
+ }
+</script>
+
+    <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, name, isin, i;
+      input = document.getElementsByClassName("searchbar1")[0];
+      filter = input.value.toUpperCase();
+      table = document.getElementsByClassName("myTable");
+      tr = document.getElementsByTagName("tr");
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
     name = tr[i].getElementsByTagName("td")[0];
     isin = tr[i].getElementsByTagName("td")[1];
     if (name || isin) {
