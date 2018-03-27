@@ -65,8 +65,12 @@ public function login(){
         $desactive = $login['active'];
         if($desactive == 1) { // Session desactivé
             $_SESSION['deactive'] = true;
-            redirect('/');
-            break;
+             echo $blade->render(
+             'login', // appel de la view
+
+              ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'errorVide' => $_SESSION['errorVide'],'errorEmail' => $_SESSION['errorEmail'],'pseudoInvalide' => $_SESSION['pseudoInvalide'],'pseudoCourt' => $_SESSION['pseudoCourt'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist'], 'mailexist' => $_SESSION['mailexist']]);
+            //redirect('/');
+            //break;
         }
         else{ 
           $tempOk = true;  // mdp & pseudo ok + compte activé
