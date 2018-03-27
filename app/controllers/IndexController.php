@@ -39,7 +39,6 @@ function backofficeIndex(){
     global $blade;
 
     $listUsers = Users::getInstance()->getAll();
-
      //echo $blade->render(
       //  'bo',
       //  ['users'=>$listUsers]
@@ -47,6 +46,7 @@ function backofficeIndex(){
 
       if (isset($_SESSION['id'])) {
         $id = $_SESSION['id'];
+        $user = Users::getInstance()->get($id);
         echo $blade->render(
            'bo',
            ['users'=>$listUsers, 'user' => $user]
