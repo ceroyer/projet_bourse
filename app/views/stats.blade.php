@@ -54,13 +54,10 @@ Accueil
               <td class="table__item">{{ $myAction['Variation'] }}</td>
               <td class="table__item">{{ $myAction['DateTime'] }}</td>
               <td class="table__item">{{ $myAction['Timezone'] }}</td>
-              <!-- oui le css inline est dégueulasse -->
-              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
-              <!-- Rajouter : star{ cursor:pointer; } -->
                 <?php
                   if (isset($myAction['isin_action'])){
                 ?>
-                    <td class="table__item" title="retirer favoris" class="star star--pleine">
+                    <td class="table__item star star--pleine" title="retirer favoris">
                       <form action="{{ url('/stats/removefav') }}" method="POST">
                         <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                         <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
@@ -71,7 +68,7 @@ Accueil
                 <?php
                   }else{
                 ?>
-                  <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
+                  <td class="table__item star star--vide" title="ajouter favoris" style="opacity:0.5">
                     <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
