@@ -54,42 +54,44 @@ public function login(){
   $tempOk = false;
   LoginController::resetError();
   $logins = Users::getInstance()->getAll();
-  
+
   if(!empty($_POST['password']) || !empty($_POST['login'])){ // Si champs pas vides
     $loginconnect = str_replace(' ', '-', $_POST['login']); // Recuppération login sans caractères spéciaux
     $loginconnect = preg_replace('#[^A-Za-z0-9]+#', '', $loginconnect);
     $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
-    
+
     foreach ($logins as $login) {
+      //mail admin
+       if ($login['role'] === "admin" && $login['pseudo'] === "admin") {
+                $email = $login['email'];
+       }
       if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {  // Si pseudo & mdp correct
         $desactive = $login['active'];
         if($desactive == 1) { // Session desactivé
             $_SESSION['deactive'] = true;
-             echo $blade->render(
-             'login', // appel de la view
+        }
+         echo $blade->render(
+         'login', // appel de la view
 
-              ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'errorVide' => $_SESSION['errorVide'],'errorEmail' => $_SESSION['errorEmail'],'pseudoInvalide' => $_SESSION['pseudoInvalide'],'pseudoCourt' => $_SESSION['pseudoCourt'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist'], 'mailexist' => $_SESSION['mailexist']]);
-            //redirect('/');
-            //break;
-        }
-        else{ 
-          $tempOk = true;  // mdp & pseudo ok + compte activé
-        }
+          ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'errorVide' => $_SESSION['errorVide'],'errorEmail' => $_SESSION['errorEmail'],'pseudoInvalide' => $_SESSION['pseudoInvalide'],'pseudoCourt' => $_SESSION['pseudoCourt'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist'], 'mailexist' => $_SESSION['mailexist'],'email' => $email]);
+        //redirect('/');
+                //break;
       }
-      break;
-  }
-  if ($tempOk == true) {
+      else{
+          $tempOk = true;  // mdp & pseudo ok + compte activé
+      }
+     }
+       if ($tempOk == true) {
     $_SESSION['login']=$login['pseudo'];
     $_SESSION['id']=$login['id'];
     redirect('/stats');
-  }
-  else{
-    
-      $_SESSION['error'] = true;
-      redirect('/');
     }
+    else{
+          $_SESSION['error'] = true;
+    redirect('/');
+      }
   }
-  else{
+   else{
     $_SESSION['error'] = true;
     redirect('/');
   }
@@ -167,7 +169,7 @@ public function signup(){
     $longueur = 10; // Définition de la taille du mot de passe aléatoire
     $mdp=""; // On initialise la variable $mdp
     $caract = "AaBbCcDdEeFfGgHhIiJjKkLlMmNn#OoPpQqRrSsTtUuVvWwXxYyZz0123456789"; // caractères possibles dans le mot de passe
-    $longueurMax = strlen($caract);// On cherche à obtenir le nombre de caractères dans la chaîne précédent 
+    $longueurMax = strlen($caract);// On cherche à obtenir le nombre de caractères dans la chaîne précédent
     $i = 0;// initialiser le compteur
     $mdp = sha1(rand()); // prendre un caractère aléatoire
 
@@ -187,9 +189,9 @@ public function signup(){
     // On retourne le mot de passe généré aléatoirement
     $datas = ['email' => $_POST['email'] , 'password' => sha1($mdp), 'pseudo' =>$_POST['pseudo'], 'role' => 'user'];
     Users::getInstance()->add($datas);
-    mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est :' . $mdp, $header);
+    mail($_POST['email'], 'Mot de passe - Trade Heaven', 'Votre mot de passe est : ' . $mdp, $header);
     redirect('/');
-    
+
   }
 
 }

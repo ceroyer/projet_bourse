@@ -24,6 +24,8 @@
             @endif
             @if($deactive)
                <h2 class="erreur" style='color:red'>Compte désactivé</h2>
+                <button><a href="mailto:">Réactiver mon compte</a></button>
+
             @endif
         <div id="entrees" class="connexion__entrees">
           <div class="connecttext connexion__identifiant">
@@ -38,7 +40,6 @@
 
         <button id="connect" class="connexion__button" type="submit" onclick="document.location.href='/#connexion'"> Connexion </button>
       </form>
-    </div>
     <a class="view-more1 accueil_pasInscrit" href="#information">Pas encore inscrit?</a>
   </div>
 </section>
