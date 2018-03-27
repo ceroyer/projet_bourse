@@ -229,9 +229,9 @@ function getData(){
      for (x in data) {
        //var thistr = base.eq(0).html(data[x].Name);
        var thistd = base.eq(x).find( "td" );
-       thistd.eq(4).html(data[x].Low);
-       thistd.eq(5).html(data[x].High);
-       thistd.eq(6).html(data[x].Variation);
+       thistd.eq(4).html("<b>"+data[x].Low+"</b>");
+       thistd.eq(5).html("<b>"+data[x].High+"</b>");
+       thistd.eq(6).html("<b>"+data[x].Variation+"</b>");
 
 
      }

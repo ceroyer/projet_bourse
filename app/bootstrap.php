@@ -4,7 +4,7 @@ session_start();
 include 'vendor/autoload.php';
 include 'app/config/config.php';
 include 'app/libs/functions.php';
-include 'app/bourse.php';
+//include 'app/bourse.php';
 
 // errors
 $whoops = new \Whoops\Run;
