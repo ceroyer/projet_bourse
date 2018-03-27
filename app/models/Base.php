@@ -37,6 +37,8 @@ class Base {
    */
   public function add( $datas )
   {
+    //je crois de la forme d'un tableau associatif avec les champs==les clefs
+
     $sql = "INSERT INTO ".$this -> tableName." ( ";
     foreach( array_keys( $datas ) as $k ) {
       $sql .= " {$k} ,";
@@ -107,8 +109,8 @@ class Base {
    * Retourne les informations d'un modèle. L'objet est hydraté.
    * @param  Model  $model objet modèle
    * @return void
-  
-  public function read($id) 
+
+  public function read($id)
   {
     $pkName = $id->getPkName();
     $sql = "SELECT * FROM {$this->tableName} WHERE ".$pkName." = :pk";
@@ -143,4 +145,56 @@ class Base {
     return $sth->execute();
   }
 
+
+/* ------------------------------------
+
+    PERSONNALISATION DES REQUETES
+
+------------------------------------*/
+
+  /**
+  * Search Actions
+  */
+
+  public function getAction($ISIN = null)
+  {
+    $sql = "SELECT * FROM {$this->tableName} WHERE ISIN = :ISIN";
+    $sth = $this->pdo->prepare( $sql );
+    $sth->bindValue(':ISIN', $ISIN );
+    $sth->execute();
+    return $sth->fetch( \PDO::FETCH_ASSOC);
+  }
+
+  /**
+  * Edit Actions
+  */
+
+  public function editAction($ISIN, $datas)
+  {
+    $sql = "UPDATE ".$this -> tableName." SET ";
+    foreach( array_keys( $datas ) as $k ) {
+      $sql .= " {$k} = :{$k} ,";
+    }
+    $sql = substr($sql, 0, strlen($sql)-1);
+    $sql .= " WHERE ISIN =:ISIN";
+    $sth = $this->pdo->prepare($sql);
+    foreach( array_keys( $datas ) as $k ) {
+      $sth->bindValue(':'.$k, $datas[ $k ]);
+    }
+    $sth->bindValue(':ISIN', $ISIN );
+    return $sth->execute();
+  }
+
+  /**
+   * Create Table
+   */
+/*
+  public function createActionTable($ISIN)
+  {
+    $create = "CREATE TABLE `action_:ISIN` `cours` decimal(30,3) NOT NULL, `Volume` decimal(30,3) NOT NULL, `type` varchar(60) NOT NULL, `Date` date NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1";
+    $sth = $this->pdo->prepare( $create );
+    $sth->bindValue(':ISIN', $ISIN );
+    $sth->execute();
+  }
+*/
 }
