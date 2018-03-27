@@ -228,29 +228,29 @@ setInterval(function(){
 
 function getData(){
   var final;
+
   var path = newURL + 'api/getall';
   var xhr = $.getJSON(path, function(data){
     //final = data;
     //console.log(data);
   //cac40.html(base);
-  var date = new Date();
-  console.log("mise à jour à " + date.getUTCHours() + "H" + date.getUTCMinutes() + ":" + date.getUTCSeconds());
-   for (x in data) {
-     //var thistr = base.eq(0).html(data[x].Name);
-     var thistd = base.eq(x).find( "td" );
-     //thistd.eq(2).html(data[x].Opening);
-     //thistd.eq(3).html(data[x].Closing);
-     thistd.eq(4).html(data[x].Low);
-     thistd.eq(5).html(data[x].High);
-     thistd.eq(6).html(data[x].Variation);
+    var date = new Date();
+    console.log("mise à jour à " + date.getUTCHours() + "H" + date.getUTCMinutes() + ":" + date.getUTCSeconds());
+     for (x in data) {
+       //var thistr = base.eq(0).html(data[x].Name);
+       var thistd = base.eq(x).find( "td" );
+       thistd.eq(4).html(data[x].Low);
+       thistd.eq(5).html(data[x].High);
+       thistd.eq(6).html(data[x].Variation);
 
 
-   }
-   });
+     }
+   })  .fail(function() {
+    console.log( "error" );
+  });
+
  }
-</script>
 
-    <script>
     function myFunction() {
       // Declare variables
       var input, filter, table, tr, name, isin, i;
