@@ -44,7 +44,7 @@ Accueil
               <th class="table__title">Zone</th>
             </tr>
           </thead>
-          <tbody class="table__body">
+  <!--        <tbody class="table__body">
             @foreach($actions as $action)
             <tr class="table__itemRow">
               <td class="table__item">{{$action['Name']}}</td>
@@ -57,7 +57,7 @@ Accueil
               <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
             @endforeach
-          </tbody>
+          </tbody> -->
         </table>
       </div>
 
@@ -76,7 +76,7 @@ Accueil
               <th class="table__title">Zone</th>
             </tr>
           </thead>
-          <tbody class="table__body">
+  <!--        <tbody class="table__body">
             @foreach($actions as $action)
             <tr class="table__itemRow">
               <td class="table__item">{{$action['Name']}}</td>
@@ -89,7 +89,7 @@ Accueil
               <td class="table__item">{{$action['Timezone']}}</td>
             </tr>
             @endforeach
-          </tbody>
+          </tbody> -->
         </table>
       </div>
     </div>
@@ -138,7 +138,7 @@ Accueil
 @section('additional_js')
 <script type="text/javascript">
 var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
-var cac40 = $('.cac40__table');
+var cac40 = $('.myTable');
 var base = cac40.html();
 var path = newURL + 'api/getall';
 getData();
