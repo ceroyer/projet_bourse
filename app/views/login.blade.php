@@ -23,8 +23,12 @@
               <h2 class="erreur" style='color:red'>Identifiants invalides!</h2>
             @endif
             @if($deactive)
+              
                <h2 class="erreur" style='color:red'>Compte désactivé</h2>
-                <button><a href="mailto:">Réactiver mon compte</a></button>
+                <button class="connexion__button" >Réactiver mon compte</button>
+                <a href="mailto:@foreach($mailAdmin as $mail)
+                {{ $mail }},
+              @endforeach"></a>
 
             @endif
         <div id="entrees" class="connexion__entrees">

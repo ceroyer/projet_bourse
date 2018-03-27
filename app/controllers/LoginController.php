@@ -40,10 +40,19 @@ class LoginController extends Controller{
       if (!isset($_SESSION['mailexist'])){  //si var mailexist pas créée
         $_SESSION['mailexist'] = false;
       }
+
+        $_SESSION['mailAdmin'] = array();
+    
+        $users =Users::getInstance()->getAll();
+        foreach ($users as $user) {
+          if ($user['role'] == "admin" ) {
+            array_push($_SESSION['mailAdmin'], $user['email'] );
+          }
+      }
       echo $blade->render(
       'login', // appel de la view
 
-      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'errorVide' => $_SESSION['errorVide'],'errorEmail' => $_SESSION['errorEmail'],'pseudoInvalide' => $_SESSION['pseudoInvalide'],'pseudoCourt' => $_SESSION['pseudoCourt'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist'], 'mailexist' => $_SESSION['mailexist']]);
+      ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'errorVide' => $_SESSION['errorVide'],'errorEmail' => $_SESSION['errorEmail'],'pseudoInvalide' => $_SESSION['pseudoInvalide'],'pseudoCourt' => $_SESSION['pseudoCourt'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist'], 'mailexist' => $_SESSION['mailexist'],'mailAdmin' => $_SESSION['mailAdmin']]);
        LoginController::resetError();
 
     }
@@ -52,6 +61,7 @@ class LoginController extends Controller{
 public function login(){
   global $blade;
   $tempOk = false;
+  $email;
   LoginController::resetError();
   $logins = Users::getInstance()->getAll();
 
@@ -61,40 +71,37 @@ public function login(){
     $passwordconnect = sha1($_POST['password']); // Conversion en Sha1
 
     foreach ($logins as $login) {
-      //mail admin
-       if ($login['role'] === "admin" && $login['pseudo'] === "admin") {
-                $email = $login['email'];
-       }
       if ($login['pseudo'] == $loginconnect AND $login['password'] == $passwordconnect) {  // Si pseudo & mdp correct
         $desactive = $login['active'];
+
         if($desactive == 1) { // Session desactivé
             $_SESSION['deactive'] = true;
+            redirect('/');
+            die;
+            
         }
-         echo $blade->render(
-         'login', // appel de la view
-
-          ['error' => $_SESSION['error'],'deactive' => $_SESSION['deactive'],'errorVide' => $_SESSION['errorVide'],'errorEmail' => $_SESSION['errorEmail'],'pseudoInvalide' => $_SESSION['pseudoInvalide'],'pseudoCourt' => $_SESSION['pseudoCourt'], 'errorAge' => $_SESSION['errorAge'], 'pseudoexist' => $_SESSION['pseudoexist'], 'mailexist' => $_SESSION['mailexist'],'email' => $email]);
-        //redirect('/');
+        else{
+          $tempOk = true;  // mdp & pseudo ok + compte activé
+        }
+        break;
                 //break;
       }
-      else{
-          $tempOk = true;  // mdp & pseudo ok + compte activé
-      }
      }
-       if ($tempOk == true) {
-    $_SESSION['login']=$login['pseudo'];
-    $_SESSION['id']=$login['id'];
-    redirect('/stats');
+
+    if ($tempOk == true) {
+      $_SESSION['login']=$login['pseudo'];
+      $_SESSION['id']=$login['id'];
+      redirect('/stats');
     }
     else{
-          $_SESSION['error'] = true;
-    redirect('/');
-      }
+      $_SESSION['error'] = true;
+      
+    }
   }
-   else{
+  else{
     $_SESSION['error'] = true;
-    redirect('/');
   }
+  redirect('/');
 }
 
 public function signup(){
@@ -209,6 +216,7 @@ public function signup(){
     // Erreurs Connexion
     $_SESSION['deactive'] = false;
     $_SESSION['error'] = false;
+    $_SESSION['mailAdmin'] = false;
   }
 
 
