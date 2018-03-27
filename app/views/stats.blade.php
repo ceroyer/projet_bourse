@@ -229,7 +229,8 @@ function getData(){
     //final = data;
     //console.log(data);
   //cac40.html(base);
-  console.log("mise à jour à "  + new Date().getUTCMinutes() + "." + new Date().getUTCSeconds());
+  var date = new Date();
+  console.log("mise à jour à " + date.getUTCHours() + "H" + date.getUTCMinutes() + ":" + date.getUTCSeconds());
    for (x in data) {
      //var thistr = base.eq(0).html(data[x].Name);
      var thistd = base.eq(x).find( "td" );
