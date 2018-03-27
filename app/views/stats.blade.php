@@ -49,11 +49,7 @@ Accueil
               <td class="table__item">{{ $myAction['Name'] }}</td>
               <td class="table__item">{{ $myAction['ISIN'] }}</td>
               <td class="table__item">{{ $myAction['Market'] }}</td>
-<<<<<<< HEAD
-              <td class="table__item">{{ $myAction['LastCourse'] }}</td>
-=======
-              <td class="table__item">{{ $myAction['lastCourse'] }}</td>
->>>>>>> 508bf03e61849093fb82a4ae6d78be93240a7d82
+              <td class="table__item">{{ $myAction['LastCourse'] }}</td
               <td class="table__item">{{ $myAction['Volume'] }}</td>
               <td class="table__item">{{ $myAction['Variation'] }}</td>
               <td class="table__item">{{ $myAction['DateTime'] }}</td>
