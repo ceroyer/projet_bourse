@@ -17,9 +17,6 @@ Accueil
 
 <!-- <a href="{{ url('/profile') }}" class="button">Mon profil</a> -->
 </header>
-
-
-<div class="all">
   <div class="stats__conteneur">
     <div class="crossbar1">
         <h1 class="crossbar1__titre">SBF 120</h1>
@@ -47,23 +44,34 @@ Accueil
           <tbody class="table__body">
             @foreach ($myActions as $myAction)
               @if($myAction['stockIndex'] == "40")
-            <tr class="table__itemRow">
-              <td class="table__item">{{$myAction['Name']}}</td>
-              <td class="table__item">{{$myAction['ISIN']}}</td>
-              <td class="table__item">{{$myAction['Market']}}</td>
-              <td class="table__item">{{$myAction['lastCourse']}}</td>
-              <td class="table__item">{{$myAction['Variation']}}</td>
-              <td class="table__item">{{$myAction['Volume']}}</td>
-              <td class="table__item">{{$myAction['DateTime']}}</td>
-              <?php
-                if (isset($myAction['isin_action'])){
-              ?>
-                  <td class="table__item star star--pleine" title="retirer favoris">
-                    <form action="{{ url('/stats/removefav') }}" method="POST">
+            <tr class="table__itemRow" id="{{$myAction['Name']}}">
+              <td class="table__item">{{ $myAction['Name'] }}</td>
+              <td class="table__item">{{ $myAction['ISIN'] }}</td>
+              <td class="table__item">{{ $myAction['Market'] }}</td>
+              <td class="table__item">{{ $myAction['lastCourse'] }}</td>
+              <td class="table__item">{{ $myAction['Volume'] }}</td>
+              <td class="table__item">{{ $myAction['Variation'] }}</td>
+              <td class="table__item">{{ $myAction['DateTime'] }}</td>
+              <td class="table__item">{{ $myAction['Timezone'] }}</td>
+                <?php
+                  if (isset($myAction['isin_action'])){
+                ?>
+                    <td class="table__item star star--pleine" title="retirer favoris">
+                      <form action="{{ url('/stats/removefav') }}" method="POST">
+                        <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                        <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                        <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
+                        <button class="btnstar" type="submit">★</button>
+                      </form>
+                    </td>
+                <?php
+                  }else{
+                ?>
+                  <td class="table__item star star--vide" title="ajouter favoris" style="opacity:0.5">
+                    <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                      <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
-                      <button class="btnstar" type="submit">★</button>
+                      <button class="btnstar" type="submit">☆</button>
                     </form>
                   </td>
               <?php
@@ -88,33 +96,31 @@ Accueil
 
       <div class="cac80">
         <h1>CAC 80</h1>
-        <table class="table myTable second">
-          <thead class="table__header">
-            <tr class="table__titleRow">
-              <th class="table__title">Nom</th>
-              <th class="table__title">ISIN</th>
-              <th class="table__title">Marché</th>
-              <th class="table__title">Cours</th>
-              <th class="table__title">Variation</th>
-              <th class="table__title">Volume</th>
-              <th class="table__title">Date</th>
-              <th class="table__title">Fav</th>
-            </tr>
+        <table class="fixed_header myTable">
+        <thead class="table__header">
+          <tr class="table__titleRow">
+            <th class="table__title">Nom</th>
+            <th class="table__title">ISIN</th>
+            <th class="table__title">Ouverture</th>
+            <th class="table__title">Fermeture</th>
+            <th class="table__title">Min</th>
+            <th class="table__title">Max</th>
+            <th class="table__title">Variation</th>
+            <th class="table__title">Fav</th>
+          </tr>
           </thead>
+          @foreach ($myActions as $myAction)
+             @if($myAction['stockIndex'] == "80")
           <tbody class="table__body">
-            @foreach($myActions as $myAction)
-            @if($myAction['stockIndex'] == "80")
-            <tr class="table__itemRow">
-              <td class="table__item">{{$myAction['Name']}}</td>
-              <td class="table__item">{{$myAction['ISIN']}}</td>
-              <td class="table__item">{{$myAction['Market']}}</td>
-              <td class="table__item">{{$myAction['lastCourse']}}</td>
-              <td class="table__item">{{$myAction['Variation']}}</td>
-              <td class="table__item">{{$myAction['Volume']}}</td>
-              <td class="table__item">{{$myAction['DateTime']}}</td>
-              <!-- oui le css inline est dégueulasse -->
-              <!-- Rajouter : star-vide:hover{ opacity:1; } -->
-              <!-- Rajouter : star{ cursor:pointer; } -->
+            <tr class="table__itemRow" id="{{$myAction['Name']}}">
+              <td class="table__item">{{ $myAction['Name'] }}</td>
+              <td class="table__item">{{ $myAction['ISIN'] }}</td>
+              <td class="table__item">{{ $myAction['Market'] }}</td>
+              <td class="table__item">{{ $myAction['lastCourse'] }}</td>
+              <td class="table__item">{{ $myAction['Volume'] }}</td>
+              <td class="table__item">{{ $myAction['Variation'] }}</td>
+              <td class="table__item">{{ $myAction['DateTime'] }}</td>
+              <td class="table__item">{{ $myAction['Timezone'] }}</td>
                 <?php
                   if (isset($myAction['isin_action'])){
                 ?>
@@ -126,24 +132,80 @@ Accueil
                         <button class="btnstar" type="submit">★</button>
                       </form>
                     </td>
-                <?php
-                  }else{
-                ?>
+                    <?php
+                      }else{
+                    ?>
                   <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
                     <form action="{{ url('/stats/addfav') }}" method="POST">
                       <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
                       <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
-                      <button class="btnstar" type="submit">☆</button></td>
+                      <button class="btnstar" type="submit">☆</button>
                     </form>
                   </td>
                 <?php
                   }
                  ?>
             </tr>
-              @endif
-            @endforeach
-          </tbody>
+           </tbody>
+           @endif
+          @endforeach
         </table>
+        </div>
+        <div class="favoris">
+          <h1>FAVORIS</h1>
+          <table class="fixed_header myTable">
+          <thead class="table__header">
+            <tr class="table__titleRow">
+              <th class="table__title">Nom</th>
+              <th class="table__title">ISIN</th>
+              <th class="table__title">Ouverture</th>
+              <th class="table__title">Fermeture</th>
+              <th class="table__title">Min</th>
+              <th class="table__title">Max</th>
+              <th class="table__title">Variation</th>
+              <th class="table__title">Fav</th>
+            </tr>
+            </thead>
+            @foreach ($myActions as $myAction)
+            <tbody class="table__body">
+              <tr class="table__itemRow" id="{{$myAction['Name']}}">
+                <td class="table__item">{{ $myAction['Name'] }}</td>
+                <td class="table__item">{{ $myAction['ISIN'] }}</td>
+                <td class="table__item">{{ $myAction['Market'] }}</td>
+                <td class="table__item">{{ $myAction['lastCourse'] }}</td>
+                <td class="table__item">{{ $myAction['Volume'] }}</td>
+                <td class="table__item">{{ $myAction['Variation'] }}</td>
+                <td class="table__item">{{ $myAction['DateTime'] }}</td>
+                <td class="table__item">{{ $myAction['Timezone'] }}</td>
+                  <?php
+                    if (isset($myAction['isin_action'])){
+                  ?>
+                      <td class="table__item" title="retirer favoris" class="star star--pleine">
+                        <form action="{{ url('/stats/removefav') }}" method="POST">
+                          <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                          <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                          <input type="text" name="favid" value="{{ $myAction['favid'] }}" hidden>
+                          <button class="btnstar" type="submit">★</button>
+                        </form>
+                      </td>
+                  <?php
+                    }else{
+                  ?>
+                    <td class="table__item" title="ajouter favoris" class="star star--vide" style="opacity:0.5">
+                      <form action="{{ url('/stats/addfav') }}" method="POST">
+                        <input type="text" name="iduser" value="{{ $user['id']}}" hidden>
+                        <input type="text" name="isinaction" value="{{ $myAction['ISIN'] }}" hidden>
+                        <button class="btnstar" type="submit">☆</button>
+                      </form>
+                    </td>
+                  <?php
+                    }
+                   ?>
+              </tr>
+             </tbody>
+             @endforeach
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -210,14 +272,54 @@ Accueil
   </div>
 @endsection
 @section('additional_js')
-    <script>
+<script type="text/javascript">
+//AJAX REQUEST CAC40
+
+var newURL = window.location.protocol + "//" + window.location.host + "/projet_bourse/";
+var base = $('.myTable:first-of-type .table__body');
+console.log(base);
+
+
+//var base = cac40.html();
+
+getData();
+setInterval(function(){
+   getData();
+}, 5000);
+
+
+function getData(){
+  var final;
+
+  var path = newURL + 'api/getall';
+  var xhr = $.getJSON(path, function(data){
+    //final = data;
+    //console.log(data);
+  //cac40.html(base);
+    var date = new Date();
+    console.log("mise à jour à " + date.getUTCHours() + "H" + date.getUTCMinutes() + ":" + date.getUTCSeconds());
+     for (x in data) {
+       //var thistr = base.eq(0).html(data[x].Name);
+       var thistd = base.eq(x).find( "td" );
+       thistd.eq(4).html("<b>"+data[x].Low+"</b>");
+       thistd.eq(5).html("<b>"+data[x].High+"</b>");
+       thistd.eq(6).html("<b>"+data[x].Variation+"</b>");
+
+
+     }
+   })  .fail(function() {
+    console.log( "error" );
+  });
+
+ }
+
     function myFunction() {
-    // Declare variables
-    var input, filter, table, tr, name, isin, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementsByClassName("myTable");
-    tr = document.getElementsByTagName("tr");
+      // Declare variables
+      var input, filter, table, tr, name, isin, i;
+      input = document.getElementsByClassName("searchbar1")[0];
+      filter = input.value.toUpperCase();
+      table = document.getElementsByClassName("myTable");
+      tr = document.getElementsByTagName("tr");
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
     name = tr[i].getElementsByTagName("td")[0];
