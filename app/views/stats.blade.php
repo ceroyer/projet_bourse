@@ -16,9 +16,6 @@ Accueil
 
 <!-- <a href="{{ url('/profile') }}" class="button">Mon profil</a> -->
 </header>
-
-
-<div class="all">
   <div class="stats__conteneur">
     <div class="crossbar1">
         <h1 class="crossbar1__titre">SBF 120</h1>
