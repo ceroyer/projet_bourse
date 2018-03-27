@@ -48,25 +48,31 @@ function insert($data){
   // get permanent records from $data
   $records = persistentArray($data);
 
+  //recover json dictionnary
+  $json = file_get_contents('app/dictionnaire.json');
+  $dictionnary = json_decode($json);
+
   foreach ($records as $action) {
     $result = Actions::getInstance()->getAction($action['ISIN']);
 
+    $action['stockIndex']= $dictionnary->{$action['ISIN']};
+
     if(empty($result)){
       // add action line on main table
-      $datas = ['Name'=>$action['Name'],'ISIN'=>$action['ISIN'], 'Market'=>$action['Market'], 'lastCourse'=>$action['Last'], 'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'], 'stockIndex'=>40];
+      $datas = ['Name'=>$action['Name'],'ISIN'=>$action['ISIN'], 'Market'=>$action['Market'], 'lastCourse'=>$action['Last'], 'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'], 'stockIndex'=> $action['stockIndex']];
       Actions::getInstance()->add($datas);
     }
     else{
       // comparison of high/low values on last action value
       $calcul = calculBourse($result['High'], $result['Low'], $action['Last']);
     	if($calcul == "High"){
-        $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone']];
+        $datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'High'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'],'stockIndex'=> $action['stockIndex']];
     	}
     	elseif($calcul == "Low"){
-    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone']];
+    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'Low'=>$action['Last'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'],'stockIndex'=> $action['stockIndex']];
     	}
     	else{
-    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone']];
+    		$datas = ['lastCourse'=>$action['Last'],'Variation'=>$action['Change'], 'Volume'=>$action['Volume'], 'DateTime'=>$action['DateTime'], 'Timezone'=>$action['Timezone'],'stockIndex'=> $action['stockIndex']];
     	}
     	Actions::getInstance()->editAction($action['ISIN'],$datas);
     }
